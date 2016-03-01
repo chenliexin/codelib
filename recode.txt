@@ -1,0 +1,17 @@
+
+放弃Gulp与Grunt，转投npm scripts
+对插件作者的依赖
+令人沮丧的调试
+脱节的文档
+
+Webpack、Browsersync、热加载、Mocha
+
+用npm scripts为一个React应用搭建了开发环境与构建流程
+
+Babel 6
+
+Mocha、Istanbul、Babel、Webpack、Browserify
+
+大多数构建相关的工具都提供了清晰、强大，且具有高质量文档的命令行接口。ESLint的CLI文档就是个很好的例子。
+
+体验npm scripts的强大功能其实并不需要对操作系统的命令行了解太多。当然了，grep、sed、awk与管道等是值得你去学习的，令你众生受用的技能
