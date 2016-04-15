@@ -2,14 +2,14 @@
 
 /* each of the properties of the shorthand */
 .animation-properties {
-    animation-name: none; /* none | <IDENT> */
+    animation-name: none;            /* none | <IDENT> */
     animation-duration: 0s;
     animation-timing-function: ease; /* ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps(<integer>[, [ start | end ] ]?) | cubic-bezier(<number>, <number>, <number>, <number>) */
-    animation-iteration-count: 1; /* infinite | <number> */
-    animation-direction: normal; /* normal | reverse | alternate | alternate-reverse */
-    animation-play-state: running; /*running | paused*/
+    animation-iteration-count: 1;    /* infinite | <number> */
+    animation-direction: normal;     /* normal | reverse | alternate | alternate-reverse */
+    animation-play-state: running;   /* running | paused*/
     animation-delay: 0s;
-    animation-fill-mode: none; /* none | forwards | backwards | both */
+    animation-fill-mode: none;       /* none | forwards | backwards | both */
 }
 
 /* animation case */
@@ -42,13 +42,13 @@
 
 /* some descriptions */
 .animation-direction{
-    animation-direction: normal;  /* 正常方向 */
-    animation-direction: reverse;  /* 反方向运行 */
-    animation-direction: alternate;  /* 动画先正常运行再反方向运行，并持续交替运行 */
+    animation-direction: normal;             /* 正常方向 */
+    animation-direction: reverse;            /* 反方向运行 */
+    animation-direction: alternate;          /* 动画先正常运行再反方向运行，并持续交替运行 */
     animation-direction: alternate-reverse;  /* 动画先反运行再正方向运行，并持续交替运行 */
 }
 .animation-fill-mode{
-    animation-fill-mode: none;  /* 默认值。不设置对象动画之外的状态 */
+    animation-fill-mode: none;      /* 默认值。不设置对象动画之外的状态 */
     animation-fill-mode: forwards;  /* 设置对象状态为动画结束时的状态 */
     animation-fill-mode: backwards; /* 设置对象状态为动画开始时的状态 */
     animation-fill-mode: both;      /* 设置对象状态为动画结束或开始的状态 */
@@ -64,7 +64,7 @@
     animation-timing-function: steps(100, start);
     animation-timing-function: steps(100, end);
     animation-timing-function: step-start; /* steps(1, start) */
-    animation-timing-function: step-end; /* steps(1, end) */
+    animation-timing-function: step-end;   /* steps(1, end) */
 }
 
 /* cubic-bezier(<number>, <number>, <number>, <number>) */
