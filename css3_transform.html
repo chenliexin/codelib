@@ -51,13 +51,13 @@ body {
     transform: translateX(20%);       /* 平移（水平方向） */
     transform: translateY(20%);       /* 平移（垂直方向） */
     transform: rotate(180deg);        /* 旋转（角度） */
-    transform: scale(10px, 10px);     /* 缩放（水平方向，垂直方向），如果第二个参数未提供，则默认取第一个参数的值 */
-    transform: scaleX(20%);           /* 缩放（水平方向） */
-    transform: scaleY(20%);           /* 缩放（垂直方向） */
+    transform: scale(10, 10);         /* 缩放（水平方向，垂直方向），如果第二个参数未提供，则默认取第一个参数的值 */
+    transform: scaleX(.2);            /* 缩放（水平方向） */
+    transform: scaleY(.2);            /* 缩放（垂直方向） */
     transform: skew(180deg, 180deg);  /* 斜切扭曲（水平方向，垂直方向），如果第二个参数未提供，则默认值为0 */
     transform: skewX(20deg);          /* 斜切扭曲（水平方向） */
     transform: skewY(20deg);          /* 斜切扭曲（垂直方向） */
-    transform: matrix([1, 2, 3, 4, 5, 6]); /* 矩阵 */
+    transform: matrix(1, 2, 3, 4, 5, 6); /* 矩阵 */
     /* 3D Transform Functions */
     transform: translate3d(10px, 10px, 10px); /* 3D平移（水平方向，垂直方向，透视方向），参数不允许省略 */
     transform: translateZ(20%);               /* 3D平移（透视方向） */
@@ -65,10 +65,10 @@ body {
     transform: rotateX(180deg);               /* 3D旋转（水平方向） */
     transform: rotateY(180deg);               /* 3D旋转（垂直方向） */
     transform: rotateZ(180deg);               /* 3D旋转（透视方向），等同于2D旋转 */
-    transform: scale3d(10px, 10px, 10px);     /* 3D缩放（水平方向，垂直方向，透视方向），参数不允许省略 */
-    transform: scaleZ(10px);                  /* 3D缩放（透视方向） */
+    transform: scale3d(10, 10, 10);           /* 3D缩放（水平方向，垂直方向，透视方向），参数不允许省略 */
+    transform: scaleZ(.2);                    /* 3D缩放（透视方向） */
     transform: perspective();                 /* 指定透视距离 */
-    transform: matrix3d([1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4]); /* 4x4矩阵 */
+    transform: matrix3d(1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4); /* 4x4矩阵 */
 }
 .transform-origin, .perspective-origin {
     /*
