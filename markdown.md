@@ -30,6 +30,7 @@
         - sublist
 
 :: list-order
+
 1. list
     1. list
         1. list
@@ -66,6 +67,7 @@ var js = {
 ```
 
 ::table
+
 header 1 | header 2
 ---|---
 row 1 col 1 | row 1 col 2
