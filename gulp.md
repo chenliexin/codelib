@@ -1,3 +1,6 @@
+
+# 1
+
 // api
 
 // gulp.src(globs[, options])
@@ -41,21 +44,5 @@ https://segmentfault.com/a/1190000003098076
  * 
 */
 
-// sass
-var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
-var sourcemaps = require('gulp-sourcemaps');
-gulp.task('sass', function() {
-    sass('src/sass/*.scss', {
-            sourcemap: true
-        })
-        .on('error', sass.logError)
-        .pipe(sourcemaps.write('', {
-            includeContent: false,
-            sourceRoot: 'source'
-        }))
-        .pipe(gulp.dest('src/css'));
-});
-gulp.task('sass:watch', function() {
-    gulp.watch('src/sass/*.scss', ['sass']);
-});
+
+# 1

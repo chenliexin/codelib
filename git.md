@@ -8,7 +8,7 @@ $ git config --global user.email 'chenliexin@yeah.net'
 $ git init
 
 $ git add <path>
-$ git add -A, -all
+$ git add -A, --all
 $ git commit -m 'message'
 
 monitor
@@ -55,4 +55,12 @@ $ git stash //hide branch
 remote
 $ git push origin master
 $ git pull
+
+
+## server
+
+### 安装与配置
+
+下载[Bonobo Git Server](https://bonobogitserver.com/)并解压，
+
 

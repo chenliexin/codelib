@@ -1,4 +1,3 @@
-<style type="text/css">
 
 .transform-properties {
     transform: none;              /* none | <transform-function>+ */
@@ -95,4 +94,3 @@ body {
     backface-visibility: hidden;  /*指定元素背面不可见 */
 }
 
-</style>

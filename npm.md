@@ -1,19 +1,31 @@
-<code-bash>
 
-install
-# npm install < name >
-# npm install < name >@< tag >          // 版本标志 eg: last
-# npm install < name >@< version >      // 版本 eg: 1.8.2
-# npm install < name >@< versionRange > // 版本范围 eg: '>=0.2.0'″
-# npm install < file >                // 本地文件 eg: ./package.tgz
-# npm install < url >                 // 链接
-# npm install -g                    // 全局安装
-# npm install -global               // 全局安装
-# npm install -save                 // 依赖 dependencies
-# npm install -save-dev             // 依赖 devDependencies
-# npm install -save-optional        // 依赖 optionalDependencies
-# npm install -force                // 强制拉取远程资源，即使本地已经安装这个模块
-</code>
+node package manager
+
+npm adduser
+
+npm whoami
+
+npm version patch
+npm publish
+
+npm unpublish
+
+## install
+
+```shell
+$ npm install <name >
+$ npm install <name >@< tag >          // 版本标志 eg: last
+$ npm install <name >@< version >      // 版本 eg: 1.8.2
+$ npm install <name >@< versionRange > // 版本范围 eg: '>=0.2.0'″
+$ npm install <file >                // 本地文件 eg: ./package.tgz
+$ npm install <url >                 // 链接
+$ npm install -g                    // 全局安装
+$ npm install -global               // 全局安装
+$ npm install -save                 // 依赖 dependencies
+$ npm install -save-dev             // 依赖 devDependencies
+$ npm install -save-optional        // 依赖 optionalDependencies
+$ npm install -force                // 强制拉取远程资源，即使本地已经安装这个模块
+```
 
 <p><strong>npm init</strong></p>
 <p>引导你创建一个package.json文件</p>
@@ -46,3 +58,5 @@ install
 <p>http://www.runoob.com/nodejs/nodejs-npm.html
 http://realwall.cn/blog/?p=120</p>
 
+
+http://www.tuicool.com/articles/2aUB7j 版本号规则

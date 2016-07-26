@@ -49,6 +49,7 @@
 ![image](https://avatars0.githubusercontent.com/u/5137153?v=3&s=96)
 
 ::code
+
 ```html
 <!doctype html>
 <html>
@@ -56,9 +57,11 @@
 <body><!-- code html --></body>
 </html>
 ```
+
 ```css
 body { font: 14px/1.5 simsun;}
 ```
+
 ```js
 var js = {
     title: 'hello world',

@@ -1,4 +1,3 @@
-<style type="text/css">
 
 /* each of the properties of the shorthand */
 .transition-properties {
@@ -38,4 +37,3 @@
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
 }
 
-</style>
