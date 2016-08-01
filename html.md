@@ -1,27 +1,23 @@
 
-## a
+## localStorage
 
-```xml
-<a download="filename">
-<a media="media_query">
-<a type="mime_type">
-<a rel="rel_type">
+```js
+localStorage.setItem(key, value);
+localStorage.getItem(key);
+localStorage.removeItem(key);
+localStorage.clear();
+window.addEventListener('storage', handle, false); // chrome测试无效20160801
 ```
 
-## area
+## sessionStorage
 
-
-
-## 语义化
-
-- 缩写 `abbr`
-- 首字母缩写 `acronym`
-- 联系信息 `address`
-- 缩写 `abbr`
-- 缩写 `abbr`
-
-
-
+```js
+sessionStorage.setItem(key, value);
+sessionStorage.getItem(key);
+sessionStorage.removeItem(key);
+sessionStorage.clear();
+window.addEventListener('storage', handle, false); // chrome测试无效20160801
+```
 
 
 

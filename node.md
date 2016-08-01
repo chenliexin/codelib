@@ -1,4 +1,43 @@
 
+# api latest-v4.x[4.4.7]
+
+### Global
+
+    Buffer
+
+    __dirname
+    __filename
+    
+    setTimeout(callback, delay[, arg][, ...])
+    setInterval(callback, delay[, arg][, ...])
+    setImmediate(callback[, arg][, ...])
+
+    clearTimeout(timeoutObject)
+    clearInterval(intervalObject)
+    clearImmediate(immediateObject)
+
+    console
+
+    exports
+
+    global
+
+    module
+
+    process
+
+    require()
+        require.cache
+        require.resolve(arg)
+            返回模块带有完整路径的文件名
+
+
+
+
+
+
+### setInterval(callback, delay[, arg][, ...])
+
 作为 Web 应用开发者，
 我们不需要知道实现的细节，更不想与这些细节纠缠从而降低开发效率
 

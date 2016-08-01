@@ -17,3 +17,9 @@ deploy 部署
 
 POSIX（Portable Operating System Interface）是一套操作系统 API 规范。一般而言，遵守 POSIX 规范的操作系统
 指的是 UNIX、 Linux、 Mac OS X 等。
+
+scope
+
+addons
+
+provides 
