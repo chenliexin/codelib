@@ -1,35 +1,42 @@
 
 # api latest-v4.x[4.4.7]
 
-### Global
+## Global
 
-    Buffer
+Buffer
 
-    __dirname
-    __filename
-    
-    setTimeout(callback, delay[, arg][, ...])
-    setInterval(callback, delay[, arg][, ...])
-    setImmediate(callback[, arg][, ...])
+__dirname
+__filename
 
-    clearTimeout(timeoutObject)
-    clearInterval(intervalObject)
-    clearImmediate(immediateObject)
+setTimeout(callback, delay[, arg][, ...])
+setInterval(callback, delay[, arg][, ...])
+setImmediate(callback[, arg][, ...])
 
-    console
+clearTimeout(timeoutObject)
+clearInterval(intervalObject)
+clearImmediate(immediateObject)
 
-    exports
+### console
 
-    global
+```js
+console.time('label');
+// do something
+console.timeEnd('label');
+// prints label: 20ms
+```
 
-    module
+exports
 
-    process
+global
 
-    require()
-        require.cache
-        require.resolve(arg)
-            返回模块带有完整路径的文件名
+module
+
+process
+
+require()
+    require.cache
+    require.resolve(arg)
+        返回模块带有完整路径的文件名
 
 
 
