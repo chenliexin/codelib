@@ -18,11 +18,42 @@ clearImmediate(immediateObject)
 
 ### console
 
+- .log()
+- .info()
+
+
 ```js
+console.log('stdout');
+console.log('stdout %s', code);
+console.info('stdout');
+console.info('stdout %s', code);
+console.error('stderr');
+console.error('stderr %s', code);
+console.warn('stderr');
+console.warn('stderr %s', code);
+// no difference
+
+console.dir(obj, {
+    showHidden: false, // non-enumerable and symbol properties
+    depth: 2,          // recurse: default 2, null indefinitely
+    colors: false      // ANSI color: defaults false 
+});
+// uses util.inspect()
+
 console.time('label');
 // do something
 console.timeEnd('label');
 // prints label: 20ms
+
+console.assert(true, 'stdout');
+// nothing prints
+console.assert(false, 'stderr');
+// difference from browser, a falsy assertion will cause an AssertionError to be thrown
+
+
+console.trace('stderr');
+// prints Trace: stderr at...
+
 ```
 
 exports
