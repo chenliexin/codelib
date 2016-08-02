@@ -23,3 +23,5 @@ scope
 addons
 
 provides 
+
+test
