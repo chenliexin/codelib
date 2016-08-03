@@ -1,4 +1,81 @@
 
+# api latest-v4.x[4.4.7]
+
+## Global
+
+Buffer
+
+__dirname
+__filename
+
+setTimeout(callback, delay[, arg][, ...])
+setInterval(callback, delay[, arg][, ...])
+setImmediate(callback[, arg][, ...])
+
+clearTimeout(timeoutObject)
+clearInterval(intervalObject)
+clearImmediate(immediateObject)
+
+### console
+
+- .log()
+- .info()
+
+
+```js
+console.log('stdout');
+console.log('stdout %s', code);
+console.info('stdout');
+console.info('stdout %s', code);
+console.error('stderr');
+console.error('stderr %s', code);
+console.warn('stderr');
+console.warn('stderr %s', code);
+// no difference
+
+console.dir(obj, {
+    showHidden: false, // non-enumerable and symbol properties
+    depth: 2,          // recurse: default 2, null indefinitely
+    colors: false      // ANSI color: defaults false 
+});
+// uses util.inspect()
+
+console.time('label');
+// do something
+console.timeEnd('label');
+// prints label: 20ms
+
+console.assert(true, 'stdout');
+// nothing prints
+console.assert(false, 'stderr');
+// difference from browser, a falsy assertion will cause an AssertionError to be thrown
+
+
+console.trace('stderr');
+// prints Trace: stderr at...
+
+```
+
+exports
+
+global
+
+module
+
+process
+
+require()
+    require.cache
+    require.resolve(arg)
+        返回模块带有完整路径的文件名
+
+
+
+
+
+
+### setInterval(callback, delay[, arg][, ...])
+
 作为 Web 应用开发者，
 我们不需要知道实现的细节，更不想与这些细节纠缠从而降低开发效率
 
