@@ -62,6 +62,10 @@ CommonJS规范
 
 ## 核心
 
+### process
+
+
+
 全局对象global 相当于客户端window
     ??process node进程状态对象 常用于写本地命令行程序
     .argv 运行参数数组 第一个是node 第二个是文件名 往后是一个个参数
@@ -156,7 +160,110 @@ http
 
 ## 模块
 
-querystring
+### querystring
+
+
+querystring.stringify(obj,[sep],[eq])
+对象格式化成参数字符串 [sep]指分隔符 默认& , [eq]指分配符 默认=
+
+querystring.parse(str, [sep], [eq], [options]) 
+参数字符串格式化成对象
+
+querystring.escape(param)
+querystring.unescape(param)
+querystring.unescapeBuffer(param)
+编码解码
+
+.encode .decode ==? .stringify .parse
+
+
+### url
+
+url.parse(urlStr, [parseQueryString], [slashesDenoteHost])
+解析一个url为各部件
+parseQueryString 默认false 是否解析query
+
+url.resolve(from, to) 拼接URL
+.resolveObject
+url.format(urlObj)  parse的逆向
+    href 属性会被忽略处理.
+    protocol无论是否有末尾的 : (冒号)，会同样的处理
+    这些协议包括 http, https, ftp, gopher, file 后缀是 :// (冒号-斜杠-斜杠).
+    所有其他的协议如 mailto, xmpp, aim, sftp, foo, 等 会加上后缀 : (冒号)
+    auth 如果有将会出现.
+    hostname 如果 host 属性没被定义，则会使用此属性.
+    port 如果 host 属性没被定义，则会使用此属性.
+    host 优先使用，将会替代 hostname 和port
+    pathname 将会同样处理无论结尾是否有/ (斜杠)
+    search 将会替代 query属性
+    query (object类型; 详细请看 querystring) 如果没有 search,将会使用此属性.
+    search 无论前面是否有 ? (问号)，都会同样的处理
+    hash无论前面是否有# (井号, 锚点)，都会同样处理
+.Url
+
+### path
+
+__dirname
+
+path.basename(path[, ext])
+path.basename('/foo/bar/baz/asdf/quux.html')
+// returns 'quux.html'
+
+path.basename('/foo/bar/baz/asdf/quux.html', '.html')
+// returns 'quux'
+
+path.dirname(path)
+path.dirname('/foo/bar/baz/asdf/quux')
+// returns '/foo/bar/baz/asdf'
+
+path.extname(path)
+path.extname('index.html')
+// returns '.html'
+path.extname('index.')
+// returns '.'
+
+path.extname('index')
+// returns ''
+
+path.extname('.index')
+// returns '
+
+path.format(pathObject)
+path.format({
+    dir: '/',
+    root: '/',
+    name: 'file',
+    ext: '.txt'
+});
+// returns '/file.txt'
+
+path.isAbsolute(path)
+
+path.join([path1][, path2][, ...])
+path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
+// returns '/foo/bar/baz/asdf'
+
+path.parse(path)
+path.parse('/home/user/dir/file.txt')
+// returns
+// {
+//    root : "/",
+//    dir : "/home/user/dir",
+//    base : "file.txt",
+//    ext : ".txt",
+//    name : "file"
+// }
+
+path.relative(from, to)
+path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb')
+// returns '..\\..\\impl\\bbb'
+
+path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
+// returns '../../impl/bbb'
+
+path.resolve([from ...], to)
+
+
 cluster 生成与当前进程相同的子进程，并且允许父进程和子进程之间共享端口
 os
 
@@ -184,3 +291,9 @@ mongodb
 ### 监听
 
 supervisour
+
+
+## 工具库
+
+### loadsh
+
