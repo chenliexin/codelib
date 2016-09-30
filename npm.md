@@ -1,4 +1,10 @@
 
+
+npm home {package}
+npm repo {package}
+
+npm outdated
+
 node package manager
 
 npm adduser

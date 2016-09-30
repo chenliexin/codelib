@@ -1,6 +1,5 @@
-<style type="text/css">
 
-/* each of the properties of the shorthand */
+```css
 .animation-properties {
     animation-name: none;            /* none | <IDENT> */
     animation-duration: 0s;
@@ -77,4 +76,4 @@
     animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1.0);
 }
 
-</style>
+```

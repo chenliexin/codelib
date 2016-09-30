@@ -1,3 +1,18 @@
+## link
+
+```xml
+<link rel="dns-prefetch" href="//dns.domain.com">
+
+```
+
+## meta
+
+UC手机浏览器字体变大
+
+```xml
+<meta name="wap-font-scale" content="no">
+```
+
 
 ## localStorage
 

@@ -3,6 +3,11 @@
 
 Terminal打开在当前文件所在的目录的终端
 
+Autoprefixers
+    Online tools: Autoprefixer https://autoprefixer.github.io/
+    Text editor plugins: Sublime Text, Atom https://github.com/sindresorhus/sublime-autoprefixer
+    Libraries: Autoprefixer (PostCSS) https://github.com/postcss/autoprefixer
+
 ## chrome
 
 ### develop tool -> audits
@@ -15,14 +20,18 @@ Terminal打开在当前文件所在的目录的终端
 
 ### node-inspector
 
-$ npm install -g node-inspector
+安装
+npm i -g node-inspector
 
 进程
-$ node-inspector
-$ node-inspector --web-port=3001 # 端口被占用时
-    --save-live-edit=true # 启用在线保存
+node-inspector
+    参数
+    --web-port=3001       端口被占用时
+    --save-live-edit=true 启用在线保存
 
 进程
-$ node --debug app.js # nodemon, supervisor 均可用
+node --debug app.js
+    备注
+    nodemon, supervisor 可用
 
 

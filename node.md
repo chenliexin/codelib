@@ -374,3 +374,12 @@ supervisour
 
 ### loadsh
 
+
+
+### pm2
+
+
+steup 第一次发布的时候
+
+
+

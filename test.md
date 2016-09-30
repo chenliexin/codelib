@@ -18,18 +18,8 @@ weinre
 
 http://172.16.2.134:8080/target/target-script-min.js#anonymous
 
-<script src="http://172.16.2.134:8080/target/target-script-min.js#anonymous"></script>http://union.qidou.com/wap/
+<script src="http://192.168.1.145:8080/target/target-script-min.js#anonymous"></script>
 
 
 
-
-
-
-
-杭州堆栈科技有限公司
-SegmentFault 是一家中文的开发者社区及媒体。最初的产品原型来自于国外最大的程序员问答社区 StackOverflow
-
-
-
-jquery就像是一把二十四功能瑞士军刀，但也只是瑞士军刀罢了，削果皮很好，拧螺丝不错，起瓶盖也相当给力。只是如果你要生产汽车，或者生产一条汽车生产线，你大概也不会拿一把瑞士军刀就开工。
 

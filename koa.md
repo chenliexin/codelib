@@ -123,8 +123,8 @@ ctx.cookies.set(name, value, [options])
 ctx.throw(msg, [status])
 ctx.respond
 
-## koa2
+# koa2
 
-如果你喜欢express风格的生成，推荐koa-generator
+### koa-generator
 
 如果你喜欢babel + koa2可以参考Minimal koa v2 boilerplate.

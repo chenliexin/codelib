@@ -1,4 +1,9 @@
 
+# git
+
+## 
+
+
 Git -> Git Bash
 
 config
@@ -56,6 +61,7 @@ remote
 $ git push origin master
 $ git pull
 
+git checkout -b dev origin/dev
 
 ## server
 
@@ -63,4 +69,15 @@ $ git pull
 
 下载[Bonobo Git Server](https://bonobogitserver.com/)并解压，
 
+
+
+
+## fixed
+
+>> git-bash: Failed to fork child process: No such file or directory.
+<< end process ssh-agent.exe
+
+
+
+gitlib
 
