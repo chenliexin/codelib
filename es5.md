@@ -6,9 +6,9 @@
  * new RegExp(string, attributes);
  * 
  * RegExp.source;
- * RegExp.global;
- * RegExp.ignoreCase;
- * RegExp.multiline;
+ * RegExp.global;     //g
+ * RegExp.ignoreCase; //i
+ * RegExp.multiline;  //m
  * RegExp.lastIndex;
  *
  * RegExp.compile(pattern);
@@ -30,9 +30,23 @@ while (res = pat.exec(str)) {
     //RegExp.lastIndex
     console.log(pat.lastIndex);
 };
+
+/**
+ * . n+ n* n? n{x} n{x,y} n{x,} n$ ^n ?=n ?!n
+ * 
+ */
+/**
+ * 零宽断言
+ * 正向前瞻 (?=exp)
+ * 负向前瞻 (?!exp)
+ * 正向后瞻 (?<=exp) js不支持
+ * 负向后瞻 (?<!exp) js不支持
+ */
+
 ```
 
-
+?=n 匹配任何其后紧接指定字符串 n 的字符串。
+?!n 匹配任何其后没有紧接指定字符串 n 的字符串。
 ## Array
 
 #### join()
