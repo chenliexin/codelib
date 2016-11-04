@@ -280,6 +280,7 @@ url.format(urlObj)  parse的逆向
 
 ### path
 
+```js
 __dirname
 
 path.basename(path[, ext])
@@ -339,6 +340,8 @@ path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
 // returns '../../impl/bbb'
 
 path.resolve([from ...], to)
+
+```
 
 
 cluster 生成与当前进程相同的子进程，并且允许父进程和子进程之间共享端口

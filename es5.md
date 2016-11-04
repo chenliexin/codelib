@@ -1,3 +1,36 @@
+## RegExp
+
+```js
+/**
+ * new RegExp(pattern);
+ * new RegExp(string, attributes);
+ * 
+ * RegExp.source;
+ * RegExp.global;
+ * RegExp.ignoreCase;
+ * RegExp.multiline;
+ * RegExp.lastIndex;
+ *
+ * RegExp.compile(pattern);
+ * RegExp.compile(string, attributes);
+ * RegExp.test(string);
+ * RegExp.exec(string);
+ *
+ * String.search(pattern);
+ * String.match(pattern);
+ * String.replace(pattern);
+ * String.split(pattern);
+ */
+
+//RegExp.exec()
+var str = 'string for test is 123456';
+var pat = /s(.)/g;
+while (res = pat.exec(str)) {
+    console.log(res);
+    //RegExp.lastIndex
+    console.log(pat.lastIndex);
+};
+```
 
 
 ## Array
@@ -83,6 +116,11 @@ Array.prototyp.slice.call(object)可把类数组对象转化为数组。
 #### Array.observe()，Array.unobserve() [es7]
 
 这两个方法用于监听（取消监听）数组的变化，指定回调函数。
+
+
+JSON.parse(string)
+JSON.stringify(object)
+
 
 
 ## 未整理

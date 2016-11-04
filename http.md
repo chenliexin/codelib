@@ -1,7 +1,11 @@
 
-<p>same-origin policy 同源策略（协议、域名、端口）</p>
 
-<p>非同源限制: Cookie, LocalStorage, IndexedDB; iframe; ajax</p>
+
+# 同源策略 same-origin policy
+
+域名、端口、协议
+
+限制: Cookie, LocalStorage, IndexedDB; iframe; ajax
 
 <p>通讯方法：一级域名相同，二级域名不同</p>
 <script>
