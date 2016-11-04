@@ -1,4 +1,5 @@
-## RegExp
+
+### RegExp
 
 ```js
 /**
@@ -23,7 +24,7 @@
  */
 
 //RegExp.exec()
-var str = 'string for test is 123456';
+var str = 'string is 123456';
 var pat = /s(.)/g;
 while (res = pat.exec(str)) {
     console.log(res);
@@ -32,21 +33,34 @@ while (res = pat.exec(str)) {
 };
 
 /**
- * . n+ n* n? n{x} n{x,y} n{x,} n$ ^n ?=n ?!n
+ * 元字符
+ * \w\W 单词字符[0-9a-Z_]
+ * \d\D 数字
+ * \s\S 空白字符
+ * \b\B 单词边界
+ * \n\r\t 换行|回车|制表
+ * \uxxxx unicode字符
  * 
- */
-/**
  * 零宽断言
  * 正向前瞻 (?=exp)
  * 负向前瞻 (?!exp)
  * 正向后瞻 (?<=exp) js不支持
  * 负向后瞻 (?<!exp) js不支持
+ *
+ * 暂存
+ * RegExp.$_
+ * RegExp.$1-9
+ * RegExp.input
+ * RegExp.lastMatch
+ * RegExp.lastParen
+ * RegExp.leftContext
+ * RegExp.rightContext
+ *
+ * 非捕获 (?:exp)
  */
-
 ```
 
-?=n 匹配任何其后紧接指定字符串 n 的字符串。
-?!n 匹配任何其后没有紧接指定字符串 n 的字符串。
+
 ## Array
 
 #### join()
