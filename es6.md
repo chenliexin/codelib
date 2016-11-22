@@ -1,4 +1,73 @@
 
+
+
+```js
+'usr strict';
+
+//块级作用域 let取代var
+//在let和const之间，建议优先使用const
+//静态字符串一律使用单引号或反引号，不使用双引号。动态字符串使用反引号。
+const a = 'foobar';
+const b = `foo${a}bar`;
+//优先使用解构赋值 优先使用对象的解构赋值，而不是数组的解构赋值。
+//对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法。
+//使用扩展运算符（...）拷贝数组。
+const itemsCopy = [...items];
+```
+
+### class
+
+```js
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.z = 100;
+    }
+    toString(){
+        console.log(this.x, this.y, this.z);
+    }
+};
+let newPoint = new Point(1, 10);
+```
+
+Object.assign 方法可以很方便地一次向类添加多个方法
+
+```js
+Object.assign(Point.prototype, {
+    toString() {},
+    toValue() {}
+});
+```
+
+prototype对象的constructor属性，直接指向“类”的本身，这与ES5的行为是一致的。
+
+
+```js
+Point.prototype.constructor === Point;
+//ture
+```
+
+另外，类的内部所有定义的方法，都是不可枚举的（enumerable）。
+
+```js
+Object.keys(Point.prototype)
+// []
+Object.getOwnPropertyNames(Point.prototype)
+// ["constructor","toString"]
+```
+
+类的属性名，可以采用表达式。
+
+```js
+let methodName = "getArea";
+class Square {
+    constructor(length) {}
+    [methodName]() {}
+}
+```
+
+
 ## Set数据结构
 
 类似于数组，但是成员的值都是唯一的，没有重复的值

@@ -1,4 +1,15 @@
 
+## css
+
+```css
+{
+    tab-size: 20px;
+    table-layout: fixed; /* auto,fixed */
+    text-shadow: 2px 2px 4px #fff;
+}
+```
+
+
 ## 竖直居中
 
 ### ie8+ 外宽高度固定

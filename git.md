@@ -63,11 +63,10 @@ $ git pull
 
 git checkout -b dev origin/dev
 
-## server
 
-### 安装与配置
 
-下载[Bonobo Git Server](https://bonobogitserver.com/)并解压，
+
+
 
 
 

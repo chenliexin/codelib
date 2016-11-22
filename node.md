@@ -1,5 +1,24 @@
 
+## babel
+
+babel-cli 命令行工具
+    babel 编译器
+    babel-node 运行器
+
+node api由babel-core提供
+polyfill由babel-polyfill提供
+
+
+
+.babelrc
+    plugins
+    presets
+
+
 # api latest-v4.x[4.4.7]
+https://github.com/coreybutler/nvm-windows
+
+http://node.green/
 
 ## Global
 
@@ -347,7 +366,7 @@ path.resolve([from ...], to)
 cluster 生成与当前进程相同的子进程，并且允许父进程和子进程之间共享端口
 os
 
-
+child_process
 
 
 
@@ -386,3 +405,19 @@ steup 第一次发布的时候
 
 
 
+版本号格式化
+    semver
+
+终端配色
+    chalk
+
+终端打开页面
+    opn
+
+代理
+    http-proxy-middleware
+
+webpack
+    gzip compression-webpack-plugin
+    server webpack-dev-server
+    middleware

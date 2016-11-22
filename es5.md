@@ -1,4 +1,51 @@
 
+### Number
+
+```js
+
+num.toExponential(2);
+num.toFixed(2);
+num.toPrecision(2);
+
+```
+
+### window
+
+```js
+
+alert(tit);
+confirm(tit);
+prompt(tit, val);
+
+navigator;
+navigator.geolocation;
+navigator.platform;
+navigator.userAgent;
+
+history.back();
+history.forward();
+history.go();
+
+location;
+
+screen;
+screen.orientation;
+
+```
+
+### document.cookie
+
+```js
+document.cookie = 'name=value';
+document.cookie = 'name=value;domain=abc.com';
+document.cookie = 'name=value;path=/';
+document.cookie = 'name=value;expires=' + Date('2020-12-12');
+document.cookie = 'name=value;max-age=' + 3600;
+// httpOnly
+// secure
+// sameSite
+```
+
 ### RegExp
 
 ```js
@@ -6,46 +53,46 @@
  * new RegExp(pattern);
  * new RegExp(string, attributes);
  * 
- * RegExp.source;
- * RegExp.global;     //g
- * RegExp.ignoreCase; //i
- * RegExp.multiline;  //m
- * RegExp.lastIndex;
+ * reg.source;
+ * reg.global;     //g
+ * reg.ignoreCase; //i
+ * reg.multiline;  //m
+ * reg.lastIndex;
  *
- * RegExp.compile(pattern);
- * RegExp.compile(string, attributes);
- * RegExp.test(string);
- * RegExp.exec(string);
+ * reg.compile(pattern);
+ * reg.compile(string, attributes);
+ * reg.test(string);
+ * reg.exec(string);
  *
- * String.search(pattern);
- * String.match(pattern);
- * String.replace(pattern);
- * String.split(pattern);
+ * str.search(pattern);
+ * str.match(pattern);
+ * str.replace(pattern);
+ * str.split(pattern);
  */
 
-//RegExp.exec()
+//reg.exec()
 var str = 'string is 123456';
-var pat = /s(.)/g;
-while (res = pat.exec(str)) {
+var reg = /s(.)/g;
+while (res = reg.exec(str)) {
     console.log(res);
-    //RegExp.lastIndex
-    console.log(pat.lastIndex);
+    //reg.lastIndex
+    console.log(reg.lastIndex);
 };
 
 /**
  * 元字符
- * \w\W 单词字符[0-9a-Z_]
- * \d\D 数字
- * \s\S 空白字符
- * \b\B 单词边界
+ * \w\W   单词字符[0-9a-Z_]
+ * \d\D   数字
+ * \s\S   空白字符
+ * \b\B   单词边界
  * \n\r\t 换行|回车|制表
  * \uxxxx unicode字符
  * 
  * 零宽断言
- * 正向前瞻 (?=exp)
- * 负向前瞻 (?!exp)
- * 正向后瞻 (?<=exp) js不支持
- * 负向后瞻 (?<!exp) js不支持
+ * (?=exp)  正向前瞻
+ * (?!exp)  负向前瞻
+ * (?<=exp) 正向后瞻js不支持
+ * (?<!exp) 负向后瞻js不支持
  *
  * 暂存
  * RegExp.$_
@@ -61,7 +108,29 @@ while (res = pat.exec(str)) {
 ```
 
 
-## Array
+### Array
+
+```js
+/**
+ * new Array(length);
+ * new Array(item, item, ...);
+ *
+ * arr.length
+ * arr.constructor
+ * arr.prototype
+ *
+ * 方法
+ * concat(array, array, ...)
+ *     扁平化
+ * arr.join(string)
+ * arr.reverse()
+ * arr.sort(function(item, item){})
+ * 
+ */
+
+//arr.concat() 
+
+```
 
 #### join()
 
@@ -71,9 +140,6 @@ while (res = pat.exec(str)) {
 
 得到一个使用比较函数排序的数组，比较函数接受两个参数，指代数组任意两个元素。返回值小于零则参数一在前，大于零则参数二在前，等于零则排序无关重要。
 
-#### concat()
-
-返回一个连接所有参数的数组，参数如果是数组则连接其元素，但不递归扁平化数组参数，只连接数组参数第一层元素。
 
 #### slice()
 

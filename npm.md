@@ -1,5 +1,41 @@
 
 
+
+
+
+
+where <command> is one of:
+    access, adduser, bin, bugs, c, cache, completion, config,
+    ddp, dedupe, deprecate, dist-tag, docs, edit, explore, get,
+    help, help-search, i, init, install, install-test, it, link,
+    list, ln, login, logout, ls, outdated, owner, pack, ping,
+    prefix, prune, publish, rb, rebuild, repo, restart, root,
+    run, run-script, s, se, search, set, shrinkwrap, star,
+    stars, start, stop, t, tag, team, test, tst, un, uninstall,
+    unpublish, unstar, up, update, v, version, view, whoami
+
+
+
+adduser
+    *用于提交包，当源被修改的时候不可用
+
+
+```bash
+$ npm adduser
+# config registry "https://registry.npmjs.org"
+
+$ npm config set registry "https://registry.npmjs.org"
+$ npm config set registry "https://registry.npm.taobao.org"
+
+$ npm whoami
+```
+
+
+
+
+
+
+
 npm home {package}
 npm repo {package}
 

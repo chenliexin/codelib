@@ -1,11 +1,25 @@
+https://segmentfault.com/a/1190000007033157?utm_source=tuicool&utm_medium=referral
+
+### http
+
+输入域名(url)-->DNS映射为IP-->TCP三次握手-->HTTP请求-->HTTP响应-->(浏览器跟踪重定向地址)-->服务器处理请求-->服务器返回一个html响应-->(视情况决定释放TCP连接)-->客户端解析HTML-->获取嵌入在HTML中的对象重新发起http请求
 
 
+## 同源策略 same-origin policy
 
-# 同源策略 same-origin policy
+同源：域名、端口、协议；限制: cookie, localStorage, indexedDB, iframe, ajax
 
-域名、端口、协议
+单向跨域
+1.jsonp 只支持get请求
+2.服务器代理 在baidu.com下配置一个代理proxy即baidu.com/proxy/将ajax绑定到代理下发送http请求
+3.CORS var xhr = createCORSRequest('GET', url);
+4.window.name
+5.webSocket
+双向跨域
+降域
+1.location.hash
+2.postMessage
 
-限制: Cookie, LocalStorage, IndexedDB; iframe; ajax
 
 <p>通讯方法：一级域名相同，二级域名不同</p>
 <script>
@@ -61,4 +75,11 @@ $.ajax({
 <p>通讯方法：Cross-Origin Resource Sharing CORS是跨源资源分享
 http://www.ruanyifeng.com/blog/2016/04/cors.html</p>
 
+
+
+
+https
+http+加密+认证+完整性保护=https
+http:应用层的无状态，超文本传输协议。端口为80
+HTTPS：只是http通信接口部分用SSL和TLS协议替代。http直接和TCP通信，而HTTPS使用SSL所以是先和SSL通信，再由SSL和TCP通信。端口为443
 

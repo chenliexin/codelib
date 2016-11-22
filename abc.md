@@ -1,4 +1,16 @@
 
+html/html5
+css/css3
+js/es6,es7
+nodejs+npm
+    koa/express
+    react/vue/angular
+    webpack
+    gulp
+redis
+secrity
+test
+
 # now
 
 AMD requireJS 是否存在加载器机制或符合某个模块规范
