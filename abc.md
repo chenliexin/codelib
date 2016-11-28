@@ -1,4 +1,12 @@
 
+nodejs
+- 非阻塞io
+- 事件循环
+- 单线程#不会造成死锁
+
+计时器的ref和unref方法
+
+
 html/html5
 css/css3
 js/es6,es7
