@@ -1,3 +1,11 @@
+二进制，tcp流，文件流
+nodejs
+- 非阻塞io
+- 事件循环
+- 单线程#不会造成死锁
+
+计时器的ref和unref方法
+
 
 ex6 module: import/export
 
