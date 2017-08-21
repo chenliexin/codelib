@@ -187,7 +187,7 @@ Array.prototyp.slice.call(object)可把类数组对象转化为数组。
 
 返回一个由类数组对象或可遍历对象转化的数组，参数一是被转化对象，参数二是处理函数。函数接受三个参数，分别为数组元素、数组索引、数组本身。
 
-#### Array.fo() [es6]
+#### Array.of() [es6]
 
 返回一个由一组参数转化的数组。
 
@@ -515,44 +515,8 @@ typeof {}; // object
 
 `内置对象`
 
-```js
-typeof String
-"function"
-typeof String()
-"string"
-typeof new String()
-"object"
-typeof new Math()
-VM602:1 Uncaught TypeError: Math is not a constructor(…)(anonymous function) @ VM602:1InjectedScript._evaluateOn @ VM68:145InjectedScript._evaluateAndWrap @ VM68:137InjectedScript.evaluate @ VM68:118
-typeof Math()
-VM603:1 Uncaught TypeError: Math is not a function(…)(anonymous function) @ VM603:1InjectedScript._evaluateOn @ VM68:145InjectedScript._evaluateAndWrap @ VM68:137InjectedScript.evaluate @ VM68:118
-typeof Math
-"object"
-typeof Date
-"function"
-typeof Date()
-"string"
-typeof new Date()
-"object"
-typeof new Array()
-"object"
-typeof Array()
-"object"
-typeof Array
-"function"
-typeof RegExp
-"function"
-typeof RegExp()
-"object"
-typeof new RegExp()
-"object"
-typeof new Error()
-"object"
-typeof Error()
-"object"
-typeof Error
-"function"
-```
+
+
 
 
 ### number

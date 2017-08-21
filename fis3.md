@@ -37,9 +37,11 @@ var css = __inline('a.css');    // 文件
 `?__inline`在css中嵌入资源
 
 ```css
-@import url('demo.css?__inline');       /* 样式 */
+/* 样式 */
+@import url('demo.css?__inline');
+/* 图片base64 */ 
 .style {
-    background: url(logo.gif?__inline); /* 图片base64 */
+    background: url(logo.gif?__inline); 
 }
 ```
 

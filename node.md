@@ -1,4 +1,155 @@
 
+## 断言 assert `8.2.1`
+
+- assert(value[, message]), assert.ok(value[, message])
+- assert.ifError(value)
+
+- assert.equal(actual, expected[, message])
+- assert.notEqual(actual, expected[, message])
+- assert.strictEqual(actual, expected[, message])
+- assert.notStrictEqual(actual, expected[, message])
+- assert.deepEqual(actual, expected[, message])
+  可枚举的自身属性
+- assert.deepStrictEqual(actual, expected[, message])
+  原型、不可枚举的属性
+
+- assert.fail(message)
+- assert.fail(actual, expected, message, operator)
+
+- assert.throws(block[, error] [, message])
+  断言block函数抛出错误
+  error是构造函数、正则表达式、或自定义验证函数
+  若参数二为字符串，则省略error
+- assert.doesNotThrow(block[, error] [, message])
+  断言block函数不抛出错误
+
+## 异步钩 async_hooks `8.2.1` *s1*
+
+## 缓冲 Buffer
+
+> 大小在创建时确定且无法调整，在V8堆外分配物理内存
+> 各种 new Buffer() 构造函数已被废弃
+
+Buffer.alloc(size[, fill[, encoding]])
+  buffer.constants.MAX_LENGTH
+  调用 Buffer.alloc() 会明显地比另一个方法 Buffer.allocUnsafe() 慢，但是能确保新建的 Buffer 实例的内容不会包含敏感数据。
+Buffer.allocUnsafe(size)
+
+Buffer.compare(buf1, buf2)
+Buffer.concat(list[, totalLength])
+Buffer.from(array)
+Buffer.from(arrayBuffer[, byteOffset[, length]])
+Buffer.from(buffer)
+Buffer.from(string[, encoding])
+Buffer.from(object[, offsetOrEncoding[, length]])
+
+Buffer.isBuffer(obj)
+Buffer.isEncoding(encoding)
+
+Buffer.poolSize
+buf[index]
+buf.length
+buf.buffer
+buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])
+buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])
+buf.entries()
+buf.equals(otherBuffer)
+buf.fill(value[, offset[, end]] [, encoding])
+buf.includes(value[, byteOffset] [, encoding])
+buf.indexOf(value[, byteOffset] [, encoding])
+buf.lastIndexOf(value[, byteOffset] [, encoding])
+buf.keys()
+buf.values()
+buf.slice([start[, end]])
+
+buf.toJSON()
+buf.toString([encoding[, start[, end]]])
+
+buf.readFloatBE(offset[, noAssert])
+buf.readFloatLE(offset[, noAssert])
+buf.readInt8(offset[, noAssert])
+buf.readInt16BE(offset[, noAssert])
+buf.readInt16LE(offset[, noAssert])
+buf.readInt32BE(offset[, noAssert])
+buf.readInt32LE(offset[, noAssert])
+buf.readIntBE(offset, byteLength[, noAssert])
+buf.readIntLE(offset, byteLength[, noAssert])
+buf.readUInt8(offset[, noAssert])
+buf.readUInt16BE(offset[, noAssert])
+buf.readUInt16LE(offset[, noAssert])
+buf.readUInt32BE(offset[, noAssert])
+buf.readUInt32LE(offset[, noAssert])
+buf.readUIntBE(offset, byteLength[, noAssert])
+buf.readUIntLE(offset, byteLength[, noAssert])
+buf.swap16()
+buf.swap32()
+buf.swap64()
+
+buf.write(string[, offset[, length]] [, encoding])
+buf.writeDoubleBE(value, offset[, noAssert])
+buf.writeDoubleLE(value, offset[, noAssert])
+buf.writeFloatBE(value, offset[, noAssert])
+buf.writeFloatLE(value, offset[, noAssert])
+buf.writeInt8(value, offset[, noAssert])
+buf.writeInt16BE(value, offset[, noAssert])
+buf.writeInt16LE(value, offset[, noAssert])
+buf.writeInt32BE(value, offset[, noAssert])
+buf.writeInt32LE(value, offset[, noAssert])
+buf.writeIntBE(value, offset, byteLength[, noAssert])
+buf.writeIntLE(value, offset, byteLength[, noAssert])
+buf.writeUInt8(value, offset[, noAssert])
+buf.writeUInt16BE(value, offset[, noAssert])
+buf.writeUInt16LE(value, offset[, noAssert])
+buf.writeUInt32BE(value, offset[, noAssert])
+buf.writeUInt32LE(value, offset[, noAssert])
+buf.writeUIntBE(value, offset, byteLength[, noAssert])
+buf.writeUIntLE(value, offset, byteLength[, noAssert])
+
+通过 require('buffer') 返回的 buffer 模块的属性
+  buffer.INSPECT_MAX_BYTES
+  buffer.kMaxLength
+  buffer.transcode(source, fromEnc, toEnc)
+  buffer.constants
+    buffer.constants.MAX_LENGTH
+    buffer.constants.MAX_STRING_LENGTH
+
+## 子进程 child_process
+
+- child_process.exec(command[, options] [, callback])
+  options{
+    cwd,
+    env,
+    encoding: 'utf8',
+    shell: 'cmd.exe', //win
+    timeout: 0,
+    maxBuffer: 200*1024,
+    killSignal: 'SIGTERN',
+    uid,
+    gid
+  }
+  callback(err, stdout, stderr)
+- child_process.execFile(file[, args] [, options] [, callback])
+- child_process.spawn(command[, args] [, options])
+- child_process.fork(modulePath[, args] [, options])
+- child_process.execSync(command[, options])
+  返回stdout
+- child_process.execFileSync(file[, args] [, options])
+- child_process.execSync(command[, options])
+
+## version management
+
+n
+nvm
+nvm-windows
+    https://github.com/coreybutler/nvm-windows
+    nvm-setup.zip
+    cmd管理员模式第一次运行 nvm .
+nodist
+
+
+
+
+
 ## babel
 
 babel-cli 命令行工具
@@ -55,7 +206,7 @@ console.warn('stderr %s', code);
 console.dir(obj, {
     showHidden: false, // non-enumerable and symbol properties
     depth: 2,          // recurse: default 2, null indefinitely
-    colors: false      // ANSI color: defaults false 
+    colors: false      // ANSI color: defaults false
 });
 // uses util.inspect()
 
@@ -176,13 +327,13 @@ util 提供常用函数集合，弥补js功能过于简单
         color true，输出格式将会以 ANSI 颜色编码
     util.isArray()、util.isRegExp()、util.isDate()、 util.isError()
     util.format()、 util.debug()
-event 
+event
     .EventEmitter 只有一个对象，核心是事件监听和发射
         .on(event, listener)
         .emit(event, [arg1], [arg2], [...])  支持多事件监听，并同时按顺序发射
             .emit('error') 如果没有error监听，node会当做异常，退出程序并打印调用栈
         .once(event, listener) 发射后移除监听
-        .removeListener(event, listener)  
+        .removeListener(event, listener)
         EventEmitter.removeAllListeners([event]) 移除所有事件的所有监听器，如果指定 event，则移除指定事件的所有监听器
     !!大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、 net、http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类
 fs
@@ -191,7 +342,7 @@ fs
     .readFile(filename,[encoding],[callback(err,data)])
     .readFileSync(filename, [encoding])如果有错误发生， fs 将会抛出异常，你需要使用 try 和 catch 捕捉并处理异常
     .open(path, flags, [mode], [callback(err, fd)])
-        flags 
+        flags
             r ：以读取模式打开文件。
             r+ ：以读写模式打开文件。
             w ：以写入模式打开文件，如果文件不存在则创建。
@@ -262,7 +413,7 @@ http
 querystring.stringify(obj,[sep],[eq])
 对象格式化成参数字符串 [sep]指分隔符 默认& , [eq]指分配符 默认=
 
-querystring.parse(str, [sep], [eq], [options]) 
+querystring.parse(str, [sep], [eq], [options])
 参数字符串格式化成对象
 
 querystring.escape(param)
@@ -421,3 +572,34 @@ webpack
     gzip compression-webpack-plugin
     server webpack-dev-server
     middleware
+
+
+
+
+# egg.js
+
+插件机制，一个插件只做一件事
+约定优于配置
+
+
+# Assertion Testing
+
+Assert
+assert(value[, message])
+assert.deepEqual(actual, expected[, message])
+assert.deepStrictEqual(actual, expected[, message])
+assert.doesNotThrow(block[, error][, message])
+assert.equal(actual, expected[, message])
+assert.fail(message)
+assert.fail(actual, expected, message, operator)
+assert.ifError(value)
+assert.notDeepEqual(actual, expected[, message])
+assert.notDeepStrictEqual(actual, expected[, message])
+assert.notEqual(actual, expected[, message])
+assert.notStrictEqual(actual, expected[, message])
+assert.ok(value[, message])
+assert.strictEqual(actual, expected[, message])
+assert.throws(block[, error][, message])
+Caveats
+
+

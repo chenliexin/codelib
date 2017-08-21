@@ -1,27 +1,37 @@
 
+补丁
+
+回滚，版本重置
+
+工作流
+
+
+git log
+    --all     全部分支历史
+    --oneline 一行简要信息
+    --graph   图形表示
+
+
+
+
 # git
 
-## 
+```bash
+git config --global user.name 'chenliexin'
+git config --global user.email 'chenliexin@yeah.net'
+git init
+git clone
+git add --all
+git commit -m 'message'
+git status
+git log
+git reflog
+git reset -hard HEAD^
+git reset -hard HEAD^^^^^^
+git reset -hard 'index'
 
+```
 
-Git -> Git Bash
-
-config
-$ git config --global user.name 'chenliexin'
-$ git config --global user.email 'chenliexin@yeah.net'
-
-$ git init
-
-$ git add <path>
-$ git add -A, --all
-$ git commit -m 'message'
-
-monitor
-$ git status
-$ git log
-$ git reflog
-$ git diff <path>
-$ git cat <path>
 
 reset
 $ git reset -hard HEAD^ //HEAD^^^ and so on
@@ -65,18 +75,12 @@ git checkout -b dev origin/dev
 
 
 
+checkout
+branch
+fetch
+pull
+push
 
 
 
-
-
-
-## fixed
-
->> git-bash: Failed to fork child process: No such file or directory.
-<< end process ssh-agent.exe
-
-
-
-gitlib
-
+# gitlib

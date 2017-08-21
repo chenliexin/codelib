@@ -85,3 +85,65 @@ tar zxvf node-v6.9.1.tar.gz
 cd node-v6.9.1.tar.gz/ 
 ./configure 
 sudo make install 
+
+
+
+# nginx
+
+nginx依赖于pcre和zlib
+PCRE(Perl Compatible Regular Expressions)是一个Perl库，包括 perl 兼容的正则表达式库
+https://nchc.dl.sourceforge.net/project/pcre/pcre/8.40/pcre-8.40.tar.gz
+tar -zxvf pcre-8.39.tar.gz
+cd pcre-8.39
+./configure
+make
+make install
+zlib是提供数据压缩用的函式库
+http://zlib.net/zlib-1.2.11.tar.gz
+tar -xvf zlib-1.2.8.tar.gz
+cd zlib-1.2.8
+./configure
+make
+make install
+http://nginx.org/download/nginx-1.13.1.tar.gz
+tar -zxvf nginx-1.11.5.tar.gz
+cd nginx-1.11.5
+
+yum -y install openssl openssl-devel
+
+./configure --sbin-path=/usr/local/nginx/sbin/nginx  --conf-path=/usr/local/nginx/conf/nginx.conf --pid-path=/usr/local/nginx/sbin/nginx.pid --with-http_ssl_module --with-pcre=../pcre-8.40 --with-zlib=../zlib-1.2.11
+make
+make install
+
+
+ps -ef | grep nginx 就可以看到Nginx进程是否存在了
+
+
+
+ssh-keygen -t rsa -C"mail@mail.com"
+cat  ~/.ssh/id_rsa.pub
+
+
+nginx -s stop
+nginx -s reload
+
+    server {
+        listen       80;
+        server_name  www.fdwjp.com;
+        location / {
+            proxy_pass http://127.0.0.1:9001;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header REMOTE-HOST $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        }
+    }
+    server {
+        listen       80;
+        server_name  fdwjp.com;
+        location / {
+            rewrite (.*) http://www.fdwjp.com$1 permanent;
+        }
+    }
+    
