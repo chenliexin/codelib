@@ -18,7 +18,7 @@ alipay
 chenliexin chen358157208
 
 
- netstat -ano | findstr "3080"
+ netstat -ano | findstr "3000"
 
 
 
