@@ -68,7 +68,7 @@ reactivity system 响应式系统
         如果同一个 watcher 被多次触发，只会一次推入到队列中。列队采用原生的 Promise.then 和 MutationObserver（不兼容时候采用setTimeout(fn, 0)）
         完成DOM更新的钩子Vue.nextTick(callback)，或vm.$nextTick()
 
-过渡效果
+<!-- 过渡效果
     transition组件 animation/transition, Animate.css
         entering/leaving过渡
             *-enter
@@ -77,7 +77,7 @@ reactivity system 响应式系统
             *-leave-active
         自定义过渡类名enter-class, enter-active-class以此类推
         type设置animation/transition
-    javascript钩子 直接操作DOM, Velocity.js 
+    javascript钩子 直接操作DOM, Velocity.js
         v-on:[before-enter/leave, enter/leave, after-enter/leave, enter/leave-cancelled]
         在 enter 和 leave 中，回调函数 done() 是必须的leave: function (el, done) {    done() }
         推荐对于仅使用 JavaScript 过渡的元素添加 v-bind:css="false"，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响
@@ -90,11 +90,27 @@ reactivity system 响应式系统
         Vue 使用了一个叫 FLIP 简单的动画队列，元素不能设置为 display: inline 。作为替代方案，可以设置为 display: inline-block 或者放置于 flex 中
     过渡状态
         状态动画，watch，tween.js
-
 render函数
-    Vue 推荐在绝大多数情况下使用 template 来创建你的 HTML，render比 template 更接近编译器。
-
-```js
+    Vue 推荐在绝大多数情况下使用 template 来创建你的 HTML，render比 template 更接近编译器。 -->
 
 
-```
+条件渲染
+  v-if
+  v-else-if
+  v-else
+  v-show
+  v-for
+    item, index in items
+    item, index of items
+    value, key, index in object
+    key
+  v-model
+
+
+内置组件
+  template
+
+
+key 避免复用
+props down, events up
+如果你想要用一个对象作为 props 传递所有的属性，你可以使用不带任何参数的 v-bind (即用 v-bind 替换掉 v-bind:prop-name)

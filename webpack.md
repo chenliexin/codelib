@@ -69,12 +69,104 @@
     安装对应的loader
     npm install --save-dev css-loader
     npm install --save-dev ts-loader
+插件
+    html-webpack-template
+    clean-webpack-plugin 清理文件夹
+    webpack-manifest-plugin
+source map
+开发环境
+    watch
+    webpack-dev-server
+        devServer
+            hot:结合模块热替换(Hot Module Replacement)
+    webpack-dev-middleware
+生产环境
+    构建
+        运行webpack -p (也可以运行 webpack --optimize-minimize --define process.env.NODE_ENV="'production'"，他们是等效的)
+    JS文件压缩
+        webpack.optimize.UglifyJsPlugin
+    我们推荐你在生产环境中使用 source map
+    Node 环境变量
+        webpack.DefinePlugin
+    定义多个配置文件用于不同的环境
+    高级点可以用webpack-merge合并配置文件
+代码分离
+    三种方式
+        入口：手动分离
+        去重：commons-chunk-plugin
+        动态导入：通过模块的内联函数调用来分离代码
+            chunkFilename
+懒加载
+缓存
+    将第三方库(library)（例如 lodash 或 react）提取到单独的 vendor chunk 文件中，是比较推荐的做法
+    main bundle 会随着自身的新增内容的修改，而发生变化。
+    vendor bundle 会随着自身的 module.id 的修改，而发生变化。
+    runtime bundle 会因为当前包含一个新模块的引用，而发生变化。
+    第一个和最后一个都是符合预期的行为 -- 而 vendor 的 hash 发生变化是我们要修复的。幸运的是，可以使用两个插件来解决这个问题。第一个插件是 NamedModulesPlugin，将使用模块的路径，而不是数字标识符。虽然此插件有助于在开发过程中输出结果的可读性，然而执行时间会长一些。第二个选择是使用 HashedModuleIdsPlugin，推荐用于生产环境构建：
+ProvidePlugin 可以将模块作为一个变量
+可以使用 imports-loader 来替换重写 this
+exports-loader
+当模块没有 AMD/CommonJS 的版本时，并且你希望直接引入 dist版本，你可以将这个模块标记为 noParse。然后 webpack 将会直接引入这个模块并且不会解析它，这样可以用来改善构建时间。
+使用 cross-env 包来跨平台设置(cross-platform-set)环境变量
+webpack 提供一个非常有用的配置，该配置能帮助你为项目中的所有资源指定一个基础路径。它被称为公共路径(publicPath)。
+
+api
+    CLI 命令行
+    Node api
+        webpack( 配置对象或配置对象数组, (err, stats) => {});
+            stats 对象会被作为 webpack() 回调函数的第二个参数传入，可以通过它获取到代码编译过程中的有用信息，包括：
+            stats.hasErrors() 可以用来检查编译期是否有错误，返回 true 或 false。
+            stats.hasWarnings() 可以用来检查编译期是否有警告，返回 true 或 false。
+            stats.toJson(options) 以 JSON 对象形式返回编译信息。
+            stats.toString(options)
+        webpack 不会并行执行多个配置。每个配置只会在前一个处理结束后才会开始处理。如果你需要 webpack 并行执行它们，你可以使用像 parallel-webpack 这样的第三方解决方案
+        如果你不向 webpack 执行函数传入回调函数，就会得到一个 webpack Compiler 实例。你可以通过它手动触发 webpack 执行器，或者是让它执行构建并监听变更。
+        .run(callback)
+        .watch(watchOptions, handler)
+            watch 方法返回一个 Watching 实例，它会暴露一个 .close(callback) 方法。
+
+包含统计数据的 JSON 文件
+    webpack --profile --json > compilation-stats.json
+模块热替换 api
+    module.hot.accept
+    module.hot.decline 。。。
+模块api 变量
+    __webpack_public_path__
+    __webpack_require__ 、、、
+
+loader
 
 
 
+配置
+  最小配置
+    entry
+    output
+      path
+      filename
+  entry 入口
+  output
+    library
+    libraryTarget
+      默认值var，将结果分配给library定义的变量；如果缺省library将取消var配置
+
+  context  基础目录，绝对路径，用于从配置中解析入口起点(entry point)和 loader
+
+  module
+    rules[]
+      条件(condition)
+      结果(result)
+      嵌套规则(nested rule)
+
+  resolve
 
 
 
+umd / umd2
+commonjs2 / commonjs-module / commonjs
+amd
+this / var / assign / window / global / jsonp
 
+## configuration
 
-
+#### 

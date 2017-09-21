@@ -1,0 +1,20 @@
+{
+  "name": "codelib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.coding.net:chenliexin/codelib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "koa": "^2.3.0",
+    "koa-static": "^4.0.1"
+  }
+}
