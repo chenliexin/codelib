@@ -1,89 +1,162 @@
-二进制，tcp流，文件流
-nodejs
-- 非阻塞io
-- 事件循环
-- 单线程#不会造成死锁
 
-计时器的ref和unref方法
+### html
+### css
+### javascript
+- BOM
+  - window、screen、location、history、navigator
+  - timer
+  - alert、confirm、prompt
+  - cookis
+- 数据类型
+  - 基本类型、引用类型、基本引用类型
+  - 基本类型用的是栈内存
+  - 引用类型用的是堆内存
+  - 深拷贝：递归拷贝或者JSON序列化对象
+  - 闭包、作用域、作用域链、原型
+- 内置对象
+  - Number
+  - Boolean
+  - String
+  - Object
+  - Function
+  - Array
+  - Date
+  - RegExp
+  - Error
+  - Math
+  - JSON
+  - Global
+  - Arguments
+- 严格模式
+  - 禁止使用全局、with、eval、保留字
+  - 不能重名、重复参数、
+  - 禁止八进制
+  - 不允许对arguments赋值
+- script标签中，defer属性使得浏览器延迟脚本的执行直到文档载入和解析完成，async属性使得浏览器可以尽快执行脚本而不阻塞文档解析。async属性优先于defer属性
+- 时间线
+  - 创建Document对象，解析HTML并添加ELement对象和Text节点，document.readystate = 'loading'
+  - 解析HTML过程中，遇到script（非async、非defer）时下载执行并暂停解析器
+  - 解析HTML过程中，遇到script（async）时下载但不暂停解析器，并在下载完成后尽快执行
+  - 解析HTML完成，document.readystate = 'interactive'
+  - script（defer）在此时按出现顺序执行（仍可能有异步脚本未执行）
+  - 同步脚本执行完毕，Document对象触发DOMContentLoaded事件（仍可能有异步脚本未执行）
+  - 异步事件执行完毕（可能还有其他如图片未完全载入），document.readystate = 'complete'，并Window对象触发load事件
 
+### babel
+- 编译器：解析、转换、生成
+- 配置 `.babelrc` 或 `package.json [babel]` ，环境配置 `env`
+- 命令行 `babel-cli`
+- 引用钩子 `babel-register`
+- 核心 `babel-core`
+- 垫片 `babel-polyfill`
+- 插件 `preset-env` 、 `preset-stage` 、 `transform`
+### 数据结构
+- 栈：后进先出的数据结构，支撑push和pop
+- 队列：先进先出的数据结构
+- 链表：节点指向对象的数据集合
+  - 单链表、双链表、循环链表
+- 树：无向、联通的无环图
+  - 二叉树：满二叉树、完美二叉树、完全二叉树
+  - 树状数组
+- 堆
+- 哈希
+- 指针：指针就是内存地址
+- 排序
+### http
 
-ex6 module: import/export
+- url > dns解析出ip > tcp三次握手 > http请求 > http响应或重定向 > 视情况决定释放tcp连接 > 客户端解析html > 资源重新发起http请求
+- http请求头
+  - Accept, Accept-Charset, Accept-Encoding, Accept-Language
+  - Cache-Control, Date, If-Match...
+  - Cookie
+  - Content-Length, Content-Type
+  - Referer
+  - User-Agent
+- http响应头
+  - Cache-Control, Date, ETag, Expires, Last-Modified
+  - Content-Encoding, Content-Language, Content-Length, Content-Type
+- http状态码
+  - 1信息：100继续、101切换协议
+  - 2成功：201已创建、202已接受、206部分内容
+  - 3重定向：
+  - 4客户端错误：400语法错误、401身份认证、403拒绝
+  - 5服务端错误：500内部错误、501不支持请求、502网关、503服务维护、505http版本
+- 同源：域名、端口、协议
+  - 限制：cookie, ajax, iframe, storage
+  - 单向跨域
+    - jsonp 只支持get
+    - proxy 代理
+    - cors 跨域资源共享
+    - window.name
+    - webSocket
+  - 双向跨域
+    - location.hash
+    - postMessage
 
-es6 Class 只是 OOP 语法糖，升级了 es5 构造函数的原型链继承写法
+### https
 
-将大程序拆分成相互依赖的小文件，用简单的方法拼装。如其他语言的 require/import
+  - http + 加密 + 认证 + 完整性保护
+  - http直接和tcp通信，https通过ssl和tcp通信，通过tls传输
+    - ssl，Secure Sockets Layer 安全套接层
+    - tls，Transport Layer Security 传输层安全
+    - ssl和tls在传输层对网络连接进行加密
+  - 通过ssl证书进行认证
 
-社区约定的模块加载方案：
-    CommonJS 用于服务端
-    AMD 用于客户端
+### cache
 
-设计思想：尽量静态化，编译时就能确定依赖关系，以及输入和输出的变量
+- 分类：数据库、代理服务器、cdn、浏览器
+- cdn内容分发网络
+  - 包括分布式存储、负载均衡、网络请求的重定向和内容管理4个要件
+- 浏览器缓存
+  - 请求前：过期策略
+    - Cache-Control：no-cache、max-age/s-maxage、max-stale
+    - Expires
+  - 请求前：协商策略
+    - ETag
+    - Last-Modified
+  - 响应后：存储策略
+    - Cache-Control：public/private、no-store、no-cache、max-age/s-maxage
+    - Pragma
 
-    AMD Asynchronous Module Definition 异步模块定义
-    require([module], callback);
-    require.js和curl.js
-    define(function(){})
-    define([module], function(){})
+### dns
 
+- 域名系统：域名和ip相互映射的分布式数据库
+- 前端优化
+  - 减少dns解析次数
+  - dns预获取 `dns-prefetch`
 
+### tcp/ip
 
+- 网络通讯协议，四层
+  - 链路层：处理硬件部分
+  - 网络层：处理数据包
+  - 传输层： `tcp` 、udp
+  - 应用层： `dns` 、 `http` 、ftp
+- tcp三次握手
+  - 客户端发送报文给服务端
+  - 服务端收到报文，回应报文
+  - 客户端收到报文，连接建立，开始传输数据
+- 常用端口
+  - 21 ftp
+  - 22 ssh
+  - 23 telnet
+  - 80 http
+  - 443 https
 
+### linux
 
+- 指令
+  - 文件：cd、ls、mkdir、cat查看、mv移动或重命名、rm、find、grep
+  - 系统：stat文件信息、who/whoami、top当前最大开销进程、du目录大小、df磁盘大小、ping、kill
+  - 打包压缩：tar、gzip
+  - 电源：reboot、halt关机、shutdown
+  - vim：q退出、w保存
+- 目录
+  - bin二进制文件、etc配置、dev设备、tmp临时文件、usr用户、home、boot引导、lib
+- ssh
 
+### site
 
-
-个人简历
-
-基本信息
-姓名：陈烈欣               性别：男                   年龄：1989年生
-婚姻：已婚                 籍贯：广东汕尾             工龄：6年
-职位：高级前端工程师                   学历：广州中医药大学 本科
-手机：15914310487                    邮箱：chenliexin@yeah.net
-
-工作经验
-2016-至今 广东倍智测聘网络科技股份有限公司 高级前端工程师
-    2017.05-至今 在线测评开放平台
-        开放平台是由现有测评系统提供接口，通过cms和node服务实现商品上架管理、订单支付、报告模板管理、批量开通等开放能力。在该项目中，我主导使用koa2+babel的node服务，进行前后端分离实现，使用phantomjs生成报告pdf，以及引入mocha做单元测试。
-    2017.03-2017.05 黑ME系列微信互动H5
-        黑ME是微信环境下的好友互动SPA集合，功能包括相互吐槽、打赏支付、匿名评论、小测评等，数万用户同时在线。该项目中，我主导对vue和vuex的落地实践。
-    2016.12-2017.03 倍智新官网
-        倍智新官网是对旧版官网进行全站重构。该项目中，我主导该项目node服务搭建，采用pm2进行远程发布，使用webpack进行模块打包。
-    2016.09-2016.12 智汇蜜文档分享平台
-        智汇蜜是一个类似百度文库的人力资源垂直行业文档分享平台，主要功能包括文档在线预览、支付购买、上传下载等。该项目中，我首次主导前后端分离实现，使用koa为基础的node服务，使用stylus预处理，使用webpack进行模块打包。
-    2016.07-2016.09 评鉴通企业端移动版
-        评鉴通企业版是一个企业员工的付费测评平台，该项目旨在重构其移动版。我负责个人中心、报告查看、登录注册模块的node端业务开发，使用react构建用户界面，并维护npm库c-ui至今。
- 
-2011-2016 39健康网（广州启生信息技术有限公司） 高级前端工程师
-    2014-2016 核心产品线：就医助手、疾病百科、药品通
-        产品线三大项目涉及医院医生、预约挂号、疾病症状、药品等各个业务板块。我主导就医助手、疾病百科的前端工作，参与药品通的重构工作。引入gulp进行自动化构建，启用seajs实现脚本模块化，重构了医生排班、预约流程等核心功能，获得2015年度优秀员工。
-    2014-2016 团队建设：新人指导、流程规范、技能分享
-        在此期间负责实习生实习期间、新同事试用期间的指导工作，主导团队工作流程和代码规范，其中包括使用git管理代码，启用node服务，引入less预处理等。
-    2013-2015 资讯产品线：39健康网首页、各大频道、年度活动
-        产品线以内部cms为基础，承载网站超过八成的流量，包含各方面健康咨询内容。我主导首页、各频道首页和内容的模板化，参与年度活动前端工作。采用mustache模板引擎语法，重构旧时代的移动端，引入flex布局和采用animate取代脚本动画。
-    2011-2013 客户产品线：医院官网、客户项目、活动专题
-        产品线标杆客户包含南方医院、广医三院、海尔、辉瑞制药等官网和品牌项目。我主导医院官网的前端工作，参与客户项目和活动专题前端工作。这是职业开端，大量的html+css页面制作和基于jquery/zepto的功能实现，为日后的技能提升打下扎实基础。
-
-技能小结
-1.  近两年前后端分离实践，使用kao2、webpack、git、pm2等一系列成型的方案；
-2.  使用git，结合pm2进行node服务的远程发布、推崇TDD开发模式，正使用mocha编写单元测试；
-3.  熟悉基于微信开发，了解小程序；对vue和react有落地实践经验，对mvc和mvvm框架有实践；
-4.  多年扎实的html+css+js页面制作经验，熟悉各浏览器兼容性；
-5.  业余开发chrome扩展插件，对大数据采集和大数据可视化有实践经验。
-
-1.近两年前后端分离实践，熟悉k框架，熟悉webpack模块打包及其dev-server，使用pug和stylus更高效地生产和维护html和css；
-2.使用git进行代码版本控制，结合pm2进行node服务的远程发布、推崇TDD开发模式，正使用mocha编写单元测试；
-3.熟悉基于微信开发，了解小程序；熟悉H5和SPA开发，对vue和react有落地实践经验，对mvc和mvvm框架有实践；
-4.多年扎实的html+css+js/jquery页面制作经验，熟悉各浏览器兼容性，擅长使用flex布局和css动画；熟悉gulp的使用；
-5.业余开发chrome扩展插件，对大数据采集和大数据可视化有实践经验。
-
-
-2007年入读广州中医药大学中药学方向专业，2008年自学PHP并入门前端，在学期间曾搭建多个资讯和电影站点，日流量峰值超过5万ip。
-2011年于入职39健康网，供职5年间可以分为前中后三部分。前部分大量的页面制作打下的扎实基础，中部分负责公司主要项目前端并重构多个核心业务块，后部分优化前端工作流程和着手模块打包、版本管理等。
-2016年入职倍智，供职1年半里对前后端分离进行实践和优化，目前使用kao2、webpack、git、pm2等一系列成型的方案在各个产品获得较好的效果。
-本人具有较好的自学能力，能快速融入团队，对新技术抱有开放态度并积极启用。
-
-
-基础html css js
 jquery/zepto
 
 stylus
@@ -95,16 +168,36 @@ pug
 
 git
 
-前后端分类
-node
-npm
-koa
-koa2
+### 前后端分离
+- 大分离：服务端拉数据并渲染
+  - 接口校验
+- 小分离：客户端拉数据并渲染
+  - token
+  - MVVM
 
+### node
+- 特点：异步I/O、非阻塞、事件、回调、单线程、跨平台
+  - 单线程
+    - 优点：不用处理状态同步、没有死锁、没有上下文切换开销
+    - 缺点：无法利用cpu多核、健壮性、不适合大量计算
+    - 解决：使用子进程、pm2模块实现负载均衡
+- 核心
+  - assert断言、console控制台
+  - Buffer缓冲器、stream流、querystring查询字符串、string_decode编码
+  - child_process子进程、cluster集群、process进程
+  - dns域名服务器、http、https、net网络、url网址
+  - Error异常、V8引擎
+  - events事件
+  - fs文件、module模块、os系统、path路径、Zlib压缩
+  - global全局、timer计算器、util工具
+### npm
+  - 淘宝镜像
+- yarn
+### koa
+### 
 seajs
 gulp
 webpack
-babel
 
 spa
 vue
@@ -113,14 +206,12 @@ react
 mocha
 tdd
 
-模块化，缓存
 apply
-http/2
 
 
 
->>
-header 域
-X-Forwarded-Host
-stderr
-KeyGrip。
+
+### 前端优化
+
+合并请求、域名拆分、开启Gzip、开启keepalive、Minify
+

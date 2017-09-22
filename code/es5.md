@@ -1,14 +1,4 @@
 
-### Number
-
-```js
-
-num.toExponential(2);
-num.toFixed(2);
-num.toPrecision(2);
-
-```
-
 ### window
 
 ```js
@@ -385,70 +375,12 @@ bind
 caller返回调用指定函数的函数，arguments.callee属性包含当前正在执行的函数。
 
 
-postMessage
 
 
 ## 内存管理
 
 对象创建时，分配内存直到不再使用时自动释放（垃圾回收）。但不再使用是无法准确判定的，
 
-
-
-## 严格模式 'use strict'
-
-
-
-
-
-
-
-## 全局属性
-
-- Infinity
-- NaN
-- undefined
-- null
-
-## 全局方法
-
-- eval()
-- isFinite()
-- isNaN()
-- parseFloat()
-- parseInt()
-- decodeURI()
-- decodeURIComponent()
-- encodeURI()
-- encodeURIComponent()
-
-## 数字和日期
-
-- Number
-- Math
-- Date
-
-### Number
-
-
-
-
-
-
-
-
-
-
-
-
-## Object
-
-```js
-Object.length;
-Object.prototype;
-Object.assign(target, ...sources);
-Object.freeze(obj);
-Object.prototype.hasOwnProperty(prop);
-```
 
 
 
@@ -461,139 +393,6 @@ Object.prototype.__proto__ 对象创建时都有内置属性__proto__用于指�
 
 
 闭包（Closure）是词法闭包（Lexical Closure）的简称，是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。
-
-
-
-
-
-
-
-
-
-## 词法
-
-### 字符集
-
-`unicode转义序列` 前缀加4个十六进制数（unicode内码），可用于字符串直接量、正则直接量、标识符。任何信息最终都会转化为 `二进制编码` ，unicode 是首选的编码方式
-
-```js
-'é';       // "é"
-'\u00e9';  // "é"
-'e\u0301'; // "é"
-
-'é' === '\u00e9';       // true
-'é' === 'e\u0301';      // false
-'\u00e9' === 'e\u0301'; // false
-```
-
-### 注释
-
-### 直接量
-
-### 标识符 保留字
-
-## 数据
-
-### 数据类型
-
-`原始类型 primitive type` 即 undefined、null、boolean、number 和 string， `引用类型 reference type` 原始类型以为的数据
-
-通过 `typeof` 运算共有六种返回值
-
-```js
-typeof undefined; // undefined
-typeof null; // undefined
-typeof true; // boolean
-typeof 1; // number
-typeof Infinity; // number
-typeof Number.MIN_VALUE; // number
-typeof NaN; // number
-typeof ''; // string
-typeof []; // object
-typeof {}; // object
-```
-
-`内置对象`
-
-
-
-
-
-### number
-
-不区分整数和浮点数，所有数字均用浮点数表示。采用 `IEEE 745` 标准定义 `64位浮点数` 表示数字，但实际操作是基于 `32位整数` ，例如数组索引。`IEEE 745` 是一种二进制表示法，可以精确表示分数1/2、1/1024，但无法精确表示0.1这样的简单数字。
-
-`十六进制` 以 `0x` 或 `0X` 为前缀， `八进制` 以 `0` 为前缀。
-
-`指数计数法` 在实数后跟字母 `e` 或 `E` ，再跟一个正负整型的指数。
-
-
-
-```js
-typeof Number;       // "function"
-typeof Number();     // "number"
-typeof new Number(); // "object"
-
-Number();        // 0
-Number('1');     // 1
-Number('a');     // NaN
-new Number();    // Number {[[PrimitiveValue]]: 0}
-new Number('1'); // Number {[[PrimitiveValue]]: 1}
-new Number('a'); // Number {[[PrimitiveValue]]: NaN}
-
-Number.EPSILON;
-Number.MAX_SAFE_INTEGER;
-Number.MIN_SAFE_INTEGER;
-Number.MIN_VALUE;
-Number.MAX_VALUE;
-Number.NaN;
-Number.POSITIVE_INFINITY;
-Number.NEGATIVE_INFINITY;
-
-
-Math
-```
-
-算术运算在溢出（overflow）、下溢（underflow）、被零整除时不会报错。
-
-```js
-Number.MAX_VALUE + Number.MAX_VALUE; // Infinity 溢出
-Number.MAX_VALUE + 1;                // 1.7976931348623157e+308 没有溢出因为数值已经失真
-Number.MIN_VALUE * .5;               // 0 下溢
-1/0;                                 // Infinity
-0/0;                                 // NaN
-Infinity/Infinity;                   // NaN
-```
-
-
-
-
-```js
-NaN === NaN
-false
-Infinity === Infinity
-true
-isNaN(1)
-false
-isNaN(NaN)
-true
-isFinite(Infinity)
-false
-isFinite(1)
-true
-0===-0
-true
--Infinity===Infinity
-false
-```
-
-
-### date
-
-
-### 严格模式
-
-- 禁止使用八进制直接量
 
 
 
