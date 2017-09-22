@@ -4,7 +4,9 @@
   "description": "",
   "main": "webpack.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "babel": "babel app.js",
+    "babel-node": "set BABEL_CACHE_PATH=my-cache.json&& babel-node app.js"
   },
   "repository": {
     "type": "git",

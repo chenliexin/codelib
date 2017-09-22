@@ -1,0 +1,82 @@
+{
+  "{\"filename\":\"C:/liexin.chen/bak/codelib/app.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"C:/liexin.chen/bak/codelib\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "C:/liexin.chen/bak/codelib/app.js",
+      "filenameRelative": "C:/liexin.chen/bak/codelib/app.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "app.js",
+      "sourceFileName": "app.js",
+      "sourceRoot": "C:/liexin.chen/bak/codelib",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "C:/liexin.chen/bak/codelib",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "app"
+    },
+    "ignored": false,
+    "code": "const Koa = require('koa');\nconst koaStatic = require('koa-static');\nconst app = new Koa();\n\napp.name = 'codelib';\napp.env = 'dev';\n\n// x-response-time\n\napp.use(async (ctx, next) => {\n  const start = Date.now();\n  console.log(1);\n  await next();\n  const ms = Date.now() - start;\n  ctx.set('X-Response-Time', `${ms}ms`);\n  console.log(ctx.body);\n});\n\napp.use(koaStatic('img'));\n\n// logger\n\napp.use(async (ctx, next) => {\n  const start = Date.now();\n  console.log(3);\n  await next();\n  const ms = Date.now() - start;\n  console.log(`${ctx.method} ${ctx.url} - ${ms}`);\n  console.log(4);\n  return ctx.body = 'Hello World11';\n});\n\n// response\n\napp.use(async ctx => {\n  console.log(5);\n  ctx.body = 'Hello World';\n  // ctx.state = 200;\n  // ctx.res.end()\n  console.log(6);\n});\n\napp.listen(3000);\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6WyJLb2EiLCJyZXF1aXJlIiwia29hU3RhdGljIiwiYXBwIiwibmFtZSIsImVudiIsInVzZSIsImN0eCIsIm5leHQiLCJzdGFydCIsIkRhdGUiLCJub3ciLCJjb25zb2xlIiwibG9nIiwibXMiLCJzZXQiLCJib2R5IiwibWV0aG9kIiwidXJsIiwibGlzdGVuIl0sIm1hcHBpbmdzIjoiQUFBQSxNQUFNQSxNQUFNQyxRQUFRLEtBQVIsQ0FBWjtBQUNBLE1BQU1DLFlBQVlELFFBQVEsWUFBUixDQUFsQjtBQUNBLE1BQU1FLE1BQU0sSUFBSUgsR0FBSixFQUFaOztBQUVBRyxJQUFJQyxJQUFKLEdBQVcsU0FBWDtBQUNBRCxJQUFJRSxHQUFKLEdBQVUsS0FBVjs7QUFFQTs7QUFFQUYsSUFBSUcsR0FBSixDQUFRLE9BQU9DLEdBQVAsRUFBWUMsSUFBWixLQUFxQjtBQUMzQixRQUFNQyxRQUFRQyxLQUFLQyxHQUFMLEVBQWQ7QUFDQUMsVUFBUUMsR0FBUixDQUFZLENBQVo7QUFDQSxRQUFNTCxNQUFOO0FBQ0EsUUFBTU0sS0FBS0osS0FBS0MsR0FBTCxLQUFhRixLQUF4QjtBQUNBRixNQUFJUSxHQUFKLENBQVEsaUJBQVIsRUFBNEIsR0FBRUQsRUFBRyxJQUFqQztBQUNBRixVQUFRQyxHQUFSLENBQVlOLElBQUlTLElBQWhCO0FBQ0QsQ0FQRDs7QUFTQWIsSUFBSUcsR0FBSixDQUFRSixVQUFVLEtBQVYsQ0FBUjs7QUFFQTs7QUFFQUMsSUFBSUcsR0FBSixDQUFRLE9BQU9DLEdBQVAsRUFBWUMsSUFBWixLQUFxQjtBQUMzQixRQUFNQyxRQUFRQyxLQUFLQyxHQUFMLEVBQWQ7QUFDQUMsVUFBUUMsR0FBUixDQUFZLENBQVo7QUFDQSxRQUFNTCxNQUFOO0FBQ0EsUUFBTU0sS0FBS0osS0FBS0MsR0FBTCxLQUFhRixLQUF4QjtBQUNBRyxVQUFRQyxHQUFSLENBQWEsR0FBRU4sSUFBSVUsTUFBTyxJQUFHVixJQUFJVyxHQUFJLE1BQUtKLEVBQUcsRUFBN0M7QUFDQUYsVUFBUUMsR0FBUixDQUFZLENBQVo7QUFDQSxTQUFPTixJQUFJUyxJQUFKLEdBQVcsZUFBbEI7QUFDRCxDQVJEOztBQVVBOztBQUVBYixJQUFJRyxHQUFKLENBQVEsTUFBTUMsR0FBTixJQUFhO0FBQ25CSyxVQUFRQyxHQUFSLENBQVksQ0FBWjtBQUNBTixNQUFJUyxJQUFKLEdBQVcsYUFBWDtBQUNBO0FBQ0E7QUFDQUosVUFBUUMsR0FBUixDQUFZLENBQVo7QUFFRCxDQVBEOztBQVNBVixJQUFJZ0IsTUFBSixDQUFXLElBQVgiLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IkM6L2xpZXhpbi5jaGVuL2Jhay9jb2RlbGliIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgS29hID0gcmVxdWlyZSgna29hJyk7XHJcbmNvbnN0IGtvYVN0YXRpYyA9IHJlcXVpcmUoJ2tvYS1zdGF0aWMnKTtcclxuY29uc3QgYXBwID0gbmV3IEtvYSgpO1xyXG5cclxuYXBwLm5hbWUgPSAnY29kZWxpYic7XHJcbmFwcC5lbnYgPSAnZGV2JztcclxuXHJcbi8vIHgtcmVzcG9uc2UtdGltZVxyXG5cclxuYXBwLnVzZShhc3luYyAoY3R4LCBuZXh0KSA9PiB7XHJcbiAgY29uc3Qgc3RhcnQgPSBEYXRlLm5vdygpO1xyXG4gIGNvbnNvbGUubG9nKDEpO1xyXG4gIGF3YWl0IG5leHQoKTtcclxuICBjb25zdCBtcyA9IERhdGUubm93KCkgLSBzdGFydDtcclxuICBjdHguc2V0KCdYLVJlc3BvbnNlLVRpbWUnLCBgJHttc31tc2ApO1xyXG4gIGNvbnNvbGUubG9nKGN0eC5ib2R5KTtcclxufSk7XHJcblxyXG5hcHAudXNlKGtvYVN0YXRpYygnaW1nJykpO1xyXG5cclxuLy8gbG9nZ2VyXHJcblxyXG5hcHAudXNlKGFzeW5jIChjdHgsIG5leHQpID0+IHtcclxuICBjb25zdCBzdGFydCA9IERhdGUubm93KCk7XHJcbiAgY29uc29sZS5sb2coMyk7XHJcbiAgYXdhaXQgbmV4dCgpO1xyXG4gIGNvbnN0IG1zID0gRGF0ZS5ub3coKSAtIHN0YXJ0O1xyXG4gIGNvbnNvbGUubG9nKGAke2N0eC5tZXRob2R9ICR7Y3R4LnVybH0gLSAke21zfWApO1xyXG4gIGNvbnNvbGUubG9nKDQpO1xyXG4gIHJldHVybiBjdHguYm9keSA9ICdIZWxsbyBXb3JsZDExJztcclxufSk7XHJcblxyXG4vLyByZXNwb25zZVxyXG5cclxuYXBwLnVzZShhc3luYyBjdHggPT4ge1xyXG4gIGNvbnNvbGUubG9nKDUpO1xyXG4gIGN0eC5ib2R5ID0gJ0hlbGxvIFdvcmxkJztcclxuICAvLyBjdHguc3RhdGUgPSAyMDA7XHJcbiAgLy8gY3R4LnJlcy5lbmQoKVxyXG4gIGNvbnNvbGUubG9nKDYpO1xyXG5cclxufSk7XHJcblxyXG5hcHAubGlzdGVuKDMwMDApO1xyXG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "app.js"
+      ],
+      "names": [
+        "Koa",
+        "require",
+        "koaStatic",
+        "app",
+        "name",
+        "env",
+        "use",
+        "ctx",
+        "next",
+        "start",
+        "Date",
+        "now",
+        "console",
+        "log",
+        "ms",
+        "set",
+        "body",
+        "method",
+        "url",
+        "listen"
+      ],
+      "mappings": "AAAA,MAAMA,MAAMC,QAAQ,KAAR,CAAZ;AACA,MAAMC,YAAYD,QAAQ,YAAR,CAAlB;AACA,MAAME,MAAM,IAAIH,GAAJ,EAAZ;;AAEAG,IAAIC,IAAJ,GAAW,SAAX;AACAD,IAAIE,GAAJ,GAAU,KAAV;;AAEA;;AAEAF,IAAIG,GAAJ,CAAQ,OAAOC,GAAP,EAAYC,IAAZ,KAAqB;AAC3B,QAAMC,QAAQC,KAAKC,GAAL,EAAd;AACAC,UAAQC,GAAR,CAAY,CAAZ;AACA,QAAML,MAAN;AACA,QAAMM,KAAKJ,KAAKC,GAAL,KAAaF,KAAxB;AACAF,MAAIQ,GAAJ,CAAQ,iBAAR,EAA4B,GAAED,EAAG,IAAjC;AACAF,UAAQC,GAAR,CAAYN,IAAIS,IAAhB;AACD,CAPD;;AASAb,IAAIG,GAAJ,CAAQJ,UAAU,KAAV,CAAR;;AAEA;;AAEAC,IAAIG,GAAJ,CAAQ,OAAOC,GAAP,EAAYC,IAAZ,KAAqB;AAC3B,QAAMC,QAAQC,KAAKC,GAAL,EAAd;AACAC,UAAQC,GAAR,CAAY,CAAZ;AACA,QAAML,MAAN;AACA,QAAMM,KAAKJ,KAAKC,GAAL,KAAaF,KAAxB;AACAG,UAAQC,GAAR,CAAa,GAAEN,IAAIU,MAAO,IAAGV,IAAIW,GAAI,MAAKJ,EAAG,EAA7C;AACAF,UAAQC,GAAR,CAAY,CAAZ;AACA,SAAON,IAAIS,IAAJ,GAAW,eAAlB;AACD,CARD;;AAUA;;AAEAb,IAAIG,GAAJ,CAAQ,MAAMC,GAAN,IAAa;AACnBK,UAAQC,GAAR,CAAY,CAAZ;AACAN,MAAIS,IAAJ,GAAW,aAAX;AACA;AACA;AACAJ,UAAQC,GAAR,CAAY,CAAZ;AAED,CAPD;;AASAV,IAAIgB,MAAJ,CAAW,IAAX",
+      "file": "app.js",
+      "sourceRoot": "C:/liexin.chen/bak/codelib",
+      "sourcesContent": [
+        "const Koa = require('koa');\r\nconst koaStatic = require('koa-static');\r\nconst app = new Koa();\r\n\r\napp.name = 'codelib';\r\napp.env = 'dev';\r\n\r\n// x-response-time\r\n\r\napp.use(async (ctx, next) => {\r\n  const start = Date.now();\r\n  console.log(1);\r\n  await next();\r\n  const ms = Date.now() - start;\r\n  ctx.set('X-Response-Time', `${ms}ms`);\r\n  console.log(ctx.body);\r\n});\r\n\r\napp.use(koaStatic('img'));\r\n\r\n// logger\r\n\r\napp.use(async (ctx, next) => {\r\n  const start = Date.now();\r\n  console.log(3);\r\n  await next();\r\n  const ms = Date.now() - start;\r\n  console.log(`${ctx.method} ${ctx.url} - ${ms}`);\r\n  console.log(4);\r\n  return ctx.body = 'Hello World11';\r\n});\r\n\r\n// response\r\n\r\napp.use(async ctx => {\r\n  console.log(5);\r\n  ctx.body = 'Hello World';\r\n  // ctx.state = 200;\r\n  // ctx.res.end()\r\n  console.log(6);\r\n\r\n});\r\n\r\napp.listen(3000);\r\n"
+      ]
+    },
+    "mtime": 1505121467375
+  }
+}

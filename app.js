@@ -2,6 +2,10 @@ const Koa = require('koa');
 const koaStatic = require('koa-static');
 const app = new Koa();
 
+const babel = require('babel-core');
+
+console.log(babel.transform('1'));
+
 app.name = 'codelib';
 app.env = 'dev';
 
