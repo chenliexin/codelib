@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "babel": "babel app.js",
     "babel-node": "set BABEL_CACHE_PATH=my-cache.json&& babel-node app.js"
   },
@@ -17,6 +17,7 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "koa": "^2.3.0",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "nodemon": "^1.12.1"
   }
 }
