@@ -11,3 +11,8 @@ app.use(async ctx => {
 console.log('localhost:3388');
 
 app.listen(3388);
+
+
+const d3 = require('d3-array');
+
+console.log(d3.min([5, 2, 3, 4]));

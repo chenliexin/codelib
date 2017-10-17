@@ -33,14 +33,18 @@
   - 禁止八进制
   - 不允许对arguments赋值
 - script标签中，defer属性使得浏览器延迟脚本的执行直到文档载入和解析完成，async属性使得浏览器可以尽快执行脚本而不阻塞文档解析。async属性优先于defer属性
-- 时间线
-  - 创建Document对象，解析HTML并添加ELement对象和Text节点，document.readystate = 'loading'
-  - 解析HTML过程中，遇到script（非async、非defer）时下载执行并暂停解析器
-  - 解析HTML过程中，遇到script（async）时下载但不暂停解析器，并在下载完成后尽快执行
-  - 解析HTML完成，document.readystate = 'interactive'
-  - script（defer）在此时按出现顺序执行（仍可能有异步脚本未执行）
-  - 同步脚本执行完毕，Document对象触发DOMContentLoaded事件（仍可能有异步脚本未执行）
-  - 异步事件执行完毕（可能还有其他如图片未完全载入），document.readystate = 'complete'，并Window对象触发load事件
+defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）
+差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的
+加载文件时不阻塞页面渲染
+对于inline的script无效
+使用这两个属性的脚本中不能调用document.write方法
+有脚本的onload的事件回调
+
+defer/async
+  涉及的是下载和执行两个环节，下载都是异步下载，执行一个是延迟执行，一个是异步执行
+  异步下载可以使其不阻塞html的解析，但是为了保证其下载，将其置于比较考前的位置以防止其他资源阻塞是更为合适的
+  关于执行，如果脚本间无依赖关系
+  如果脚本有依赖关系
 
 ### babel
 - 编译器：解析、转换、生成
@@ -227,3 +231,20 @@ apply
   - 复杂工厂模式：
 - 外观模式
   - 外观模式就是一个函数，封装了复杂的操作。
+
+### 语义化版本号
+- `主版本号.次版本号.修订号`
+  - 主版本号：api不向下兼容的修改
+  - 次版本号：api保持向下兼容的新增及修改
+  - 修订号：修复问题但不影响api
+- http://semver.org/
+
+
+### web storage
+
+cookie 特点 优劣势
+
+同源窗口通信，eg：购物车、站内信等
+表单预填和暂存
+
+大数据用来预测或者说是演算是不可靠的
