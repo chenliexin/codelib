@@ -252,24 +252,6 @@ script标签中，defer属性使得浏览器延迟脚本的执行直到文档载
 
 对象的constructor属性 === 该对象的构造函数
 
-```js
-var Constructor = [
-    Number,
-    Boolean,
-    String,
-    Object,
-    Function,
-    Array,
-    Date,
-    RegExp,
-    Error,
-    Math, // 对象形式存在的，无需new
-    JSON, // 对象形式存在的，无需new
-    Global, // 不能直接访问
-    Arguments // 仅在函数调用时由JS引擎创建
-];
-```
-
 仅在创建对象实例（实例化对象）的时候（可用new关键字或者字面量），才把对象（其实就是函数）称为构造函数或构造器。被创建的实例（其实就是对象，嗯，这里可以解释js里面全是对象）都有constructor属性，该属性指向实例化（说成构造更合适）该对象的构造函数或构造器。
 
 那么，对象的constructor属性就是一个函数，函数都有prototype属性（不是函数就没有），这样说的话我们是可以用constructor.prototype来遍历出一条原型链直到改值为null。但是实际上这种方法只能获取到上一级原型，并陷入死循环，原因是拼接后会出现prototype.constructor（一个函数的prototype属性的构造器，就是函数本身）。所以这种拼接方式会存在问题，解决问题的关键在于既要保存constructor.prototype，又要在构成链的时候不出现prototype.constructor。
