@@ -87,6 +87,8 @@
 
 ### MVC MVP MVVM
 
+```
+
 按照模式出现的时间，先是 MVC 。 Model 模型负责提供数据、 View 视图负责界面显示、 Controller 控制器负责逻辑处理。
 
 典型的 MVC 流程：用户通过 View 或 直接向 Controller 发出指令， Controller 完成业务逻辑后，要求 Model 改变状态， Model 将新的数据发送到 View ，用户得到响应。 
@@ -99,6 +101,7 @@ MVVM 与 MVP 基本上相同，而不同之处在于 ViewModel 视图模型和 V
 
 技术选项的关键在于业务，单纯展示性的 web 应用可以采用 MVC 模式的 nodejs 服务；强视图交互的 web 应用可以采用 MVP 模式来统一管理逻辑；强数据交互的 web 应用则可以采用 MVVM 模式来减少渲染逻辑。
 
+```
 ### TODO
 ---
 - cookis
