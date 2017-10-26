@@ -12,7 +12,11 @@
 # 未整理
 
 
+仅加载对初始视图有用的内容，并使用空闲时间来加载其他内容。
+
+减少阻塞渲染的 JavaScript，例如 code splitting、tree shaking，缓存等
+
+拆分并优先加载首次渲染所需要的CSS（关键CSS)，然后再加载其它 CSS
 
 
-
-
+使用 Chrome 的 Lighthouse 扩展插件进行测试
