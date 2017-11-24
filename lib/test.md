@@ -60,6 +60,8 @@ fiddler4
     cmd: ipconfig
     wifi: proxy pc-ip:host
 
+
+### 使用 weinre 调试移动端
 weinre
     nodejs: npm -g install weinre
     cmd: ipconfig
@@ -69,13 +71,8 @@ weinre
     fiddler4: replace respond
 
 
-
-
-172.16.2.134
-
-http://172.16.2.134:8080/target/target-script-min.js#anonymous
-
-<script src="http://192.168.1.145:8080/target/target-script-min.js#anonymous"></script>
+实现模式是到着陆网站看广告去
+需求是真实稳定的流量。可以是低质量的。
 
 
 

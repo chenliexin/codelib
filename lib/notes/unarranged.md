@@ -20,3 +20,25 @@
 
 
 使用 Chrome 的 Lighthouse 扩展插件进行测试
+https://www.tuicool.com/articles/QbIZVnM
+
+### 通用模式
+
+看官方文档
+看源码
+debug能力（dubug对应开发状态，日志对应生产状态）
+重构
+先profiler再优化
+命名优于注释
+尽量利用语言特性
+不写过长的代码（40行）和过长的函数（7行）
+直接站在巨头的头上啊，不用动不动就自己写架构，用现成的啊
+码字速度
+
+
+### map
+
+缩略图可用
+坐标转换
+// map.centerAndZoom('佛山', 16);
+87534e12
