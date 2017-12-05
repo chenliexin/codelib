@@ -5,6 +5,30 @@ https://www.mongodb.com/download-center#community
 
 http://www.cnblogs.com/huangxincheng/archive/2012/02/18/2356595.html
 
+### 查询操作符
+
+1、 >, >=, <, <=, !=, =。 ===》 "$gt", "$gte", "$lt", "$lte", "$ne", "没有特殊关键字"
+2、And，OR，In，NotIn ===》 "无关键字“, "$or"用数组, "$in"，"$nin" 
+3、正则
+4、大招 $where:function(){return this.index}
+
+update修饰符
+$inc也就是increase
+$set修改器
+
+常见的聚合操作跟sql server一样，有：count，distinct，group，mapReduce。
+
+排序、分页
+索引
+
+http://blog.csdn.net/jiayp004/article/details/47127139
+
+
+### 管理工具
+
+- RoboMongo https://robomongo.org/ 跨平台应用
+- RockMongo http://rockmongo.com/ php网页版
+
 
 ./mongod.exe --dbpath 'd:\mongo\db'
 
