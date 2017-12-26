@@ -1,5 +1,20 @@
 
 
+# api
+
+```js
+
+// global config
+Vue.config
+
+
+// raw data
+console.log(JSON.parse(JSON.stringify(this.$data)));
+
+```
+
+
+
 Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。
 属性名字和方法名字会冲突
 svg
@@ -114,3 +129,13 @@ render函数
 key 避免复用
 props down, events up
 如果你想要用一个对象作为 props 传递所有的属性，你可以使用不带任何参数的 v-bind (即用 v-bind 替换掉 v-bind:prop-name)
+
+
+# api
+
+```js
+
+
+Vue.config
+
+```
