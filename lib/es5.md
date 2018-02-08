@@ -1,4 +1,17 @@
 
+
+# ECMA
+
+- European Computer Manufactures Association 欧洲计算机制造联合会
+- 研究信息和通讯技术方面的标准并发布有关技术报告
+- 非盈利，非官方，由主流厂商组成
+- 现名称已不属于首字母缩略字，Ecma国际（Ecma International）
+
+# ECMA-262
+
+- 标准化的脚本程序设计语言，ECMAScript
+- JavaScript（网景）和 JScript（微软）是ECMA-262标准的实现和扩展- ECMA的第39号技术专家委员会（Technical Committee 39，简称TC39）负责制订ECMAScript标准
+
 ### window
 
 ```js
