@@ -1,5 +1,4 @@
 
-
 # ECMA
 
 - European Computer Manufactures Association 欧洲计算机制造联合会
@@ -10,7 +9,23 @@
 # ECMA-262
 
 - 标准化的脚本程序设计语言，ECMAScript
-- JavaScript（网景）和 JScript（微软）是ECMA-262标准的实现和扩展- ECMA的第39号技术专家委员会（Technical Committee 39，简称TC39）负责制订ECMAScript标准
+- JavaScript（网景Netscape，Navigator）和 JScript（微软，IE）是ECMA-262标准的实现和扩展
+- TC39（Technical Committee 39），ECMA的第39号技术专家委员会，负责制订ECMAScript标准
+  - ES1 1997
+  - ES2 1998
+  - ES3 1999
+  - ES4 未完成，2004年ECMA-357，是ECMAScript的一个扩延，它也被称为E4X（ECMAScript for XML）
+  - ES5 2009
+  - ES2015/ES6 ...
+
+# 标准的ECMAScript实现
+
+- 必须提供并支持本规范描述的所有类型、值、对象、属性、函数、程序语法和语义
+- 应当能解释Unicode3.0或以上，以 UCS-2 或 UTF-16 作为编码格式的 ISO/IEC 10646-1 第3级实现里的字符。如果没有额外指明采用的 ISO/IEC 10646-1 子集，则假定组号为300的 BMP 子集。如果没有额外指明采用的编码格式，则假定编码格式为 UTF-16
+  - Unicode（统一码）是一项包括字符集、编码方案等的业界标准，为每种语言中的每个字符设定了统一并且唯一的二进制编码，跨语言、跨平台
+  - UTF（Unicode Transformation FormatUnicode转换格式
+  - 通用字符集（Universal Character Set，UCS），
+- 允许提供超出本规范描述的额外类型、值、对象、属性、函数、程序语法和正则表达式语法
 
 ### window
 
