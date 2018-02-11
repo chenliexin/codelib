@@ -11,7 +11,11 @@ git log
     --oneline 一行简要信息
     --graph   图形表示
 
-
+- [git](#git)
+- [gitlib](#gitlib)
+Git reset --hard commit_id(可用 git log –oneline 查看)
+2. git远程版本回退
+git push origin HEAD --force #远程提交回退
 
 
 # git
