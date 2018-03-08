@@ -92,33 +92,6 @@ postcss
 直接样式（用于不可解析的情况）
   `@css{}`
 
-# postcss
-
-PostCSS自身只包括css分析器，css节点树API，source map生成器以及css节点树拼接器。
-
-
-
-## css
-
-```css
-{
-    tab-size: 20px;
-    table-layout: fixed; /* auto,fixed */
-    text-shadow: 2px 2px 4px #fff;
-}
-```
-
-
-## 竖直居中
-
-### ie8+ 外宽高度固定
-
-```xml
-<div style="height: 400px; line-height: 400px;">
-    <p style="display: inline-block; vertical-align: middle; line-height: 1.5;">content</p>
-</div>
-```
-
 
 # BEM命名规范
 
