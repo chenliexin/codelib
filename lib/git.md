@@ -1,9 +1,13 @@
 
-补丁
 
-回滚，版本重置
 
-工作流
+
+## 远程分支回滚
+本地分支会滚到指定版本
+git reset --hard <commit ID号>
+推送到远程分支
+git push -f origin master
+
 
 
 git log
