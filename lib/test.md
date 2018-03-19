@@ -69,7 +69,7 @@ weinre
     pc: <pc-ip>:8080
     wifi: proxy pc-ip:host
     fiddler4: replace respond
-
+weinre --boundHost 172.18.151.104 --httpPort 3008
 
 实现模式是到着陆网站看广告去
 需求是真实稳定的流量。可以是低质量的。

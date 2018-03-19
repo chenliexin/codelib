@@ -1,37 +1,17 @@
 
 # Node.js
 
-Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 
-Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。 
-Node.js 的包管理器 npm，是全球最大的开源库生态系统
+- chrome v8
+- 事件驱动
+- 非阻塞
+
+## assert
+
+- 断言，`断言库`
+- 可枚举的自身属性
 
 
 
-## 断言 assert `8.2.1`
-
-- assert(value[, message]), assert.ok(value[, message])
-- assert.ifError(value)
-
-- assert.equal(actual, expected[, message])
-- assert.notEqual(actual, expected[, message])
-- assert.strictEqual(actual, expected[, message])
-- assert.notStrictEqual(actual, expected[, message])
-- assert.deepEqual(actual, expected[, message])
-  可枚举的自身属性
-- assert.deepStrictEqual(actual, expected[, message])
-  原型、不可枚举的属性
-
-- assert.fail(message)
-- assert.fail(actual, expected, message, operator)
-
-- assert.throws(block[, error] [, message])
-  断言block函数抛出错误
-  error是构造函数、正则表达式、或自定义验证函数
-  若参数二为字符串，则省略error
-- assert.doesNotThrow(block[, error] [, message])
-  断言block函数不抛出错误
-
-## 异步钩 async_hooks `8.2.1` *s1*
 
 ## 缓冲 Buffer
 
