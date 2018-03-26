@@ -5,6 +5,17 @@
 - 事件驱动
 - 非阻塞
 
+## url
+
+- 两套 api ，`WHATWG` api `v7.0.0` 新增，通过 *const { URL } = require('url')* 引入
+- 通过 *new URL(input[, base])* 实例
+  - 若 input 是相对 URL ，则相对于 base 解析
+  - input 或 base 无效，则抛出 `TypeError`
+  - host 中的 unicode 字符将被 `Punycode` 算法转为 ASCII
+- URL 实例的属性都在原型上实现为 setter 和 getter ，使用 `delete` 无效但仍返回 true
+- URL 实例的属性设置新值时，无效值将被忽略
+- URL 实例的 port 属性设置新值时，有类似 parseInt 的机制，范围 0-65535
+
 ## assert
 
 - 断言，`断言库`
