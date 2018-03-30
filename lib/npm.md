@@ -1,4 +1,10 @@
 
+
+
+npx
+
+
+
 # npm@3.10.8
 
 $ npm -l           # display full usage info
