@@ -1,242 +1,27 @@
 
-# Node.js
-
-- chrome v8
-- 事件驱动
-- 非阻塞
-
-## url
-
-- 两套 api ，`WHATWG` api `v7.0.0` 新增，通过 *const { URL } = require('url')* 引入
-- 通过 *new URL(input[, base])* 实例
-  - 若 input 是相对 URL ，则相对于 base 解析
-  - input 或 base 无效，则抛出 `TypeError`
-  - host 中的 unicode 字符将被 `Punycode` 算法转为 ASCII
-- URL 实例的属性都在原型上实现为 setter 和 getter ，使用 `delete` 无效但仍返回 true
-- URL 实例的属性设置新值时，无效值将被忽略
-- URL 实例的 port 属性设置新值时，有类似 parseInt 的机制，范围 0-65535
-
-## assert
-
-- 断言，`断言库`
-- 可枚举的自身属性
 
 
 
 
-## 缓冲 Buffer
 
-> 大小在创建时确定且无法调整，在V8堆外分配物理内存
-> 各种 new Buffer() 构造函数已被废弃
 
-Buffer.alloc(size[, fill[, encoding]])
-  buffer.constants.MAX_LENGTH
-  调用 Buffer.alloc() 会明显地比另一个方法 Buffer.allocUnsafe() 慢，但是能确保新建的 Buffer 实例的内容不会包含敏感数据。
-Buffer.allocUnsafe(size)
+# 版本管理
 
-Buffer.compare(buf1, buf2)
-Buffer.concat(list[, totalLength])
-Buffer.from(array)
-Buffer.from(arrayBuffer[, byteOffset[, length]])
-Buffer.from(buffer)
-Buffer.from(string[, encoding])
-Buffer.from(object[, offsetOrEncoding[, length]])
-
-Buffer.isBuffer(obj)
-Buffer.isEncoding(encoding)
-
-Buffer.poolSize
-buf[index]
-buf.length
-buf.buffer
-buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])
-buf.copy(target[, targetStart[, sourceStart[, sourceEnd]]])
-buf.entries()
-buf.equals(otherBuffer)
-buf.fill(value[, offset[, end]] [, encoding])
-buf.includes(value[, byteOffset] [, encoding])
-buf.indexOf(value[, byteOffset] [, encoding])
-buf.lastIndexOf(value[, byteOffset] [, encoding])
-buf.keys()
-buf.values()
-buf.slice([start[, end]])
-
-buf.toJSON()
-buf.toString([encoding[, start[, end]]])
-
-buf.readFloatBE(offset[, noAssert])
-buf.readFloatLE(offset[, noAssert])
-buf.readInt8(offset[, noAssert])
-buf.readInt16BE(offset[, noAssert])
-buf.readInt16LE(offset[, noAssert])
-buf.readInt32BE(offset[, noAssert])
-buf.readInt32LE(offset[, noAssert])
-buf.readIntBE(offset, byteLength[, noAssert])
-buf.readIntLE(offset, byteLength[, noAssert])
-buf.readUInt8(offset[, noAssert])
-buf.readUInt16BE(offset[, noAssert])
-buf.readUInt16LE(offset[, noAssert])
-buf.readUInt32BE(offset[, noAssert])
-buf.readUInt32LE(offset[, noAssert])
-buf.readUIntBE(offset, byteLength[, noAssert])
-buf.readUIntLE(offset, byteLength[, noAssert])
-buf.swap16()
-buf.swap32()
-buf.swap64()
-
-buf.write(string[, offset[, length]] [, encoding])
-buf.writeDoubleBE(value, offset[, noAssert])
-buf.writeDoubleLE(value, offset[, noAssert])
-buf.writeFloatBE(value, offset[, noAssert])
-buf.writeFloatLE(value, offset[, noAssert])
-buf.writeInt8(value, offset[, noAssert])
-buf.writeInt16BE(value, offset[, noAssert])
-buf.writeInt16LE(value, offset[, noAssert])
-buf.writeInt32BE(value, offset[, noAssert])
-buf.writeInt32LE(value, offset[, noAssert])
-buf.writeIntBE(value, offset, byteLength[, noAssert])
-buf.writeIntLE(value, offset, byteLength[, noAssert])
-buf.writeUInt8(value, offset[, noAssert])
-buf.writeUInt16BE(value, offset[, noAssert])
-buf.writeUInt16LE(value, offset[, noAssert])
-buf.writeUInt32BE(value, offset[, noAssert])
-buf.writeUInt32LE(value, offset[, noAssert])
-buf.writeUIntBE(value, offset, byteLength[, noAssert])
-buf.writeUIntLE(value, offset, byteLength[, noAssert])
-
-通过 require('buffer') 返回的 buffer 模块的属性
-  buffer.INSPECT_MAX_BYTES
-  buffer.kMaxLength
-  buffer.transcode(source, fromEnc, toEnc)
-  buffer.constants
-    buffer.constants.MAX_LENGTH
-    buffer.constants.MAX_STRING_LENGTH
-
-## 子进程 child_process
-
-- child_process.exec(command[, options] [, callback])
-  options{
-    cwd,
-    env,
-    encoding: 'utf8',
-    shell: 'cmd.exe', //win
-    timeout: 0,
-    maxBuffer: 200*1024,
-    killSignal: 'SIGTERN',
-    uid,
-    gid
-  }
-  callback(err, stdout, stderr)
-- child_process.execFile(file[, args] [, options] [, callback])
-- child_process.spawn(command[, args] [, options])
-- child_process.fork(modulePath[, args] [, options])
-- child_process.execSync(command[, options])
-  返回stdout
-- child_process.execFileSync(file[, args] [, options])
-- child_process.execSync(command[, options])
-
-## version management
-
-n
-nvm
+n, nvm
 nvm-windows
     https://github.com/coreybutler/nvm-windows
     nvm-setup.zip
-    cmd管理员模式第一次运行 nvm .
-nodist
+    管理员模式运行
+镜像
+    https://npm.taobao.org/mirrors/node/
+    https://npm.taobao.org/mirrors/npm/
 
 
 
 
-
-## babel
-
-babel-cli 命令行工具
-    babel 编译器
-    babel-node 运行器
-
-node api由babel-core提供
-polyfill由babel-polyfill提供
-
-
-
-.babelrc
-    plugins
-    presets
-
-
-# api latest-v4.x[4.4.7]
-https://github.com/coreybutler/nvm-windows
 
 http://node.green/
 
-## Global
-
-Buffer
-
-__dirname
-__filename
-
-setTimeout(callback, delay[, arg][, ...])
-setInterval(callback, delay[, arg][, ...])
-setImmediate(callback[, arg][, ...])
-
-clearTimeout(timeoutObject)
-clearInterval(intervalObject)
-clearImmediate(immediateObject)
-
-### console
-
-- .log()
-- .info()
-
-
-```js
-console.log('stdout');
-console.log('stdout %s', code);
-console.info('stdout');
-console.info('stdout %s', code);
-console.error('stderr');
-console.error('stderr %s', code);
-console.warn('stderr');
-console.warn('stderr %s', code);
-// no difference
-
-console.dir(obj, {
-    showHidden: false, // non-enumerable and symbol properties
-    depth: 2,          // recurse: default 2, null indefinitely
-    colors: false      // ANSI color: defaults false
-});
-// uses util.inspect()
-
-console.time('label');
-// do something
-console.timeEnd('label');
-// prints label: 20ms
-
-console.assert(true, 'stdout');
-// nothing prints
-console.assert(false, 'stderr');
-// difference from browser, a falsy assertion will cause an AssertionError to be thrown
-
-
-console.trace('stderr');
-// prints Trace: stderr at...
-
-```
-
-exports
-
-global
-
-module
-
-process
-
-require()
-    require.cache
-    require.resolve(arg)
-        返回模块带有完整路径的文件名
 
 
 
@@ -447,76 +232,8 @@ url.format(urlObj)  parse的逆向
     hash无论前面是否有# (井号, 锚点)，都会同样处理
 .Url
 
-### path
-
-```js
-__dirname
-
-path.basename(path[, ext])
-path.basename('/foo/bar/baz/asdf/quux.html')
-// returns 'quux.html'
-
-path.basename('/foo/bar/baz/asdf/quux.html', '.html')
-// returns 'quux'
-
-path.dirname(path)
-path.dirname('/foo/bar/baz/asdf/quux')
-// returns '/foo/bar/baz/asdf'
-
-path.extname(path)
-path.extname('index.html')
-// returns '.html'
-path.extname('index.')
-// returns '.'
-
-path.extname('index')
-// returns ''
-
-path.extname('.index')
-// returns '
-
-path.format(pathObject)
-path.format({
-    dir: '/',
-    root: '/',
-    name: 'file',
-    ext: '.txt'
-});
-// returns '/file.txt'
-
-path.isAbsolute(path)
-
-path.join([path1][, path2][, ...])
-path.join('/foo', 'bar', 'baz/asdf', 'quux', '..')
-// returns '/foo/bar/baz/asdf'
-
-path.parse(path)
-path.parse('/home/user/dir/file.txt')
-// returns
-// {
-//    root : "/",
-//    dir : "/home/user/dir",
-//    base : "file.txt",
-//    ext : ".txt",
-//    name : "file"
-// }
-
-path.relative(from, to)
-path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb')
-// returns '..\\..\\impl\\bbb'
-
-path.relative('/data/orandea/test/aaa', '/data/orandea/impl/bbb')
-// returns '../../impl/bbb'
-
-path.resolve([from ...], to)
-
-```
 
 
-cluster 生成与当前进程相同的子进程，并且允许父进程和子进程之间共享端口
-os
-
-child_process
 
 
 
@@ -574,31 +291,5 @@ webpack
 
 
 
-
-# egg.js
-
-插件机制，一个插件只做一件事
-约定优于配置
-
-
-# Assertion Testing
-
-Assert
-assert(value[, message])
-assert.deepEqual(actual, expected[, message])
-assert.deepStrictEqual(actual, expected[, message])
-assert.doesNotThrow(block[, error][, message])
-assert.equal(actual, expected[, message])
-assert.fail(message)
-assert.fail(actual, expected, message, operator)
-assert.ifError(value)
-assert.notDeepEqual(actual, expected[, message])
-assert.notDeepStrictEqual(actual, expected[, message])
-assert.notEqual(actual, expected[, message])
-assert.notStrictEqual(actual, expected[, message])
-assert.ok(value[, message])
-assert.strictEqual(actual, expected[, message])
-assert.throws(block[, error][, message])
-Caveats
 
 
