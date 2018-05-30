@@ -169,5 +169,9 @@ this / var / assign / window / global / jsonp
 
 ## configuration
 
-#### 
+# version 4
+
+### SplitChunksPlugin
+
+Since version 4 the `CommonsChunkPlugin` was removed in favor of `optimization.splitChunks` and `optimization.runtimeChunk` options.
 

@@ -1,26 +1,17 @@
+# Git
+
+merge commit
+
+遴选
+cherry-pick
 
 
+## rollback
 
-
-## 远程分支回滚
-本地分支会滚到指定版本
-git reset --hard <commit ID号>
-推送到远程分支
-git push -f origin master
-
-
-
-git log
-    --all     全部分支历史
-    --oneline 一行简要信息
-    --graph   图形表示
-
-- [git](#git)
-- [gitlib](#gitlib)
-Git reset --hard commit_id(可用 git log –oneline 查看)
-2. git远程版本回退
-git push origin HEAD --force #远程提交回退
-
+```sh
+$ git reset --hard <commitID>
+$ git push -f origin <branch>
+```
 
 # git
 
@@ -37,9 +28,7 @@ git reflog
 git reset -hard HEAD^
 git reset -hard HEAD^^^^^^
 git reset -hard 'index'
-
 ```
-
 
 reset
 $ git reset -hard HEAD^ //HEAD^^^ and so on
@@ -81,14 +70,8 @@ $ git pull
 
 git checkout -b dev origin/dev
 
+## TODO
 
-
-checkout
-branch
-fetch
-pull
-push
-
-
-
-# gitlib
+- 补丁
+- 标签
+- 工作流
