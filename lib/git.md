@@ -1,7 +1,11 @@
 # Git
 
-merge commit
+## TODO
 
+- 补丁
+- 标签
+- 工作流
+merge commit
 遴选
 cherry-pick
 
@@ -12,6 +16,12 @@ cherry-pick
 $ git reset --hard <commitID>
 $ git push -f origin <branch>
 ```
+
+## tag
+
+git tag -d <tagname>
+git push origin :refs/tags/<tagname>
+
 
 # git
 
@@ -70,8 +80,4 @@ $ git pull
 
 git checkout -b dev origin/dev
 
-## TODO
 
-- 补丁
-- 标签
-- 工作流
