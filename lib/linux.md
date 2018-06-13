@@ -1,11 +1,5 @@
 
-
-yum groupinstall "GNOME Desktop" -y
-
-startx
-
-
-
+tar -czvf test.tar.gz *
 
 ### vi
 
