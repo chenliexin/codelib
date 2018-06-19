@@ -18,3 +18,7 @@ Lottie 动画
 支持 JSX, Flow, Typescript 语法。
 （支持至少达到 stage-0 阶段的 PR）
 source map 和调试
+
+
+许可证license类型
+  MIT
