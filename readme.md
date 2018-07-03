@@ -22,3 +22,7 @@ source map 和调试
 
 许可证license类型
   MIT
+
+
+Redis
+  RDB持久化 数据快照
