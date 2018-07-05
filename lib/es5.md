@@ -27,43 +27,6 @@
   - 通用字符集（Universal Character Set，UCS），
 - 允许提供超出本规范描述的额外类型、值、对象、属性、函数、程序语法和正则表达式语法
 
-### window
-
-```js
-
-alert(tit);
-confirm(tit);
-prompt(tit, val);
-
-navigator;
-navigator.geolocation;
-navigator.platform;
-navigator.userAgent;
-
-history.back();
-history.forward();
-history.go();
-
-location;
-
-screen;
-screen.orientation;
-
-```
-
-### document.cookie
-
-```js
-document.cookie = 'name=value';
-document.cookie = 'name=value;domain=abc.com';
-document.cookie = 'name=value;path=/';
-document.cookie = 'name=value;expires=' + Date('2020-12-12');
-document.cookie = 'name=value;max-age=' + 3600;
-// httpOnly
-// secure
-// sameSite
-```
-
 ### RegExp
 
 ```js
