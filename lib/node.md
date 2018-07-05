@@ -3,8 +3,6 @@
 
 
 
-
-
 # 版本管理
 
 n, nvm
@@ -19,16 +17,10 @@ nvm-windows
 
 
 
-
+## 兼容性
 http://node.green/
 
 
-
-
-
-
-
-### setInterval(callback, delay[, arg][, ...])
 
 作为 Web 应用开发者，
 我们不需要知道实现的细节，更不想与这些细节纠缠从而降低开发效率
@@ -263,14 +255,9 @@ supervisour
 
 ### loadsh
 
-
-
 ### pm2
 
-
 steup 第一次发布的时候
-
-
 
 版本号格式化
     semver
