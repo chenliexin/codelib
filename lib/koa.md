@@ -1,12 +1,17 @@
-
-!这些东西是写中间件的时候用到的
-
-Koa 应用是一个包含一系列中间件 generator 函数的对象。 这些中间件函数基于 request 请求以一个类似于栈的结构组成并依次执行。 
-
-Koa 包含了像 content-negotiation（内容协商）、cache freshness（缓存刷新）、proxy support（代理支持）和 redirection（重定向）等常用任务方法。
-
- Connect 简单地将控制权交给一系列函数来处理，直到函数返回。 与之不同，当执行到 yield next 语句时，Koa 暂停了该中间件，继续执行下一个符合请求的中间件('downstrem')，然后控制权再逐级返回给上层中间件('upstream')。
-
+## 设计理念
+- 在其低级中间件层中提供高级语法糖
+  - 免除重复繁琐的回调函数嵌套
+  - 提升错误处理的效率
+- 洋葱模型：中间件流程控制，使用async/await实现，曾用generator实现
+  - 中间件顺序
+  - 流程控制next()的使用
+    - 单个中间件存在多个next()将抛出异常
+  - 上下文ctx的修改和传递
+- 不在内核方法中绑定任何中间件，仅仅提供一个轻量优雅的函数库
+  - 内容协商
+  - 缓存清理
+  - 代理支持
+  - 重定向
 
 
 
@@ -122,9 +127,3 @@ ctx.cookies.get(name, [options])
 ctx.cookies.set(name, value, [options])
 ctx.throw(msg, [status])
 ctx.respond
-
-# koa2
-
-### koa-generator
-
-如果你喜欢babel + koa2可以参考Minimal koa v2 boilerplate.

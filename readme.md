@@ -1,6 +1,21 @@
 
-electron 桌面应用
-weex、react native app
+
+
+
+
+你应该知道 Vue.js 有两种构建版本: 运行时 + 编译器 与 只包含运行时。
+react
+react native app
+rax
+
+npm git
+
+lodash
+
+docker
+
+
+小程序，微信相关的开发
 
 # 未整理
 
