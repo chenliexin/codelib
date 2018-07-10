@@ -275,15 +275,21 @@ MVC 的最大特点就是所有通信都是`单向`的，因此，将 MVC 用于
 
 技术选项的关键在于业务，单纯展示性的 web 应用可以采用 MVC 模式的 nodejs 服务；强视图交互的 web 应用可以采用 MVP 模式来统一管理逻辑；强数据交互的 web 应用则可以采用 MVVM 模式来减少渲染逻辑。
 
-### JavaScript 设计模式
+## 设计模式
+- 单例模式
+- 工厂模式
+- 迭代器模式
+- 装饰者模式
+- 策略模式
+- 外观模式
+- 代理模式
+- 中介者模式
+- 观察者模式、订阅/发布模式
 
-单例模式，构造函数模式
-
-工厂模式，为了解决多个类似对象声明的问题。使用场景：执行期生成对象、生成大量相同属性的对象。
-
-观察者模式，又叫发布订阅模式。应该可以结合事件广播或 set/get 来使用。使用场景：当一个对象的改变需要同时改变其它对象，并且它不知道具体有多少对象需要改变的时候。
-
-装饰者模式，是为已有功能动态地添加更多功能的一种方式，把每个要装饰的功能放在单独的函数里，然后用该函数包装所要装饰的已有函数对象。
+## 数据结构
+- 数组、列表
+- 栈、队列、链表
+- 字典、散列、集合
 
 ### ECMAScript 6
 
@@ -374,8 +380,7 @@ koa 是由 Express 原班人马打造的，致力于成为一个更小、更富�
 
 ### 模块化
 
-
-CommonJS 同步加载，如nodejs；AMD 异步模块定义
+CommonJS 同步加载，如nodejs
 
 AMD 异步模块定义 define(['dep1','dep2'],function(dep1,dep2){...})，如require.js和curl.js。
 
@@ -413,27 +418,22 @@ plugins 有各种插件，还有重要的presets（babel-preset-env replaces es2
 
 请求、资源、缓存
 
-### 前端安全
+## 前端安全
+- xss
+  - cross-site scripting跨域脚本攻击，javascript代码注入
+  - 防御：过滤，避免运行用户代码，cookis用httpOnly等
+- cors
+  - Cross-site request forgery 跨站请求伪造
+  - 防御：检查来路同域、做token等
+- 其他：界面劫持、http劫持等
 
-xss cross-site scripting跨域脚本攻击，javascript代码注入。防御：过滤，避免运行用户代码，cookis用httpOnly等
-
-cors Cross-site request forgery 跨站请求伪造。防御：检查来路同域、做token等。
-
-其他：界面劫持、http劫持等
-
-### 资源
-
-- sf SegmentFault.com
-- stack overflow
-- infoQ 社区如nodejs webpack
+## 资源
+- 公众号
+- SegmentFault.com
+- stackOverflow
+- infoQ
 - 各ued博客、博客园、csdn
 - tuicool的周刊
-
-### TODO
-
-
-
-
 
 
 
