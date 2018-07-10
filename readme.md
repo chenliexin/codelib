@@ -1,7 +1,23 @@
+vue
+git
+pm2
+node
+flex
+gulp
+chrome插件
 
 
 
+状态码
+缓存
+apply、call
+CommonJS模块
 
+koa-egg
+
+微信，小程序
+
+pm2
 
 你应该知道 Vue.js 有两种构建版本: 运行时 + 编译器 与 只包含运行时。
 react

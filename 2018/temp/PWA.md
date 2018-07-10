@@ -2,8 +2,8 @@
 - Progressive web app，渐进式WEB应用
 - Google推出，多巨头联合发力，可能是web应用开发的未来
 - 现状
-  - Native APP，Web App，Hybrid App各具特点
-  - PWA更像是Hybrid App，但更强
+    - Native APP，Web App，Hybrid App各具特点
+    - PWA更像是Hybrid App，但更强
 
 ## 特性
 - 渐进增强
@@ -24,16 +24,16 @@
 
 ## 开发
 - Manifest
-  - 保存到主屏幕
-  - 全屏、屏幕方向
-  - 启动界面
-  - 追踪来路
+    - 保存到主屏幕
+    - 全屏、屏幕方向
+    - 启动界面
+    - 追踪来路
 - Service Workers
-  - 由Cache API和Web Worker两部分构成
-    - Web Worker，JavaScript解决单线程的方案
-    - Cache API，缓存方案
+    - 由Cache API和Web Worker两部分构成
+        - Web Worker，JavaScript解决单线程的方案
+        - Cache API，缓存方案
 - Push Notification
-  - Push和Notification分别是推送和通知两个API，依赖关系
-    - Push，服务端将更新信息传递给Service Worker
-    - Notification，Service Worker将更新信息推送给用户
+    - Push和Notification分别是推送和通知两个API，依赖关系
+        - Push，服务端将更新信息传递给Service Worker
+        - Notification，Service Worker将更新信息推送给用户
 - Promise、fetch
