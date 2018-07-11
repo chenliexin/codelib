@@ -1,5 +1,15 @@
+## W3C新闻
+- 2018.7.3 更新CSS文本修饰模块（CSS Text Decoration Module Level 3）候选推荐标准
+  - text-decoration-line
+  - text-decoration-style
+  - text-decoration-color
 
-### HTML5
+## HTML5
+- Web Worker
+  - 多线程处理功能
+  - 创建一个不影响前台处理的后台线程
+
+- Geolocation
 
 - 新的html标准，新的声明方式，直接doctype html非常简洁
 - 更强的语义化，header、footer等

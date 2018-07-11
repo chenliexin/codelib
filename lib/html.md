@@ -1,11 +1,40 @@
-## link
+## Geolocation
+- window.navigator.geolocation
+- getCurrentPosition(onSuccess, onError, options)
+    - onSuccess(position)
+        - position.latitude 纬度
+        - position.longitude 经度
+        - position.altitude 海拔
+        - position.accuracy 精度，单位米
+        - position.altitudeAccuracy 海拔精度，单位米
+        - position.heading 设备前进方向，正北方顺时针角度
+        - position.speed 设备移动速度，单位米/秒
+    - onError(error)
+        - error.code
+            - 1，用户拒绝位置服务
+            - 2，获取不到位置信息
+            - 3，超时
+        - error.message
+            - 字符串错误信息
+            - FF3.6+不支持
+    - options
+        - enableHighAccuracy 高精度位置信息，默认，多少情况下没用
+        - timeout 超时毫秒数
+        - maximun 缓存毫秒数
+- watchCurrentPosition(onSuccess, onError, options)
+- clearWatch(watchId)
+
+## TODO
+
+
+link
 
 ```xml
 <link rel="dns-prefetch" href="//dns.domain.com">
 
 ```
 
-## meta
+meta
 
 UC手机浏览器字体变大
 
@@ -14,7 +43,7 @@ UC手机浏览器字体变大
 ```
 
 
-## localStorage
+localStorage
 
 ```js
 localStorage.setItem(key, value);
@@ -24,7 +53,7 @@ localStorage.clear();
 window.addEventListener('storage', handle, false); // chrome测试无效20160801
 ```
 
-## sessionStorage
+sessionStorage
 
 ```js
 sessionStorage.setItem(key, value);
