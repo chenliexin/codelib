@@ -12,31 +12,12 @@
 
 - 阴影、边框、背景、文本等元素效果
 - 2d 3d转换、过渡、动画
-- 弹性布局、多列
+- 多列
+- flex 弹性/可伸缩布局
 
 转换包括：translate平移、rotate旋转、scale缩放、skew倾斜、matrix矩阵
 
 动画包含：keyframes动画名、duration时长、timing-function过渡效果、iteration-count次数、direction方向、play-state状态、delay延迟、fill-mode填充
-
-### CSS3 flex 弹性/可伸缩布局
-
-- display
-  - flex
-  - inline-flex
-- flex
-  - flex-grow扩展比率、flex-shrink收缩比率、flex-basis伸缩基准值
-  - flex: 1 == flex: 1 1 0%
-- flex-flow
-  - flex-direction排列方向: row | row-reverse | column | column-reverse
-  - flex-wrap是否多行：nowrap | wrap | wrap-reverse
-- align-content多行竖直空间使用
-  - flex-start | flex-end | center | space-between | space-around | stretch
-- align-items单行竖直位置
-  - flex-start | flex-end | center | baseline | stretch
-- justify-content水平空间使用
-  - flex-start | flex-end | center | space-between | space-around
-- order排序
-
 
 ### HTTP, HTTPS
 ---
