@@ -168,21 +168,6 @@ http
             response.end([data], [encoding]) 结束响应 参数意义和response.write相同。如果不调用该函数，客户端将永远处于等待状态
 
 
-## 部署
-
-故障恢复
-
-日志
-
-利用多核提高性能
-
-端口共享
-
-自动重启
-
-
-## 模块
-
 ### querystring
 
 

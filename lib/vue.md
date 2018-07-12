@@ -1,0 +1,179 @@
+## vue
+- 组合
+    - mixins混入
+    - directives自定义指令
+    - 渲染函数 & JSX
+        - render函数具有完全编程的能力，更接近编译器
+    - 插件
+        - 开发插件
+            - 需要有一个公开的install方法
+                - 参数一，vue构造器
+                - 参数二，可选参数对象
+        - 使用插件
+            - Vue.use(Plugin, Options)
+    - filters过滤器
+        - 双花括号插值和v-bind表达式，可用
+
+## dev
+- vue-devtools
+- vue-cli
+- vue-loader 单文件组件
+
+## vue-router
+- 路由管理器
+    - 嵌套的路由、视图表
+    - 模块化的、基于组件的路由配置
+    - 路由参数、查询、通配符
+    - 基于vue过渡系统的视图过渡效果
+    - 细粒度的导航控制
+    - 带有自动激活的CSS class的链接
+    - HTML5历史模式或hash模式，在IE9中自动降级
+    - 自定义的滚动条行为
+- router-link
+    - 默认会被渲染成一个a标签
+    - to属性对接path
+    - 匹配成功将自动设置class属性值router-link-active
+- router-view
+    - 路由匹配到的组件将渲染在这里
+- 定义路由
+    - path
+        - 动态路径参数，参数值会被设置到$route.params
+        - $route.query
+        - $route.hash
+        - 原来的组件实例会被复用，这也意味着组件的生命周期钩子不会再被调用
+        - watch监测$route对象，对路由参数的变化作出响应
+        - 高级匹配模式path-to-regexp
+    - component
+- 嵌套路由
+    - 以/开头的嵌套路径会被当作根路径
+    - 空的子路由可用作默认
+- 编程式的导航
+    - router.push(location, onComplete?, onAbort?)
+        - 这个方法会向history栈添加一个新的记录
+        - 和router-link等价
+        - location
+            - 字符串
+            - 路由对象，可以带上name，params，query等
+        - onComplete
+            - 导航成功完成，在所有的异步钩子被解析之后
+            - 导航终止，导航到相同的路由、或在当前导航完成之前导航到另一个不同的路由
+        - beforeRouteUpdate
+            - 如果目的地和当前路由相同，只有参数发生了改变
+    - router.replace(location, onComplete?, onAbort?)
+        - 和router.push类似
+        - 它不会向history添加新记录，而是替换掉当前的history记录
+    - router.go(n)
+        - 如果history记录不够用，那就默默地失败
+- 命名路由
+- 命名视图
+- 重定向和别名
+    - 可以通过路由配置redirect重定向
+    - 可以通过路由配置alias别名
+- 路由组件传参
+    - 使用props将组件和路由解耦
+    - props被设置为true，route.params将会被设置为组件属性
+    - props是一个对象，它会被按原样设置为组件属性。当props是静态的时候有用
+- 模式
+    - 默认hash模式
+    - history模式，需要后台配置支持
+        - 覆盖所有的路由情况，然后在给出一个404页面
+- 导航守卫
+    - 参数或查询的改变并不会触发进入/离开的导航守卫，使用beforeRouteUpdate的组件内守卫
+    - router.beforeEach((to, from, next)){} 全局守卫
+        - to，即将要进入Route
+        - from，正要离开Route
+        - next，确保要调用next方法，否则钩子就不会被resolved
+            - next()，进行管道中的下一个钩子
+    - router.beforeEach((to, from, next)){} 全局后置钩子
+    - 路由独享的守卫
+    - 组件内的守卫
+        - beforeRouteEnter (to, from, next)
+            - 不能用this
+            - 可以通过传一个回调给next来访问组件实例
+        - beforeRouteUpdate (to, from, next)
+        - beforeRouteLeave (to, from, next)
+    - 完整的导航解析流程
+        - 导航被触发
+        - 在失活的组件里调用离开守卫
+        - 调用全局的beforeEach守卫
+        - 在重用的组件里调用beforeRouteUpdate守卫 (2.2+)
+        - 在路由配置里调用beforeEnter
+        - 解析异步路由组件
+        - 在被激活的组件里调用beforeRouteEnter
+        - 调用全局的beforeResolve守卫 (2.5+)
+        - 导航被确认
+        - 调用全局的afterEach钩子
+        - 触发DOM更新
+        - 用创建好的实例调用beforeRouteEnter守卫中传给next的回调函数
+- 滚动行为
+    - 这个功能只在支持history.pushState的浏览器中可用，ie9不支持
+    - scrollBehavior(to, from, savedPosition)
+        - savedPosition
+            - { x: number, y: number }
+            - { selector: string, offset? : { x: number, y: number }}
+            - falsy，或者是一个空对象，那么不会发生滚动
+
+## vuex
+- 状态管理模式
+    - 多个组件共享状态
+    - 响应式的状态存储
+    - 唯一改变途径就是显式地commit mutation
+    - 大型单页应用
+    - 小型替代方案，global event bus
+- 集成到vue-devtools
+    - 零配置的time-travel调试
+    - 状态快照导入导出
+- state
+    - 单一状态树
+    - 唯一数据源SSOT
+    - 状态和状态变更事件分布到各个子模块
+    - mapState
+        - 字符串
+        - 箭头函数，state为参数
+        - 常规函数，state为参数，可用this
+        - 用对象展开运算符，可混合局部计算属性
+- getter
+    - store的计算属性，state为参数
+    - 可以接受其他getter作为第二个参数
+    - 通过方法访问
+        - 每次都会去进行调用，而不会缓存结果
+    - mapGetters 
+        - 将getter映射到局部计算属性
+        - 字符串
+        - 数组字符串
+- mutation
+    - state为参数，使用commit触发
+    - 提交载荷Payload，大多数情况应该是一个对象
+    - 对象风格的提交方式，包含type=mutationName
+    - 遵守响应规则
+        - 提前在store中初始化好所有所需属性
+        - 添加新属性
+            - 使用Vue.set(obj, 'newProp', 123)
+            - 以新对象替换旧对象state.obj = { ...state.obj, newProp: 123 }
+    - mutation都是同步事务，专注于修改state
+    - mapMutations
+        - 将组件中的methods映射为store.commit调用
+- action
+    - 类似于mutation
+        - 提交的是mutation，而不是直接变更状态
+        - 可以包含任意异步操作
+    - 与store实例具有相同方法和属性的context对象为参数，使用dispatch触发
+    - 用参数解构来简化代码，action({ commit }){}
+    - 提交载荷Payload，大多数情况应该是一个对象
+    - 对象风格的提交方式，包含type=actionName
+    - mapActions
+        - 将组件中的methods映射为store.dispatch调用
+    - 组合action
+        - store.dispatch可以处理被触发的action的处理函数返回的Promise
+        - store.dispatch仍旧返回Promise
+        - 利用async/await组合action
+- module
+    - TODO
+- 表单处理
+    - 给input中绑定value，然后侦听input或者change事件，在事件回调中调用commit
+    - 双向绑定的计算属性，通过computed中使用set/get，读取store或调用commit
+
+## SSR
+- 服务器端渲染
+    - vue-server-renderer
+    - Nuxt.js
