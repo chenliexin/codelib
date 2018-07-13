@@ -77,16 +77,10 @@
     - jsonp
     - 服务器代理
     - cors，通过createCORSRequest方法。需要后端通过Access-Controll-Allow-Origin配合。
-    - window.name，利用window.name在加载不同页面的时候不会改变。
-    - webSocket，需要后端配合。
   - 双向跨域
-    - 降域，通过修改document.domain为共有部分。缺点：降域后无法回退；ajax不起作用；会被同时攻击。
+    - 降域，通过修改document.domain为共有部分。缺点：降域后无法回退
     - location.hash，通过修改hash和监听hashchange事件。缺点：数据暴露；数据格式单一。
     - postMessage，通过iframe.contentWindow.postMessage方法和监听message事件。
-
-> http请求和响应
-- 请求：请求行，请求头，空行，请求包体（post）
-- 响应：状态行，响应头，响应包体
 
 > get和post
 - 参数位置，参数大小（get为2048字符）
@@ -97,43 +91,25 @@
   - get，只需发tcp报文
 
 > http状态码
-  - 1信息：100继续、101切换协议
-  - 2成功：201已创建、202已接受、206部分内容
-  - 3重定向：301永久、302临时、304缓存
-  - 4客户端错误：400语法错误、401未授权、403拒绝、404不存在
-  - 5服务端错误：500内部错误、501不支持请求、502网关、503服务维护、505http版本
-
-> http头
-- Requests
-  - Accept: text/plain, text/html
-  - Accept-Charset: utf-8
-  - Accept-Encoding: compress, gzip
-  - Cache-Control: no-cache
-  - Connection: close
-  - Cookie
-  - Content-Length: 348
-  - Content-Type: application/x-www-form-urlencoded
-  - Date: Tue, 15 Nov 2010 08:12:31 GMT
-  - If-Match/If-Modified-Since/If-None-Match/If-Range
-  - Pragma: no-cache
-  - Referer
-  - User-Agent: Mozilla/5.0 (Linux; X11)
-- Responses
-  - Age: 12
-  - Allow: GET, HEAD
-  - Cache-Control: no-cache
-  - Content-Encoding: gzip
-  - Content-Type: text/html; charset=utf-8
-  - Date: Tue, 15 Nov 2010 08:12:31 GMT
-  - ETag: "737060cd8c284d8af7ad3082f209582d"
-  - Expires: Thu, 01 Dec 2010 16:00:00 GMT
-  - Last-Modified: Tue, 15 Nov 2010 12:45:26 GMT
-  - Pragma: no-cache
+- 1信息：100继续、101切换协议
+- 2成功：201已创建、202已接受、206部分内容
+- 3重定向：301永久、302临时、304缓存
+- 4客户端错误：400语法错误、401未授权、403拒绝、404不存在
+- 5服务端错误：500内部错误、501不支持请求、502网关、503服务维护、505http版本
 
 > http和https
-- https = http + 加密 + 认证 + 完整性保护
-- http，无状态，端口为80。
-- https，是http通信接口部分改用ssl和tls协议。http直接和tcp通信，https使用通过ssl和tcp通信，端口为443。
+- http
+  - 直接和tcp通信
+  - 端口为80
+- https
+  - http、加密、认证、完整性保护
+  - https使用通过ssl和tcp通信
+  - 端口为443
+- http/2
+  - 基于SPDY协议，Google基于TCP的应用层协议
+  - 采用二进制格式而非文本格式
+  - 使用报头压缩
+  - 多路复用，而非有序并阻塞
 
 > 缓存分类
 - 数据库缓存
@@ -156,8 +132,16 @@
   - s-maxage 同上, 依赖public设置, 覆盖max-age, 且只在代理服务器上有效.
 - Pragma http1.0字段, 通常设置为Pragma:no-cache, 作用同Cache-Control:no-cache
 - Expires 即到期时间, 以服务器时间为参考系, 其优先级比 Cache-Control:max-age 低
-- ETag 实体标签, 服务器资源的唯一标识符, 浏览器可以根据ETag值缓存数据, 节省带宽，ETag 优先级比 Last-Modified 高
-- Last-Modified 用于标记请求资源的最后一次修改时间
+- ETag
+  - 实体标签, 服务端资源标识符token
+  - 服务端返回200时带有ETag
+  - 客户端再次请求时候带有If-None-Match
+  - 服务端根据If-None-Match返回200或304
+  - 优先级比Last-Modified高
+- Last-Modified
+  - 服务端返回200时带有Last-Modified
+  - 客户端再次请求时候带有If-Modified-Since
+  - 服务端根据If-Modified-Since返回200或304
 
 - 强缓存
 - 协商缓存
@@ -403,21 +387,16 @@ plugins 有各种插件，还有重要的presets（babel-preset-env replaces es2
 
 这里可以挂钩pm2，打补丁，回滚什么的就别说了。这里可能会涉及到github，以及权限问题，说一下ssh key。
 
-### 代码测试
-
-目前只在提倡和摸底阶段，给nodejs项目的公用函数写单元测试。用的测试框架是 mocha，用的断言库是 chai，用的断言风格的是expect，其他风格有assert和should。
-
-暂时没有自动化和代码覆盖率的推进。tdd是测试驱动开发，先针对每个功能点抽象出接口代码，然后编写单元测试代码，接下来实现接口，运行单元测试代码，循环此过程，直到整个单元测试都通过。bdd是行为驱动开发，tdd的补充。
 
 ### 前端优化
 
 请求、资源、缓存
 
 ## 前端安全
-- xss
+- XSS
   - cross-site scripting跨域脚本攻击，javascript代码注入
   - 防御：过滤，避免运行用户代码，cookis用httpOnly等
-- cors
+- CSRF/XSRF
   - Cross-site request forgery 跨站请求伪造
   - 防御：检查来路同域、做token等
 - 其他：界面劫持、http劫持等

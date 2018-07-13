@@ -33,10 +33,25 @@
         - flex: 1 => flex: 1 1 0%
     - order
 
+## animate
+- animate
+    - name keyframesID
+    - duration
+    - timing-function
+        - ease/ease-in/ease-out/ease-in-out
+        - linear
+        - step-start/step-end/steps(n, start|end)
+        - cubic-bezier(x1, y1, x2, y2)
+    - iteration-count infinite/n
+    - direction normal/reverse/alternate/alternate-reverse
+    - play-state running/paused
+    - delay
+    - fill-mode none/forwards/backwards/both
+- keyframes
+    - from/to
+    - n%
+
 ## TODO
-less
-scss sass
-  「事实标准」库——Compass
 stylus
   官方开发的样式库 nib
 css modules
