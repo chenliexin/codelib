@@ -13,6 +13,29 @@
             - Vue.use(Plugin, Options)
     - filters过滤器
         - 双花括号插值和v-bind表达式，可用
+- 生命周期
+    - `beforeCreate`
+    - data observer
+    - watch/event
+    - `created`
+    - `beforeMount`
+    - vm.$el
+    - `mounted`
+        - 可能有子组件未挂载，等待视图渲染完毕可用vm.$nextTick
+    - `beforeUpdate`
+    - `updated`
+    - `activated`, `deactivated`
+        - keep-alive
+    - `beforeDestroy`, `destroyed`
+- 最佳实践
+    - 单文件组件
+        - 大驼峰命名
+        - 基础前缀
+        - 单例前缀The
+        - 以父组件作为前缀
+        - 以通用词开头
+        - 用完整单词
+    - 缩写指令
 
 ## dev
 - vue-devtools
@@ -30,11 +53,17 @@
     - HTML5历史模式或hash模式，在IE9中自动降级
     - 自定义的滚动条行为
 - router-link
-    - 默认会被渲染成一个a标签
-    - to属性对接path
-    - 匹配成功将自动设置class属性值router-link-active
+    - 默认渲染成a标签，由tag属性控制
+    - `to`
+    - `replace` router.replace()
+    - `append` (/a, /b) => append ? /a/b : /b
+    - `tag`
+    - `active-class` router-link-active
+    - `exact`
+    - `exact-active-class` router-link-exact-active
+    - `event` click | Array{string}
 - router-view
-    - 路由匹配到的组件将渲染在这里
+    - `name` default
 - 定义路由
     - path
         - 动态路径参数，参数值会被设置到$route.params

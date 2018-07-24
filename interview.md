@@ -307,8 +307,6 @@ var promise = new Promise(function(resolve, reject){ ... });
 promise.then(function(){}, function(){});
 ```
 
-别说太多，直接跳生成器函数，然后说现在用 await/async。
-
 ### es6 Class
 
 ES6的class可以看作只是一个语法糖，让原型写法更清晰。有一个constructor方法，这就是构造方法。类和模块的内部，默认就是严格模式。
