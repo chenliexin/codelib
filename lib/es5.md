@@ -251,38 +251,6 @@ script标签中，defer属性使得浏览器延迟脚本的执行直到文档载
 
 *当构造一个对象时，构造函数的原型属性就是这个被构造对象的原型，说白了就是复制了一份给这个对象，这个是和继承不同的。
 
-```js
-var a = function(){};
-a.prototype.name = 'a';
-
-var b = new a();
-
-console.log(b.constructor.prototype);
-console.log(b.__proto__);
-console.log(Object.getPrototypeOf(b));
-
-console.log(b.constructor.prototype === b.__proto__);
-console.log(b.__proto__ === Object.getPrototypeOf(b));
-console.log(Object.getPrototypeOf(b) === b.constructor.prototype);
-
-console.log(b.constructor.prototype.constructor.prototype);
-console.log(b.__proto__.__proto__);
-console.log(Object.getPrototypeOf(Object.getPrototypeOf(b)));
-
-console.log(b.constructor.prototype.constructor.prototype === b.__proto__.__proto__);
-console.log(b.__proto__.__proto__ === Object.getPrototypeOf(Object.getPrototypeOf(b)));
-console.log(Object.getPrototypeOf(Object.getPrototypeOf(b)) === b.constructor.prototype.constructor.prototype);
-
-function prototype_chain(o){
-    var pc = Object.getPrototypeOf(o); 
-    console.log(pc);
-    if(pc !== null){
-        prototype_chain(pc);
-    };
-}
-//prototype_chain(a1);
-
-```
 
 面向对象：抽象、继承、封装、多态
 
