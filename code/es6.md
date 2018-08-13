@@ -1,27 +1,12 @@
-
-# let／const
+# let/const
 - 块级作用域
 - 不允许重复声明
 - 不存在变量提升
 - 全局变量不是全局对象的属性
 
-## 解构赋值
-```js
-'usr strict';
-
-//块级作用域 let取代var
-//在let和const之间，建议优先使用const
-//静态字符串一律使用单引号或反引号，不使用双引号。动态字符串使用反引号。
-const a = 'foobar';
-const b = `foo${a}bar`;
-//优先使用解构赋值 优先使用对象的解构赋值，而不是数组的解构赋值。
-//对象尽量静态化，一旦定义，就不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法。
-//使用扩展运算符（...）拷贝数组。
-const itemsCopy = [...items];
-```
+# 解构赋值
 
 # Class
-
 ```js
 class New {
   // 默认
@@ -37,7 +22,6 @@ Object.assign(New.prototype, {
 Object.keys(Point.prototype)              //=> []
 Object.getOwnPropertyNames(New.prototype) //=> ["constructor", "fn1", "fn2"]
 ```
-
 - 通过new命令实例对象
 - name属性等于类名
 - 可使用表达式
@@ -47,80 +31,25 @@ Object.getOwnPropertyNames(New.prototype) //=> ["constructor", "fn1", "fn2"]
   - 可以立即执行
 - 不存在变量提升
 - 类内部默认严格模式
-
-继承
-  extends
-  super
-    子类必须在constructor方法中调用super方法，因为子类没有this对象，需要继承父类的this对象
-  set/get
-  static 静态方法
+- 继承 extends
+  - 子类必须在constructor方法中调用super方法，因为子类没有this对象，需要继承父类的this对象
+  - static 静态方法
 
 
-## Set数据结构
+# Set/WeakSet
+- 类似于数组，但是成员的值都是唯一的，没有重复的值
+- 常用方法：size、add、delete、has、clear
+- WeakSet结构与Set类似，成员只能是对象
+  - WeakSet中的对象都是弱引用
+  - WeakSet是不可遍历的
 
-类似于数组，但是成员的值都是唯一的，没有重复的值
+# Map/WeakMap
+- 类似于对象，也是键值对的集合，但是键的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+- 常用方法：size、set、get、has、delete、clear
+- WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受原始类型的值作为键名
 
-Set本身是一个构造函数，用来生成Set数据结构 var items = new Set([1,2,3,4,5,5,5,5]);
-
-向Set加入值的时候，不会发生类型转换
-
-.size
-
-.add(value)
-  返回本身，不会扁平化数组
-
-.delete(value)
-  返回布尔值
-
-.has(value)
-  返回布尔值
-
-.clear()
-  无返回值
-
-keys()：返回键名的遍历器。
-values()：返回键值的遍历器。
-entries()：返回所有成员的遍历器
-
-## WeakSet
-
-WeakSet结构与Set类似，也是不重复的值的集合，WeakSet的成员只能是对象，而不能是其他类型的值。
-
-WeakSet中的对象都是弱引用，即垃圾回收机制不考虑WeakSet对该对象的引用
-  如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于WeakSet之中。这个特点意味着，无法引用WeakSet的成员，因此WeakSet是不可遍历的
-
-WeakSet.prototype.add(value)：向WeakSet实例添加一个新成员。
-WeakSet.prototype.delete(value)：清除WeakSet实例的指定成员。
-WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在WeakSet实例之中。
-
-## Map
-
-类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
-
-size：返回成员总数。
-set(key, value)：设置key所对应的键值，然后返回整个Map结构。如果key已经有值，则键值会被更新，否则就新生成该键。
-get(key)：读取key对应的键值，如果找不到key，返回undefined。
-has(key)：返回一个布尔值，表示某个键是否在Map数据结构中。
-delete(key)：删除某个键，返回true。如果删除失败，返回false。
-clear()：清除所有成员，没有返回值
-
-keys()：返回键名的遍历器。
-values()：返回键值的遍历器。
-entries()：返回所有成员的遍历器
-
-## WeakMap
-
-WeakMap结构与Map结构基本类似，唯一的区别是它只接受对象作为键名（null除外），不接受原始类型的值作为键名，而且键名所指向的对象，不计入垃圾回收机制。
-
-## Iterator（遍历器）
-
-
-数据结构的 Symbol.iterator 属性
-“可遍历的”（iterable）
-
-
-
-它是一种接口，为各种不同的数据结构（Array，Object，Set，Map）提供统一的访问机制。
+# Iterator遍历器
+- 它是一种接口，为各种不同的数据结构（Array，Object，Set，Map）提供统一的访问机制
 
 一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for...of循环，Iterator接口主要供for...of消费。
 
@@ -252,233 +181,6 @@ Promise.resolve() 将现有对象转为Promise对象
   如果Promise.resolve方法的参数，不是具有then方法的对象（又称thenable对象），则返回一个新的Promise对象，且它的状态为Resolved。
 
 Promise.reject(reason)方法也会返回一个新的Promise实例，该实例的状态为rejected。Promise.reject方法的参数reason，会被传递给实例的回调函数。
-
-
-函数式编程术语 functional-programing-jargon
-编程范式 (paradigm)
-  与面向对象编程（Object-oriented programming）和过程式编程（Procedural programming）并列
-  强调将计算过程分解成可复用的函数，典型例子就是map方法和reduce方法组合而成 MapReduce 算法。
-  只有纯的、没有副作用的函数，才是合格的函数。
-  函数式编程的起源，是一门叫做范畴论（Category Theory）的数学分支。
-  "范畴就是使用箭头连接的物体。"正式的名称叫做"态射"（morphism）。范畴论认为，同一个范畴的所有成员，就是不同状态的"变形"（transformation）。通过"态射"，一个成员可以变形成另一个成员。
-  所有成员是一个集合
-  变形关系是函数
-  也就是说，范畴论是集合论更上层的抽象，简单的理解就是"集合 + 函数"。
-  在函数式编程中，函数就是一个管道（pipe）。这头进去一个值，那头就会出来一个新的值，没有其他作用。
-  函数式编程有两个最基本的运算：合成和柯里化。
-  "函数的合成"（compose）
-    如果一个值要经过多个函数，才能变成另外一个值，就可以把所有中间步骤合并成一个函数
-  柯里化
-    就是把一个多参数的函数，转化为单参数函数
-  函子
-    函数不仅可以用于同一个范畴之中值的转换，还可以用于将一个范畴转成另一个范畴。
-    函子是函数式编程里面最重要的数据类型，也是基本的运算单位和功能单位。
-    比较特殊的是，它的变形关系可以依次作用于每一个值，将当前容器变形成另一个容器。
-    一般约定，函子的标志就是容器具有map方法。该方法将容器里面的每一个值，映射到另一个容器。
-    学习函数式编程，实际上就是学习函子的各种运算。
-    of 方法
-      函数式编程一般约定，函子有一个of方法，用来生成新的容器。
-
-    ap 函子
-
-
-
-
-Arity参数数量
-  一个带有两个参数的函数被称为二元函数或者它的 arity 是2
-
-高阶组件 (HOF)
-  Higher-Order Function
-  以函数为参数或/和返回值。
-
-偏函数应用 (Partial Application)
-  对原始函数预设参数作为一个新的函数。
-  偏函数应用通过对复杂的函数填充一部分数据来构成一个简单的函数。柯里化通过偏函数实现。
-
-柯里化 (Currying)
-  将一个多元函数转变为一元函数的过程。 每当函数被调用时，它仅仅接收一个参数并且返回带有一个参数的函数，直到传递完所有的参数。
-
-自动柯里化 (Auto Currying)
-  lodash，understore 和 ramda 有 curry 函数可以自动完成柯里化。
-
-函数组合 (Function Composition)
-  接收多个函数作为参数，从右到左，一个函数的输入为另一个函数的输出。
-
-Continuation
-  在一个程序执行的任意时刻，尚未执行的代码称为 Continuation。
-  Continuation 在异步编程中很常见
-
-纯函数 (Purity)
-  输出仅由输入决定，且不产生副作用。
-  不依赖，不修改外部状态
-
-副作用 (Side effects)
-  如果函数与外部可变状态进行交互，则它是有副作用的。
-
-幂等性 (Idempotent)
-  如果一个函数执行多次皆返回相同的结果，则它是幂等性的。
-
-Point-Free 风格 (Point-Free Style)
-  定义函数时，不显式地指出函数所带参数。这种风格通常需要柯里化或者高阶函数。也叫 Tacit programming。
-
-谓词 (Predicate) 、、断言
-  根据输入返回 true 或 false
-
-契约 (Contracts)
-  契约保证了函数或者表达式在运行时的行为。当违反契约时，将抛出一个错误。
-
-Guarded Functions
-  、、
-
-范畴 (Category)
-
-值 (Value)
-常量 (Constant)
-
-函子 (Functor)
-  一个实现了map 函数的对象
-  一致性 (Preserves identity)
-  组合性 (Composable)
-
-Pointed Functor
-  一个实现了 of 函数的对象。
-Lift
-  //
-
-引用透明性 (Referential Transparency)
-  一个表达式能够被它的值替代而不改变程序的行为成为引用透明。
-
-Equational Reasoning
-  //
-
-匿名函数 (Lambda)
-  匿名函数被视作一个值,匿名函数通常作为高阶函数的参数
-
-Lambda Calculus
-  数学的一个分支，使用函数创造 通过计算模型。。扯远了
-
-惰性求值 (Lazy evaluation)
-  按需求值机制，只有当需要计算所得值时才会计算。
-  例子中使用了生成器函数实现
-
-独异点 (Monoid)
-  一个对象拥有一个函数用来连接相同类型的对象。
-  例如数值的相加，数组的连接
-
-Monad
-  拥有 of 和 chain 函数的对象。chain 很像 map， 除了用来铺平嵌套数据。
-  在有些语言中，of 也称为 return，chain 也称为 flatmap 与 bind。
-
-Comonad
-  拥有 extract 与 extend 函数的对象。
-
-Applicative Functor
-  一个拥有 ap 函数的对象。
-
-态射 (Morphism)
-  一个变形的函数。
-  自同态 (Endomorphism)
-    输入输出是相同类型的函数。
-  同构 (Isomorphism)
-
-Setoid
-  拥有 equals 函数的对象。equals 可以用来和其它对象比较。
-
-半群 (Semigroup)
-  一个拥有 concat 函数的对象。concat 可以连接相同类型的两个对象。
-
-Foldable
-  一个拥有 reduce 函数的对象。reduce 可以把一种类型的对象转化为另一种类型。
-
-Traversable
-  、、
-
-类型签名 (Type Signatures)
-  通常 js 会在注释中指出参数与返回值的类型。
-  如果函数的参数也是函数，那么这个函数需要用括号括起来。
-
-Union type
-  连接不同的数据类型。
-
-Product type
-  用一种你可能更熟悉的方式把数据类型联合起来
-
-Option
-  Option 是一种联合类型，它有两种情况，Some 或者 None。
-  在其它的一些地方，Option 也称为 Maybe，Some 也称为 Just，None 也称为 Nothing。
-
-函数式编程库
-  mori
-  Immutable
-  Ramda
-  Folktale
-  monet.js
-  lodash
-  Underscore.js
-  Lazy.js
-  maryamyriameliamurphies.js
-  Haskell in ES6
-
-
-Map类型
-类
-模块
-  import取代require
-  export取代module.exports
-
-# 对象的扩展
-
-直接写入属性、方法
-属性名、方法名表达式
-方法的name属性
-set get
-
-Object.is()用来比较两个值是否严格相等。它与严格比较运算符（===）的行为基本一致，不同之处只有两个：一是+0不等于-0，二是NaN等于自身。
-
-
-
-
-
-### ECMAScript 6
-
-新增：let/const，解构赋值，模板字符串，原型扩展（字符串、数值、数组、对象、函数），Symbol，Set/Map，Iterator和for...of，Generator函数，Promise对象，Class，Module
-
-### es6 原型扩展
-
-Number 方法：isFinite, isNaN, isInteger；Math 方法：sign, cbrt；Array扩展的各种方法；对象的简洁表示方法、属性名表达式，方法：is, assign，set/get；函数参数默认值，rest参数（...arg），扩展运算符（...），箭头函数。
-
-### es6 Set/Map
-
-Set 它类似于数组，但是成员的值都是唯一的，没有重复的值。操作方法：add, delete, has, clear；遍历方法类似数组。
-
-WeakSet 与Set类似，成员只能是对象，对象都是弱引用，即垃圾回收机制不考虑其的引用，因此WeakSet是不可遍历的。
-
-Map 类似于对象，键值的范围不限于字符串，各种类型的值（包括对象）都可以当作键。操作方法：size, set, get, has, delete, clear。
-
-WeakMap 与Map结构基本类似，只接受对象作为键名（null除外），而且键名所指向的对象，不计入垃圾回收机制。
-
-### es6 Iterator 和 for...of
-
-Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for...of循环，Iterator接口主要供for...of消费。
-
-### es6 Generator函数
-
-调用Generator函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是上一章介绍的遍历器对象（Iterator Object）。
-
-必须调用遍历器对象的next方法，使得指针移向下一个状态。直到遇到下一个yield语句（或return语句）为止。
-
-next方法返回一个对象，它的value属性就是当前yield语句的值，done属性的值false，表示遍历还没有结束。
-
-### es6 Promise对象
-
-```js
-var promise = new Promise(function(resolve, reject){ ... });
-promise.then(function(){}, function(){});
-```
-
-### es6 Class
-
-ES6的class可以看作只是一个语法糖，让原型写法更清晰。有一个constructor方法，这就是构造方法。类和模块的内部，默认就是严格模式。
 
 # 箭头函数
 与一般的函数不同，箭头函数与包裹它的代码共享相同的this对象，如果箭头函数在其他函数的内部，它也将共享该函数的arguments变量。

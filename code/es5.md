@@ -16,374 +16,54 @@
   - Stage 3 - 候选: 完成规范和浏览器初步实现
   - Stage 4 - 完成: 将被添加到下一年度发布
 
-# RegExp
-
-```js
-/**
- * new RegExp(pattern);
- * new RegExp(string, attributes);
- * 
- * reg.source;
- * reg.global;     //g
- * reg.ignoreCase; //i
- * reg.multiline;  //m
- * reg.lastIndex;
- *
- * reg.compile(pattern);
- * reg.compile(string, attributes);
- * reg.test(string);
- * reg.exec(string);
- *
- * str.search(pattern);
- * str.match(pattern);
- * str.replace(pattern);
- * str.split(pattern);
- */
-
-//reg.exec()
-var str = 'string is 123456';
-var reg = /s(.)/g;
-while (res = reg.exec(str)) {
-    console.log(res);
-    //reg.lastIndex
-    console.log(reg.lastIndex);
-};
-
-/**
- * 元字符
- * \w\W   单词字符[0-9a-Z_]
- * \d\D   数字
- * \s\S   空白字符
- * \b\B   单词边界
- * \n\r\t 换行|回车|制表
- * \uxxxx unicode字符
- * 
- * 零宽断言
- * (?=exp)  正向前瞻
- * (?!exp)  负向前瞻
- * (?<=exp) 正向后瞻js不支持
- * (?<!exp) 负向后瞻js不支持
- *
- * 暂存
- * RegExp.$_
- * RegExp.$1-9
- * RegExp.input
- * RegExp.lastMatch
- * RegExp.lastParen
- * RegExp.leftContext
- * RegExp.rightContext
- *
- * 非捕获 (?:exp)
- */
-```
-
-
-### Array
-
-```js
-/**
- * new Array(length);
- * new Array(item, item, ...);
- *
- * arr.length
- * arr.constructor
- * arr.prototype
- *
- * 方法
- * concat(array, array, ...)
- *     扁平化
- * arr.join(string)
- * arr.reverse()
- * arr.sort(function(item, item){})
- * 
- */
-
-//arr.concat() 
-
-```
-
-#### join()
-
-#### reverse()
-
-#### sort()
-
-得到一个使用比较函数排序的数组，比较函数接受两个参数，指代数组任意两个元素。返回值小于零则参数一在前，大于零则参数二在前，等于零则排序无关重要。
-
-
-#### slice()
-
-返回一个剪切到的数组，接受两个参数，即起始位置和结束位置。片段从起始位置开始到结束位置前，如果没有结束位置则到数组结尾。负值位置参数则表示倒数第几个，偏离索引的位置返回空数组。
-
-Array.prototyp.slice.call(object)可把类数组对象转化为数组。
-
-#### splice()
-
-得到一个剩余并连接的数组，并返回一个剪切到的数组。前两个参数分别为起始位置和剪切个数，如果不指定剪切个数则剪切至数组结束。后面的参数为需要连接的元素，不扁平化数组参数。
-
-#### push() pop()
-
-#### unshift() shift()
-
-#### toString() toLocalString()
-
-#### forEach()
-
-使用函数遍历数组，函数接受三个参数，分别为数组元素、数组索引、数组本身。无法提前终止遍历，除非抛出foreach.break异常来终止遍历。
-
-#### map()
-
-返回一个使用函数遍历后的数组，函数接受三个参数，分别为数组元素、数组索引、数组本身。
-
-#### filter()
-
-返回一个使用判断函数遍历后的数组，判断函数返回true的元素将被保留。函数接受三个参数，分别为数组元素、数组索引、数组本身。
-
-#### every()
-
-返回一个使用判断函数遍历后的布尔值，如果遍历过程中所有判断函数都返回true，则结果返回true。函数接受三个参数，分别为数组元素、数组索引、数组本身。
-
-#### some()
-
-返回一个使用判断函数遍历后的布尔值，如果遍历过程中有一个判断函数返回true，则结果返回true。函数接受三个参数，分别为数组元素、数组索引、数组本身。
-
-#### reduce() reduceRight()
-
-返回一个使用简化函数遍历后的值，简化函数接受两个参数，参数一是简化函数的返回值或简化函数后面的初始值，参数二是数组元素。如果没有初始值，则第一个元素作为起始值，并从第二个元素开始遍历。
-
-#### indexOf() lastIndexOf()
-
-#### Array.from() [es6]
-
-返回一个由类数组对象或可遍历对象转化的数组，参数一是被转化对象，参数二是处理函数。函数接受三个参数，分别为数组元素、数组索引、数组本身。
-
-#### Array.of() [es6]
-
-返回一个由一组参数转化的数组。
-
-#### find() findIndex() [es6]
-
-返回一个当处理函数返回值为true的元素/索引，如果处理函数没有返回true，则本函数返回undefined。处理函数接受三个参数，分别为数组元素、数组索引、数组本身。该函数参数二可以指定处理函数的this对象。
-
-#### fill() [es6]
-
-得到一个使用给定值填充一个数组。参数二用于指定起始位置，参数三用于指定结束位置。
-
-#### entries() keys() values() [es6]
-
-返回一个值为键值对/索引/元素的遍历器。
-
-#### includes() [es7]
-
-返回一个布尔值，表示某个数组是否包含给定的值。
-
-#### Array.observe()，Array.unobserve() [es7]
-
-这两个方法用于监听（取消监听）数组的变化，指定回调函数。
-
-
-JSON.parse(string)
-JSON.stringify(object)
-
-
-
-## 未整理
-
-
-
-
-
-script标签中，defer属性使得浏览器延迟脚本的执行直到文档载入和解析完成，async属性使得浏览器可以尽快执行脚本而不阻塞文档解析。async属性优先于defer属性。
-
-
-时间线
-- 创建Document对象，解析HTML并添加ELement对象和Text节点，document.readystate = 'loading'
-- 解析HTML过程中，遇到script（非async、非defer）时下载执行并暂停解析器
-- 解析HTML过程中，遇到script（async）时下载但不暂停解析器，并在下载完成后尽快执行
-- 解析HTML完成，document.readystate = 'interactive'
-- script（defer）在此时按出现顺序执行（仍可能有异步脚本未执行）
-- 同步脚本执行完毕，Document对象触发DOMContentLoaded事件（仍可能有异步脚本未执行）
-- 异步事件执行完毕（可能还有其他如图片未完全载入），document.readystate = 'complete'，并Window对象触发load事件
-
-
-
-
-
-
-闭包（Closure）
-
-闭包是一种函数，带私有变量的函数。*私有变量会一直存在于内存中，因此会有内存泄露隐患。
-
-作用域（Scope）
-
-有全局作用域（Global Scope）和局部作用域（Local Scope）　
-
-作用域链（Scope Chain）
-
-作用域链是一种标识符解析方式，在目标作用域执行时，创建一个运行期上下文(execution context)内部对象，该对象从全局作用域到目标作用域覆盖解析标识符，该对象会在目标作用域执行完毕时销毁。
-
-原型链（prototype chain）
-
-原型链是一种原型指向方式，每个对象都有一个指向它的原型（prototype）对象的内部链接。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止（也就是不再有原型指向）。
-
-构造器（constructor）
-
-构造器是一种对象内部属性。所有对象都具有该属性。由于可被写入（基本类型字面量除外），该属性其实没什么用处。
-
-对象的constructor属性 === 该对象的构造函数
-
-仅在创建对象实例（实例化对象）的时候（可用new关键字或者字面量），才把对象（其实就是函数）称为构造函数或构造器。被创建的实例（其实就是对象，嗯，这里可以解释js里面全是对象）都有constructor属性，该属性指向实例化（说成构造更合适）该对象的构造函数或构造器。
-
-那么，对象的constructor属性就是一个函数，函数都有prototype属性（不是函数就没有），这样说的话我们是可以用constructor.prototype来遍历出一条原型链直到改值为null。但是实际上这种方法只能获取到上一级原型，并陷入死循环，原因是拼接后会出现prototype.constructor（一个函数的prototype属性的构造器，就是函数本身）。所以这种拼接方式会存在问题，解决问题的关键在于既要保存constructor.prototype，又要在构成链的时候不出现prototype.constructor。
-
-这里有两种方式，__proto__（es6之前非标准）和Object.getPrototypeOf(obj)，相当于一个不可拆分的constructor.prototype。
-
-*当构造一个对象时，构造函数的原型属性就是这个被构造对象的原型，说白了就是复制了一份给这个对象，这个是和继承不同的。
-
-
-面向对象：抽象、继承、封装、多态
-
-抽象的结果就是类或接口，包括数据抽象、过程抽象。
-
-继承是一种联结类的层次模型，通过派生实现继承，这是类与类之间的关系。
-
-封装隐藏了类的内部实现机制，从而可以在不影响使用者的前提下改变类的内部结构，同时保护了数据。
-
-多态是指允许不同类的对象对同一消息作出响应。包括强制转换、重载、参数等。
-
-this，是一个指向调用该函数的对象的关键字。apply和call可以改变这种指向，两者的第一个参数为传入的对象（留空则为Global），不同之处在于apply第二个参数是数组作为调用函数的参数，而call则是将第一个参数后的参数作为调用函数的参数。
-
-继承的方式：
-
-this（可以实现多继承）
-
-```js
-function Parent(){
-    this.firstname = 'abc';
-}
-function Child(){
-    this.parent = Parent;
-    this.parent();
-    delete this.parent();
-    this.lastname = 'efg';
-};
-var mychild = new Child();
-console.log(mychild.firstname + '-' + mychild.lastname);
-```
-
-call/apply（不能继承原型链）
-
-```js
-function Parent(){
-    this.firstname = 'abc';
-}
-function Child(){
-    this.lastname = 'efg';
-};
-var mychild = {};
-Parent.apply(mychild);
-Child.apply(mychild);
-console.log(mychild.firstname + '-' + mychild.lastname);
-```
-
-prototype（不能直接实现多继承）
-
-```js
-function Parent(){
-    this.firstname = 'abc';
-}
-function Child(){
-    this.lastname = 'efg';
-};
-Child.prototype = new Parent();
-var mychild = new Child();
-console.log(mychild.firstname + '-' + mychild.lastname);
-```
-
-bind
-
-caller返回调用指定函数的函数，arguments.callee属性包含当前正在执行的函数。
-
-
-
-
-## 内存管理
-
-对象创建时，分配内存直到不再使用时自动释放（垃圾回收）。但不再使用是无法准确判定的，
-
-
-
-
-Object.prototype.__proto__ 对象创建时都有内置属性__proto__用于指向创建它的函数对象的原型对象prototype
-
-
-
-
-
-
-
-闭包（Closure）是词法闭包（Lexical Closure）的简称，是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。
-
-
-### JavaScript Array
-
-属性：length, prototype；方法：isArray, from, of
-
-Mutator 方法会改变数组自身的值：copyWithin, fill, pop, push, reverse, shift, unshift, sort, splice
-
-Accessor 方法不会改变数组的值，只会返回一个新的数组或者返回一个其它的期望值：concat, includes, join, slice, toString, toLoaclString, indexOf, lastIndexOf
-
-Iteration 方法对数组进行遍历，都需要指定一个回调函数作为参数：forEach, map, filter, every, some, find, entries, keys, values, reduce, reduceRight
-
-### JavaScript String/RegExp
-
-String 方法：charAt, charCodeAt, concat, indexOf, match, replace, search, split, slice, substr, trim
-
-元字符，零宽断言 (?=exp) 正向前瞻、 (?!exp) 负向前瞻，非捕获 (?:exp)，暂存 RegExp.$1-9
-
-RegExp 方法：exec, test, 字符串方法
-
-
-
-### JavaScript Object/Funtion
-
-Object 方法：assign, create, defineProperty, defineProperties, entries, keys, values, freeze, isFrozen, is, getPrototypeOf；Object 实例方法：isPrototypeOf, hasOwnProperty
-
-scope 作用域包括 global scope 全局作用域和 local scope 局部作用域。closure 闭包是一种带私有变量的函数。私有变量会一直存在于内存中，因此会有内存泄露隐患。　
-
-scope chain 作用域链，是一种变量解析方式。在目标作用域执行时，创建一个 execution context 运行期上下文(execution context)内部对象，该对象从全局作用域到目标作用域覆盖解析变量，该对象会在目标作用域执行完毕时销毁。
-
-prototype chain 原型链是一种原型指向方式，每个对象都有一个prototype原型对象。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止。通过 Object.getPrototypeOf(obj) 或 `__proto__` （非标准）来获得原型。
-
-constructor 构造器是一种对象内部属性，所有对象都具有该属性，等于该对象的构造函数。
-
-this，是一个指向调用该函数的对象的关键字。apply和call可以改变这种指向，两者的第一个参数为传入的对象（留空则为Global），不能继承原型链，不同之处在于apply第二个参数是数组作为调用函数的参数，而call则是将第一个参数后的参数作为调用函数的参数。
-
-### JavaScript Error
-
-ReferenceError 无效引用；SyntaxError 语法错误；TypeError 变量或参数不是有效类型；RangeError 超出范围；URIError URI 参数无效；EvalError eval() 错误。
-
-## JavaScript
-- event
-
-事件的三个阶段， capture 捕获（ie8+）、 target 目标、 the bubbling 冒泡。 DOM 节点是以树状结构存在的，事件捕获就是从根节点到目标节点的过程，事件冒泡就是从目标节点到根节点的过程，这样一个往返构成 DOM 事件流。
-
-事件监听， W3C 标准方法 addEventListener(eventName, fn, useCapture) ；不支持事件捕获的 IE 版本中使用方法 attachEvent(onEventName, fn) 均默认为事件冒泡，移除方法 dispatchEvent 。
-
-事件监听的回调函数中， W3C 标准将 Event 对象作为参数传入， ie8- 中 Event 对象是 window 的一个属性。Event 对象中 stopPropagation() 用于阻止事件传播， preventDefault() 用于阻止默认行为； ie8- 分别是 cancelBubble = true 和 returnValue = false 。
-
-事件代理/委托，利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。其优势在于：减少内存、减少事件注册、新增同类型对象无效再次绑定。
-
-事件代理分发处理，通过 Event.target ， ie8- 中是 Event.srcElement ，但并不是所有事件类型都支撑冒泡，如 focus ， blur 等。
-
-事件广播/派发，目标节点通过使用 dispatchEvent(evt) 来获得一个合成事件，其返回值取决于 evt 中是否调用了 preventDefault() 。 evt 是通过 Document.createEvent() 或 new Event() 创建的自定义事件。
-
-实现事件模型的思路：定义一个构造函数，定义注册、触发、注销方法。
-
-### use strict
-
-禁止使用全局、with、eval、保留字；不能重名、重复参数；禁止八进制；不允许对arguments赋值。
-
-### JavaScript 内存管理
-
-在创建变量时分配内存，并且在不再使用它们时自动释放，这过程称为垃圾回收。
+# 概念
+- 闭包closure
+  - 带有局部变量的作用域
+  - 通常通过一个带有变量的函数返回另一个函数生成
+  - 私有变量会一直存在于内存中，因此会有内存泄露隐患
+- 作用域链
+  - 是一种标识符解析方式
+  - 作用域执行时，创建一个运行期上下文execution context内部对象，该对象从全局作用域到目标作用域覆盖解析标识符
+  - 在目标作用域执行完毕时销毁
+- 原型链prototype chain
+  - 原型链是一种原型指向方式
+  - 每个对象都有一个指向它的原型prototype对象的内部链接
+  - 这个原型对象又有自己的原型，直到某个对象的原型为 null 为止
+- this
+  - 是一个指向调用该函数的对象的关键字
+  - apply和call可以改变这种指向，apply的第二个参数为数组
+
+# Array
+- mutator方法会改变数组自身的值：copyWithin, fill, pop, push, reverse, shift, unshift, sort, splice
+- accessor方法不会改变数组的值，只会返回一个新的数组或者返回一个其它的期望值：concat, includes, join, slice, toString, toLoaclString, indexOf, lastIndexOf
+- iteration方法对数组进行遍历，都需要指定一个回调函数作为参数：forEach, map, filter, every, some, find, entries, keys, values, reduce, reduceRight
+
+# Error
+- ReferenceError无效引用
+- SyntaxError语法错误
+- TypeError 变量或参数不是有效类型
+- RangeError 超出范围
+- URIError URI 参数无效
+- EvalError eval() 错误。
+
+# Event
+- DOM事件流三个阶段：capture捕获ie8+、 target目标、 the bubbling 冒泡
+- 事件监听
+  - addEventListener(eventName, fn, useCapture) 
+  - 不支持事件捕获的 IE 版本中使用方法 attachEvent(onEventName, fn) 均默认为事件冒泡，移除方法 dispatchEvent
+  - 事件监听的回调函数中， W3C 标准将 Event 对象作为参数传入， ie8- 中 Event 对象是 window 的一个属性
+    - Event 对象中 stopPropagation() 用于阻止事件传播， preventDefault() 用于阻止默认行为
+    - ie8- 分别是 cancelBubble = true 和 returnValue = false 。
+- 事件代理/委托
+  - 利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件
+  - 其优势在于：减少内存、减少事件注册、新增同类型对象无效再次绑定
+  - 事件代理分发处理，通过 Event.target ， ie8- 中是 Event.srcElement ，但并不是所有事件类型都支撑冒泡，如 focus ， blur 等。
+- 事件广播/派发
+  - 目标节点通过使用 dispatchEvent(evt) 来获得一个合成事件，其返回值取决于 evt 中是否调用了 preventDefault()
+  - evt 是通过 Document.createEvent() 或 new Event() 创建的自定义事件
+
+# use strict
+- 禁止使用全局、with、eval、保留字
+- 不能重复定义、重复参数
+- 禁止八进制
+- 不允许对arguments赋值
