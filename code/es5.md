@@ -336,4 +336,65 @@ Object.prototype.__proto__ 对象创建时都有内置属性__proto__用于指�
 闭包（Closure）是词法闭包（Lexical Closure）的简称，是引用了自由变量的函数。这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。
 
 
+### JavaScript Array
 
+属性：length, prototype；方法：isArray, from, of
+
+Mutator 方法会改变数组自身的值：copyWithin, fill, pop, push, reverse, shift, unshift, sort, splice
+
+Accessor 方法不会改变数组的值，只会返回一个新的数组或者返回一个其它的期望值：concat, includes, join, slice, toString, toLoaclString, indexOf, lastIndexOf
+
+Iteration 方法对数组进行遍历，都需要指定一个回调函数作为参数：forEach, map, filter, every, some, find, entries, keys, values, reduce, reduceRight
+
+### JavaScript String/RegExp
+
+String 方法：charAt, charCodeAt, concat, indexOf, match, replace, search, split, slice, substr, trim
+
+元字符，零宽断言 (?=exp) 正向前瞻、 (?!exp) 负向前瞻，非捕获 (?:exp)，暂存 RegExp.$1-9
+
+RegExp 方法：exec, test, 字符串方法
+
+
+
+### JavaScript Object/Funtion
+
+Object 方法：assign, create, defineProperty, defineProperties, entries, keys, values, freeze, isFrozen, is, getPrototypeOf；Object 实例方法：isPrototypeOf, hasOwnProperty
+
+scope 作用域包括 global scope 全局作用域和 local scope 局部作用域。closure 闭包是一种带私有变量的函数。私有变量会一直存在于内存中，因此会有内存泄露隐患。　
+
+scope chain 作用域链，是一种变量解析方式。在目标作用域执行时，创建一个 execution context 运行期上下文(execution context)内部对象，该对象从全局作用域到目标作用域覆盖解析变量，该对象会在目标作用域执行完毕时销毁。
+
+prototype chain 原型链是一种原型指向方式，每个对象都有一个prototype原型对象。这个原型对象又有自己的原型，直到某个对象的原型为 null 为止。通过 Object.getPrototypeOf(obj) 或 `__proto__` （非标准）来获得原型。
+
+constructor 构造器是一种对象内部属性，所有对象都具有该属性，等于该对象的构造函数。
+
+this，是一个指向调用该函数的对象的关键字。apply和call可以改变这种指向，两者的第一个参数为传入的对象（留空则为Global），不能继承原型链，不同之处在于apply第二个参数是数组作为调用函数的参数，而call则是将第一个参数后的参数作为调用函数的参数。
+
+### JavaScript Error
+
+ReferenceError 无效引用；SyntaxError 语法错误；TypeError 变量或参数不是有效类型；RangeError 超出范围；URIError URI 参数无效；EvalError eval() 错误。
+
+## JavaScript
+- event
+
+事件的三个阶段， capture 捕获（ie8+）、 target 目标、 the bubbling 冒泡。 DOM 节点是以树状结构存在的，事件捕获就是从根节点到目标节点的过程，事件冒泡就是从目标节点到根节点的过程，这样一个往返构成 DOM 事件流。
+
+事件监听， W3C 标准方法 addEventListener(eventName, fn, useCapture) ；不支持事件捕获的 IE 版本中使用方法 attachEvent(onEventName, fn) 均默认为事件冒泡，移除方法 dispatchEvent 。
+
+事件监听的回调函数中， W3C 标准将 Event 对象作为参数传入， ie8- 中 Event 对象是 window 的一个属性。Event 对象中 stopPropagation() 用于阻止事件传播， preventDefault() 用于阻止默认行为； ie8- 分别是 cancelBubble = true 和 returnValue = false 。
+
+事件代理/委托，利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。其优势在于：减少内存、减少事件注册、新增同类型对象无效再次绑定。
+
+事件代理分发处理，通过 Event.target ， ie8- 中是 Event.srcElement ，但并不是所有事件类型都支撑冒泡，如 focus ， blur 等。
+
+事件广播/派发，目标节点通过使用 dispatchEvent(evt) 来获得一个合成事件，其返回值取决于 evt 中是否调用了 preventDefault() 。 evt 是通过 Document.createEvent() 或 new Event() 创建的自定义事件。
+
+实现事件模型的思路：定义一个构造函数，定义注册、触发、注销方法。
+
+### use strict
+
+禁止使用全局、with、eval、保留字；不能重名、重复参数；禁止八进制；不允许对arguments赋值。
+
+### JavaScript 内存管理
+
+在创建变量时分配内存，并且在不再使用它们时自动释放，这过程称为垃圾回收。

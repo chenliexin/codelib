@@ -151,3 +151,44 @@
     - 包含不同元素的数据结构
     - 无序
     - 不允许重复
+
+
+
+
+### MVC MVP MVVM
+
+按照模式出现的`时间顺序`，先是 `MVC` 。 `Model 模型`负责提供数据、 `View 视图`负责界面显示、 `Controller 控制器`负责逻辑处理。
+
+典型的 MVC 流程：用户通过 View 或 直接向 Controller 发出指令， Controller 完成业务逻辑后，要求 Model 改变状态， Model 将新的数据发送到 View ，用户得到响应。 
+
+MVC 的最大特点就是所有通信都是`单向`的，因此，将 MVC 用于前端开发的话会导致两个问题：一是 View 包含了业务逻辑，二是 Controller 会变得非常复杂。
+
+`MVP` 是 MVC 的一个演变模式， `Presenter 表示器`负责界面逻辑处理，从而解决 MVC 的第一个问题。Presenter 串联起 View 与 Model 的通信，且所有通信都是`双向`的。
+
+`MVVM` 与 MVP 基本上相同，而不同之处在于 `ViewModel 视图模型`和 View 之间采用`双向绑定`，从而解决了MVC的第二个问题，目前流行的三大前端框架均采用这种方式。
+
+技术选项的关键在于业务，单纯展示性的 web 应用可以采用 MVC 模式的 nodejs 服务；强视图交互的 web 应用可以采用 MVP 模式来统一管理逻辑；强数据交互的 web 应用则可以采用 MVVM 模式来减少渲染逻辑。
+
+
+
+
+
+### 模块化
+
+CommonJS 同步加载，如nodejs
+
+AMD 异步模块定义 define(['dep1','dep2'],function(dep1,dep2){...})，如require.js和curl.js。
+
+CMD 通用模块定义 define(function(require,exports,module){...})，如seajs，更贴近 CommonJS Modules/1.1 和 Node Modules 规范。
+
+SeaJS对模块的态度是懒执行, 而RequireJS对模块的态度是预执行
+
+
+## 前端安全
+- XSS
+  - cross-site scripting跨域脚本攻击，javascript代码注入
+  - 防御：过滤，避免运行用户代码，cookis用httpOnly等
+- CSRF/XSRF
+  - Cross-site request forgery 跨站请求伪造
+  - 防御：检查来路同域、做token等
+- 其他：界面劫持、http劫持等

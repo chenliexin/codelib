@@ -1,3 +1,14 @@
+## HTML5
+- Web Worker
+  - 多线程处理功能
+  - 创建一个不影响前台处理的后台线程
+- 新的html标准，新的声明方式，直接doctype html非常简洁
+- 更强的语义化，header、footer等
+- 新的表单控件，Number，date，range等
+- 强大的图像支持，picture、canves等
+- 强大的多媒体支持，video、audio等
+- 强大的新api：地理位置、拖放、web存储等
+
 ## Geolocation
 - window.navigator.geolocation
 - getCurrentPosition(onSuccess, onError, options)

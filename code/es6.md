@@ -434,3 +434,48 @@ Map类型
 set get
 
 Object.is()用来比较两个值是否严格相等。它与严格比较运算符（===）的行为基本一致，不同之处只有两个：一是+0不等于-0，二是NaN等于自身。
+
+
+
+
+
+### ECMAScript 6
+
+新增：let/const，解构赋值，模板字符串，原型扩展（字符串、数值、数组、对象、函数），Symbol，Set/Map，Iterator和for...of，Generator函数，Promise对象，Class，Module
+
+### es6 原型扩展
+
+Number 方法：isFinite, isNaN, isInteger；Math 方法：sign, cbrt；Array扩展的各种方法；对象的简洁表示方法、属性名表达式，方法：is, assign，set/get；函数参数默认值，rest参数（...arg），扩展运算符（...），箭头函数。
+
+### es6 Set/Map
+
+Set 它类似于数组，但是成员的值都是唯一的，没有重复的值。操作方法：add, delete, has, clear；遍历方法类似数组。
+
+WeakSet 与Set类似，成员只能是对象，对象都是弱引用，即垃圾回收机制不考虑其的引用，因此WeakSet是不可遍历的。
+
+Map 类似于对象，键值的范围不限于字符串，各种类型的值（包括对象）都可以当作键。操作方法：size, set, get, has, delete, clear。
+
+WeakMap 与Map结构基本类似，只接受对象作为键名（null除外），而且键名所指向的对象，不计入垃圾回收机制。
+
+### es6 Iterator 和 for...of
+
+Iterator的作用有三个：一是为各种数据结构，提供一个统一的、简便的访问接口；二是使得数据结构的成员能够按某种次序排列；三是ES6创造了一种新的遍历命令for...of循环，Iterator接口主要供for...of消费。
+
+### es6 Generator函数
+
+调用Generator函数后，该函数并不执行，返回的也不是函数运行结果，而是一个指向内部状态的指针对象，也就是上一章介绍的遍历器对象（Iterator Object）。
+
+必须调用遍历器对象的next方法，使得指针移向下一个状态。直到遇到下一个yield语句（或return语句）为止。
+
+next方法返回一个对象，它的value属性就是当前yield语句的值，done属性的值false，表示遍历还没有结束。
+
+### es6 Promise对象
+
+```js
+var promise = new Promise(function(resolve, reject){ ... });
+promise.then(function(){}, function(){});
+```
+
+### es6 Class
+
+ES6的class可以看作只是一个语法糖，让原型写法更清晰。有一个constructor方法，这就是构造方法。类和模块的内部，默认就是严格模式。
