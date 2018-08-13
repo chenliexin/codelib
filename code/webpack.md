@@ -168,3 +168,24 @@
 - CommonsChunkPlugin -> SplitChunksPlugin
     - optimization.splitChunks
     - optimization.runtimeChunk
+
+# v4
+- mode属性
+- 移除CommonsChunkPlugin
+  - 内置optimization.splitChunks、optimization.runtimeChunk
+
+# 优化
+- 多环境配置
+- 按需引入，如loadsh
+- 配置resolve/alias
+- 配置include/exclude
+- 配置或关闭sourceMap
+- 使用noParse，跳过解析
+- 使用happypack多进程构建
+- 输出优化
+  - 提取css
+  - 提取公用库
+  - 代码压缩
+  - 去掉sourceMap、注释
+  - 压缩图片
+  - 异步模块

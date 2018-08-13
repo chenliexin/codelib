@@ -1,4 +1,16 @@
-## vue
+# vue
+- 提供MVVM数据双向绑定的库，专注于UI层面，核心思想是：数据驱动、组件系统
+  - 利用Object.defineProperty和getter/setter
+- 异步批量DOM更新
+- 动画系统
+- 可扩展性：自定义指令、过滤器和组件、mixin机制
+- 虚拟DOM
+  - 保证最小DOM操作
+  - 用JS表示DOM结构
+  - DOM diff
+    - 深度优先遍历，同级比较
+    - 使用补丁方式修改
+
 - 组合
     - mixins混入
     - directives自定义指令

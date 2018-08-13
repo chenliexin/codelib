@@ -24,46 +24,37 @@
 - watchCurrentPosition(onSuccess, onError, options)
 - clearWatch(watchId)
 
+# 拥有宽高的行内元素
+- 替换元素，根据标签和属性显示内容
+- 不可替换元素，内容直接表现
+
+# Iframe通信
+- 父子，父通过iframeElement.contentWindow
+- 父子，父通过iframeName.window
+- 父子，父通过window.frames[0]
+- 子父，子通过parent.window
+- 子父，子通过top.window
+- 兄弟，通过父做桥接
+
+### 监听DOM变动
+- MutationObserver，目前IE11+及其它浏览器最新版本都已支持
+- DOM3 Mutation events 事件，已废弃，不建议使用
+  - DOMAttrModified
+  - DOMAttributeNameChanged
+  - DOMCharacterDataModified
+  - DOMElementNameChanged
+  - DOMNodeInserted
+  - DOMNodeInsertedIntoDocument
+  - DOMNodeRemoved
+  - DOMNodeRemovedFromDocument
+  - DOMSubtreeModified
+
+# xmlhttprequest二进制
+- 设置responseType属性来改变一个从服务器上返回的响应的数据类型
+  - 可用的属性值为空字符串 (默认), "arraybuffer", "blob", "document", 和 "text"
+
+
 ## TODO
-
-
-link
-
-```xml
-<link rel="dns-prefetch" href="//dns.domain.com">
-
-```
-
-meta
-
-UC手机浏览器字体变大
-
-```xml
-<meta name="wap-font-scale" content="no">
-```
-
-
-localStorage
-
-```js
-localStorage.setItem(key, value);
-localStorage.getItem(key);
-localStorage.removeItem(key);
-localStorage.clear();
-window.addEventListener('storage', handle, false); // chrome测试无效20160801
-```
-
-sessionStorage
-
-```js
-sessionStorage.setItem(key, value);
-sessionStorage.getItem(key);
-sessionStorage.removeItem(key);
-sessionStorage.clear();
-window.addEventListener('storage', handle, false); // chrome测试无效20160801
-```
-
-
 link
   rel
     dns-prefetch
@@ -78,24 +69,3 @@ dpr devicePixelRatio, DPR = 设备像素 / CSS像素
   设备像素(device independent pixels)
   CSS像素(CSS pixels): 又称为逻辑像素
   “点”（dot）
-
-
-
-code review
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

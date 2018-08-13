@@ -1,14 +1,22 @@
-vue
+# 2018.8.7
 
-许可证license类型
-状态码
-缓存
-apply、call
-CommonJS模块
+应用层
+表示层
+会话层
+传输层
+网络层
+数据链路层
+    帧frame
+        数据组合成数据块
+    数据链路无误差
+物理层
+    比特流
+    介质
+    物理线路传输误差
 
-# 未整理
+网络层还有几个比较重要的协议，ARP(Address Resolution Protocol地址解析协议)、ICMP(Internet Control Message Protocol报文控制协议)、IGMP(Internet Group Management Protocol组管理协议)
 
-
+# 2018.7.31
 
 一个事件函数的四部分
   取得事件对象的访问权，建议用事件委派／广播的方式获得，而不是直接绑定
@@ -25,8 +33,6 @@ CommonJS模块
 web Worker和postMessage
 XMLHttpRequest
 缓存
-
-
 
 gzip
 gzip能在压缩的基础上再进行压缩50%以上！！！

@@ -1,3 +1,7 @@
+# 选择器权重
+- important，行内，id，class，tag，通配符，继承，默认
+- 四位规则：行内，id，class/属性/伪类，tag/伪元素
+
 ## flex
 - 容器
     - display
