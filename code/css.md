@@ -2,58 +2,39 @@
 - important，行内，id，class，tag，通配符，继承，默认
 - 四位规则：行内，id，class/属性/伪类，tag/伪元素
 
-## flex
+# flex
 - 容器
-    - display
-        - flex
-        - inline-flex
-    - flex-flow 排列方式
-        - flex-direction 排列方向
-            - row 水平
-            - row-reverse 水平反向
-            - column 竖直
-            - column-reverse 竖直反向
-        - flex-wrap
-            - nowrap 单行
-            - wrap 多行
-            - wrap-reverse 多行反向
-    - justify-content/align-content 水平位置、竖直位置
-        - center 居中
-        - flex-start 开端
-        - flex-end 末端
-        - space-between 两端靠边
-        - space-around 平分
-    - align-items 元素位置相对关系
-        - center 居中
-        - flex-start 开端
-        - flex-end 末端
-        - baseline 基线，和flex-start等效
-        - stretch 拉伸？
+  - display：flex，inline-flex
+  - flex-flow排列方式
+    - flex-direction方向：row水平，row-reverse水平反向，column竖直，columu-reverse竖直反向
+    - flex-wrap换行：nowrap单行，wrap多行，wrap-reverse多行反向
+  - justify-content水平位置/align-content竖直位置：center居中，flex-start开端，flex-end末端，space-between两端靠边，space-around平分
+  - align-items元素位置相对关系：center居中，flex-start开端，flex-end末端，baseline基线和flex-start等效，stretch拉伸？
 - 元素
-    - flex
-        - flex-grow 扩展比率，即对剩余空间的利用
-        - flex-shrink 收缩比率，即对缺失空间的补偿
-        - flex-basis 伸缩基准值
-        - flex: 1 => flex: 1 1 0%
-    - order
+  - flex
+    - flex-grow 扩展比率，即对剩余空间的利用
+    - flex-shrink 收缩比率，即对缺失空间的补偿
+    - flex-basis 伸缩基准值
+    - flex: 1 => flex: 1 1 0%
+  - order
 
 ## animate
 - animate
-    - name keyframesID
-    - duration
-    - timing-function
-        - ease/ease-in/ease-out/ease-in-out
-        - linear
-        - step-start/step-end/steps(n, start|end)
-        - cubic-bezier(x1, y1, x2, y2)
-    - iteration-count infinite/n
-    - direction normal/reverse/alternate/alternate-reverse
-    - play-state running/paused
-    - delay
-    - fill-mode none/forwards/backwards/both
+  - name keyframesID
+  - duration
+  - timing-function
+    - ease/ease-in/ease-out/ease-in-out
+    - linear
+    - step-start/step-end/steps(n, start|end)
+    - cubic-bezier(x1, y1, x2, y2)
+  - iteration-count infinite/n
+  - direction normal/reverse/alternate/alternate-reverse
+  - play-state running/paused
+  - delay
+  - fill-mode none/forwards/backwards/both
 - keyframes
-    - from/to
-    - n%
+  - from/to
+  - n%
 
 ## TODO
 stylus

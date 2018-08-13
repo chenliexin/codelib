@@ -1,13 +1,31 @@
-## 模块和依赖包
+> 2018.8.13
 
-- babel-core 核心
-    - babel-types 为AST节点提供的lodash类的实用程序库
-    - babel-register require钩子会将自己绑定到node的require上并且能自动即时编译
-    - babel-template 从一个字符串模板中生成AST
-    - babel-helpers babel转换的帮助函数集合
-- babel-polyfill
+# babel
+- 将es5+转换为es5的js编译器
+- 稳定版`6.x`
+- 编译过程
+  - `解析`，将代码解析成`抽象语法树`
+    - babylon，js解析器
+  - `转换`，将抽象语法树转换为ES5抽象语法树
+  - `生成`，将ES5抽象语法树生成代码
+
+# .babelrc
+
+# babel-cli
+
+# plugin/preset
 - babel-preset-env
-- babel-plugins 见官网
+  - 等于es2015之后的全部版本
+  - 每年每个preset只编译当年批准的内容
+- babel-preset-react
+- babel-preset-flow
 
-Babylon: Babylon 是一个用于 babel 的 JavaScript 解析器
-抽象语法树（abstract syntax tree或者缩写为AST）
+# babel-polyfill
+- babel只进行语法转换，用babel-polyfill来支持新的全局变量，如Promise等
+  - 底层依赖`core-js`，用ES3实现了大部分的ES2017原生标准库，同时严格遵循规范
+  - regenerator
+
+# babel-register
+- 一个使用 Babel 的方法是通过 require 钩子。 require 钩子会将自己绑定到 node 的 require 上并自动编译文件。
+
+
