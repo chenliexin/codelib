@@ -1,17 +1,4 @@
 
-## 开发目标
-
-- 松耦合
-- 组件化
-- 模块化
-- 按需加载
-- 预加载
-- 延迟加载
-
-## 开发模式
-
-- 不使用UA做特性检测，应该直接在运行环境中检测所需对属性或方法
-
 ## 性能优化
 - 雅虎军规
     - 尽量减少HTTP请求数
@@ -184,7 +171,9 @@ CMD 通用模块定义 define(function(require,exports,module){...})，如seajs�
 SeaJS对模块的态度是懒执行, 而RequireJS对模块的态度是预执行
 
 
-## 前端安全
+# 安全
+- 跨站脚本攻击
+  - XSS cross site scripting，避免与CSS缩写冲突
 - XSS
   - cross-site scripting跨域脚本攻击，javascript代码注入
   - 防御：过滤，避免运行用户代码，cookis用httpOnly等
