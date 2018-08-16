@@ -218,3 +218,6 @@
 - 服务器端渲染
     - vue-server-renderer
     - Nuxt.js
+
+# vue-cli
+- npm i pug pug-plain-loader stylus stylus-loader
