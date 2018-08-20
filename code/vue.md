@@ -1,7 +1,26 @@
 # vue
 - 提供MVVM数据双向绑定的库，专注于UI层面，核心思想是：数据驱动、组件系统
-  - 利用Object.defineProperty和getter/setter
+- 响应式
+  - 遍历data选项，使用Object.defineProperty转为setter/getter
+    - ES5的Object.defineProperty无法shim，不支持IE8
+  - 组件实例有相应的watcher实例对象，记录渲染中的属性为依赖
+    - 依赖的setter被调用时通知watcher重新计算，使组件更新
+  - 不允许动态添加data选项的根级属性
+  - 响应式属性需要在初始时存在
+    - 受到js的限制，废弃Object.observe
+    - 使用Vue.set()或组件内vue.$set()
+    - 使用Object.assign()添加属性时，可以合并到空对象然后赋值给对应的响应式属性
+  - 响应式数组
+    - 无法响应以基本类型为值的数组
+      - 使用Vue.set()或组件内vm.$set()
+    - 无法响应数组长度修改
+      - 使用splice，vm.items.splice(newLength)
 - 异步批量DOM更新
+  - 只要观察到数据变化，就开启一个异步队列，缓冲同一事件循环中所有数据变化
+  - 同一个watcher多次触发只会被推入异步队列一次，这种去重对计算和dom操作具有重要优化作用
+  - 在下一个事件循环中，刷新异步队列，并批量DOM更新
+  - 异步队列采用Promise.then和MessageChannel，降级方案setTime(fn, 0)
+  - Vue.nextTick(cb)可以获取本次事件循环后触发更新后的DOM
 - 动画系统
 - 可扩展性：自定义指令、过滤器和组件、mixin机制
 - 虚拟DOM
