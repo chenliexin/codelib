@@ -33,6 +33,27 @@
   - 是一个指向调用该函数的对象的关键字
   - apply和call可以改变这种指向，apply的第二个参数为数组
 
+# Object
+- Object.defineProperty(obj, prop, descriptor)
+  - 在对象上定义或修改属性，并返回对象
+  - 定义key为Symbol的属性的方法之一
+  - 定义的值默不可修改（TypeError），不可删除，不可枚举
+  - 对象中的属性描述符有两种
+    - 数据描述符，一个具有值的属性
+    - 存取描述符，通过setter/getter函数的属性
+    - 同时具有两种描述符，抛出异常
+  - 参数descriptor对象
+    - configurable，默认false，为true时可以修改和删除
+    - enumerable，默认false，为true时可枚举
+    - 数据描述符特有
+      - value
+      - writable，默认false，为true时可以通过赋值改变
+    - 存取描述符特有
+      - set，唯一参数为新值
+      - get，无参数但this可用
+
+- defineProperties
+  
 # Array
 - mutator方法会改变数组自身的值：copyWithin, fill, pop, push, reverse, shift, unshift, sort, splice
 - accessor方法不会改变数组的值，只会返回一个新的数组或者返回一个其它的期望值：concat, includes, join, slice, toString, toLoaclString, indexOf, lastIndexOf
