@@ -12,3 +12,6 @@ https://101fix.cc 复制网址
 
 或者，你可以寄信至以下邮箱取得目前最新的网址
 hd101.url@gmail.com 复制邮箱
+
+
+https://cn.ax101.ws/
