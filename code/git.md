@@ -8,15 +8,6 @@
   - 版本穿梭，恢复到已经删除的操作
     - git reflog 查id，git reset --hard id
 
-## TODO
-
-- 补丁
-- 标签
-- 工作流
-merge commit
-遴选
-cherry-pick
-
 
 ## rollback
 
@@ -24,70 +15,6 @@ cherry-pick
 $ git reset --hard <commitID>
 $ git push -f origin <branch>
 ```
-
-## tag
-
-git tag -d <tagname>
-git push origin :refs/tags/<tagname>
-
-
-# git
-
-```bash
-git config --global user.name 'chenliexin'
-git config --global user.email 'chenliexin@yeah.net'
-git init
-git clone
-git add --all
-git commit -m 'message'
-git status
-git log
-git reflog
-git reset -hard HEAD^
-git reset -hard HEAD^^^^^^
-git reset -hard 'index'
-```
-
-reset
-$ git reset -hard HEAD^ //HEAD^^^ and so on
-$ git reset -hard <index> //index lookup from $ git reflog
-
-undo unremove
-$ git checkout -- <path> //important --, without -- create branch
-
-Github 
-
-create SSH-Key
-$ ssh-keygen -t rsa -C "chenliexin@yeah.net"
-//id_rsa and id_rsa.pub will be create in user-main-dir
-
-setting -> SSH Keys
-add shh key with title and id_rsa.pub
-
-[case 1] empty repository
-$ git remote add origin <SSH-URL|HTTPS-URL>
-$ git push -u origin master
-
-[case 2] clone repository
-$ git clone <SSH-URL|HTTPS-URL>
-
-[case 3] pull
-$ git pull
-
-branch
-$ git checkout -b dev
-$ git branch
-$ git merge <branch-name>
-$ git merge -no-ff -m //unuse 'Fast forward'
-$ git branch -d <branch-name> //delete branch
-$ git stash //hide branch
-
-remote
-$ git push origin master
-$ git pull
-
-git checkout -b dev origin/dev
-
 
 # SSH
 - SSH，网络协议，用于计算机间加密登录，有多种实现，如openSSH
@@ -169,6 +96,7 @@ git checkout -b dev origin/dev
   - branch
   - checkout
   - merge
+  - stash
 
 - 撤销操作
   - 更正提交：提交后发现有文件未添加或提交信息写错
@@ -205,9 +133,10 @@ git checkout -b dev origin/dev
     - 变基使得提交历史更加整洁，尽管实际的开发工作是并行的，但它们看上去就像是串行的一样
     - 指向的快照始终是一样的，只不过提交历史不同罢了。 变基是将一系列提交按照原有次序依次应用到另一分支上，而合并是把最终结果合在一起
     - 变基的风险，要用它得遵守一条准则：不要对在你的仓库外有副本的分支执行变基。
+    - 遴选，Git 中的拣选类似于对特定的某次提交的变基
 - 协议
   - Git 可以使用四种主要的协议来传输资料：本地协议（Local），HTTP 协议，SSH（Secure Shell）协议及 Git 协议
-  - 
+- 储存 stash
 仓库（repository）、跟踪（track）、暂存（stage）或提交（commit)、推送（push）拉取（pull）
 版本控制系统（VCS）
   集中化版本控制系统（Centralized Version Control Systems，简称 CVCS）
