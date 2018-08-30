@@ -1,3 +1,6 @@
+# linux
+
+http://blog.51cto.com/494981/1383655 yum和apt-get
 
 tar -czvf test.tar.gz *
 

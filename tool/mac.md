@@ -5,9 +5,9 @@
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
   ```
   常用的三条语句搜索(search)、更新(install)、卸载(remove)
+  删除旧软件 https://www.jianshu.com/p/3994c4981756
 - iterm2 命令行工具
 - dash 文档查看器
-
 
 
 # 快捷键
