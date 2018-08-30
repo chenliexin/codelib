@@ -214,3 +214,5 @@ git checkout -b dev origin/dev
   分布式版本控制系统（Distributed Version Control System，简称 DVCS）
 已提交（committed）、已修改（modified）和已暂存（staged）
 终端（Terminal）；命令窗口（Command Prompt）
+
+patch
