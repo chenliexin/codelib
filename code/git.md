@@ -111,6 +111,7 @@ git checkout -b dev origin/dev
 - 来源于linux内核社区，诞生于2005年
 - git核心
   - 直接记录快照，而非差异比较
+    - 快照使用blob 对象来保存
   - 近乎所有操作都是本地执行
   - 保证完整性
     - 所有数据在存储前都计算校验和，然后以校验和来引用
@@ -129,6 +130,7 @@ git checkout -b dev origin/dev
     - ！！安装完第一件事，配置用户名和邮箱 user.name user.email
     - 每次提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改
   - 配置信息 git config --list
+  - 别名 alias
 - 帮助 git help
   - git help -a/-g 全部
   - git help config 获取config的帮助
@@ -160,6 +162,13 @@ git checkout -b dev origin/dev
   - mv
     - ？？和直接改名字的区别是啥
   - log
+  - remote
+  - fetch
+  - tag
+  - show
+  - branch
+  - checkout
+  - merge
 
 - 撤销操作
   - 更正提交：提交后发现有文件未添加或提交信息写错
@@ -167,10 +176,28 @@ git checkout -b dev origin/dev
     - sourcetree，提交-提交选项-更正上一次提交
   - 取消暂存
     - reset HEAD {file}
-    - sourcetree，直接操作
+    - sourcetree，直接操作，可以做到块级
   - 取消修改
     - checkout -- {file}
-    - sourcetree，直接操作
+    - sourcetree，直接操作，可以做到块级
+- 远程仓库
+  - ？？多个远程仓库怎么搞
+  - 查看，添加，重命名，删除
+    - remote，remote -v，remote add {name} {url}，remote rename，remote rm
+    - sourcetree，设置中查看和添加
+  - 抓取，拉取，推送
+    - fetch {remote}，pull，push {remote} {branch}
+- 标签
+  - 两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）
+    - 轻量标签本质上是将提交校验和存储到一个文件中 - 没有保存任何其他信息。 
+      - 不建议使用
+    - 附注标签是存储在 Git 数据库中的一个完整对象。 它们是可以被校验的；
+      - 其中包含打标签者的名字、电子邮件地址、日期时间；还有一个标签信息；
+      - ？？并且可以使用 GNU Privacy Guard （GPG）签名与验证。
+      - tag -a {tag} -m {message}
+  - 共享标签
+    - 默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。 这个过程就像共享远程分支一样 - 你可以运行 git push origin [tagname]
+    - 如果想要一次性推送很多标签，也可以使用带有 --tags 选项的 git push 命令
 
 仓库（repository）、跟踪（track）、暂存（stage）或提交（commit)、推送（push）拉取（pull）
 版本控制系统（VCS）
