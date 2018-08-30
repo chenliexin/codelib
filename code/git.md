@@ -201,6 +201,7 @@ git checkout -b dev origin/dev
 - 分支
   - 合并
     - 整合分支最容易的方法是 merge 命令。 它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（并提交）
+    - 11
 
 仓库（repository）、跟踪（track）、暂存（stage）或提交（commit)、推送（push）拉取（pull）
 版本控制系统（VCS）
