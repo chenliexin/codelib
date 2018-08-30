@@ -181,7 +181,7 @@ git checkout -b dev origin/dev
     - checkout -- {file}
     - sourcetree，直接操作，可以做到块级
 - 远程仓库
-  - ？？多个远程仓库怎么搞
+  - ？2？多个远程仓库怎么搞
   - 查看，添加，重命名，删除
     - remote，remote -v，remote add {name} {url}，remote rename，remote rm
     - sourcetree，设置中查看和添加
