@@ -198,6 +198,9 @@ git checkout -b dev origin/dev
   - 共享标签
     - 默认情况下，git push 命令并不会传送标签到远程仓库服务器上。 在创建完标签后你必须显式地推送标签到共享服务器上。 这个过程就像共享远程分支一样 - 你可以运行 git push origin [tagname]
     - 如果想要一次性推送很多标签，也可以使用带有 --tags 选项的 git push 命令
+- 分支
+  - 合并
+    - 整合分支最容易的方法是 merge 命令。 它会把两个分支的最新快照（C3 和 C4）以及二者最近的共同祖先（C2）进行三方合并，合并的结果是生成一个新的快照（并提交）
 
 仓库（repository）、跟踪（track）、暂存（stage）或提交（commit)、推送（push）拉取（pull）
 版本控制系统（VCS）
