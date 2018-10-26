@@ -1,11 +1,15 @@
 
 # 软件
 - brew
-  ```sh
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
-  ```
-  常用的三条语句搜索(search)、更新(install)、卸载(remove)
-  删除旧软件 https://www.jianshu.com/p/3994c4981756
+  - 安装，`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  - search，install，remove，services，link，unlink 
+  - brew mysql
+    - brew install mysql@5.7
+    - brew services start mysql@5.7
+    - brew link mysql@5.7
+    - mysql -u root -p
+  - 其他
+    - 删除旧软件，https://www.jianshu.com/p/3994c4981756
 - iterm2 命令行工具
 - dash 文档查看器
 

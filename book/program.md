@@ -48,3 +48,48 @@
 所谓指令，就是控制计算机进行输入、运算、输出的命令。
 
 1.4 对计算机来说什么都是数字
+
+
+位
+  二进制位，bit；数据存储最小单位；仅0/1两种状态
+字节
+  Byte；数据处理基本单位；1B=8bit
+ASCII
+  美国信息交换标准代码，American Standard Code for Information Interchange
+  128个字符；95个可显示字符；33个不可显示字符，多为废弃的控制字符；现代软件系统基本采用Unicode
+Unicode
+  万国码、国际码、统一码、单一码
+  编码方式为 UCS；实现方式为 UTF
+UCS
+  通用字符集，Universal Character Set；包含已知语言的所有字符，与其他字符集双向兼容
+  32位字符集；使用 U+hhhh 或 \uhhhh 表示，h 为十六进制数
+UTF
+  Unicode字符转换格式，Unicode Transformation Format；包括 UTF-8、UTF-16、UTF-32 字符编码
+    UTF-8 使用一至四个字节为每个字符编码，可变长度的编码方式减少存储占用的空间，所以被广泛使用
+    UTF-16 使用二或四个字节为每个字符编码，有高位低位概念
+      基本平面的字符占用2个字节 U+0000 到 U+FFFF，辅助平面的字符占用4个字节 U+010000 到 U+10FFFF
+      一个辅助平面的字符，被拆成两个基本平面的字符表示
+        在基本平面内，从 U+D800 到 U+DFFF 是一个空段
+        U+D800 到 U+DBFF 为高位，U+DC00 到 U+DFFF为低位
+    UTF-32 使用四个字节为每个字符编码，等于是 Unicode 编码前补零
+      转换规则简单直观，查找效率高
+      浪费空间，HTML5 标准规定网页不得编码成 UTF-32
+
+按位操作符
+  Bitwise operators，操作数当作有符号32位整数，返回值是数值
+
+
+所有的按位操作符的操作数都会被转成补码（two's complement）形式的有符号32位整数。
+
+补码
+  two's complement，一个数的负值的所有比特位反转后，再加1
+  保证当一个数是正数，其最左的比特位是0，当一个数是负数时，其最左的比特位是1；最左边的比特位被称为符号位 sign bit
+反码
+  反转比特位，即行按位非运算
+
+左移
+补码
+XOR运算
+
+待整理
+  Unicode与JavaScript http://www.ruanyifeng.com/blog/2014/12/unicode.html
