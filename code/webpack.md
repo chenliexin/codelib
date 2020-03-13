@@ -1,0 +1,191 @@
+## 概念
+- 基本概念
+    - 模块打包器module bundler
+    - 递归构建一个依赖关系图dependency graph
+    - 高度可配置的
+        - 可重用并且可以与其他配置组合使用
+        - 关注点concern从环境environment、构建目标build target、运行时runtime中分离
+        - 使用专门的工具（如webpack-merge）将它们合并
+- 入口
+    - 使用：单个、数组、对象
+    - 场景
+        - 应用程序app与第三方库vendor的入口分离
+        - 多页面应用程序
+- 输出
+    - 使用：至少包含输出文件名filename，绝对路径输出目录path
+    - 使用占位符，确保文件唯一性
+    - 编译时不知道最终输出文件的publicPath的情况下，publicPath可以留空
+        - 可以入口起点设置 `__webpack_public_path__`
+        - 场景：使用CDN和资源hash
+- 模式
+    - v4引入相应模式的内置优化，减少配置复杂度
+    - development
+        - process.env.NODE_ENV = development
+        - 启用NamedChunksPlugin、NamedModulesPlugin
+    - production
+        - process.env.NODE_ENV = production
+        - 启用FlagDependencyUsagePlugin、FlagIncludedChunksPlugin、ModuleConcatenationPlugin、NoEmitOnErrorsPlugin、OccurrenceOrderPlugin、SideEffectsFlagPlugin、UglifyJsPlugin
+- loader
+    - 模块的源代码进行转换
+    - 类似于其他构建工具中任务task
+    - 通过test匹配，通过use转换
+    - 特性
+        - 支持链式传递，对资源使用管道pipeline，按照相反的顺序执行
+        - 运行在node中，可以同步或异步
+        - 可以接受参数进行配置，或使用options对象配置
+        - 插件可以提供更多功能
+        - 可以产生任意额外的文件
+- 插件
+    - 是支柱功能，webpack自身也构建于插件之上
+    - 用于实现loader无法实现的事务
+    - 实现
+        - 插件是一个具有apply属性的对象
+        - apply会被webpack compiler调用
+        - compiler在整个生命周期可以访问
+    - 使用插件可以传入参数，通过实例进行配置
+- 配置
+    - 是标准的node CommonJS模块
+    - 基本配置是入口和输出
+- 模块
+    - 将程序分解成离散功能块
+    - 具有比完整程序更小的接触面，使得校验、调试、测试轻而易举
+    - 支持引入方式
+        - ES2015 import
+        - CommonJS require()
+        - AMD define 和 require
+        - css或css预处理语言中的@import语句
+        - 样式，html，js中的内链资源
+- 模块解析
+    - 解析文件路径
+    - 解析规则
+        - 绝对路径
+        - 相对路径
+        - 模块路径
+- manifest
+    - 代码类型
+        - 你或你的团队编写的源码
+        - 你的源码会依赖的任何第三方的library或vendor代码
+        - webpack的runtime和manifest，管理所有模块的交互
+    - runtime
+        - 在浏览器运行时，webpack用来连接模块化应用程序的所有代码
+        - 模块交互时，连接模块所需的加载和解析逻辑
+    - manifest
+        - 输出的文件结构和src比不对等
+        - manifest保留了编译器开始执行、解析和映射的详细要点
+        - 可以和缓存挂钩
+- 构建目标
+    - 默认是 'web'，可省略
+- 模块热替换(HMR - Hot Module Replacement)
+    - webpack-dev-server 支持 hot 模式
+
+## 配置
+- 多种配置类型
+    - 导出单个配置对象
+    - 导出为一个函数
+        - 消除环境差异性
+        - 可传入两个参数，环境对象env和选项对象argv
+    - 导出一个promise
+    - 导出多个配置对象
+- 常用配置
+    - context 上下文基础目录，绝对路径，用于解析入口和loader
+    - entry 入口
+    - output 输出
+        - filename 输出名称
+        - path 输出目录，绝对路径
+        - publicPath 发布目录
+            - 通常以/结束
+            - 可以通过`__webpack_public_path__`在入口处配置
+        - chunkFilename 非入口chunk文件名
+        - libraryTarget 构建目标和 library 构建目标名
+            - 暴露为一个变量，目标值为var或assign
+            - 通过在对象上赋值暴露，目标值为this，window，global，commonjs
+            - 模块定义系统，目标值为commonjs2，amd，umd
+    - module 模块
+        - rules 规则数组
+            - test
+            - use
+            - options、query
+            - include、exclude
+            - loader
+    - resolve 解析
+        - alias 别名，末尾添加$以表示精准匹配
+        - extensions 后缀名
+    - plugins 插件数组
+    - devServer 开发
+        - 配置webpack-dev-server
+        - host、port
+        - hot 模块热替换特性
+        - lazy 惰性模式
+        - proxy 
+        - publicPath 和output一样
+    - devtool 控制sourceMap生成机制
+        - 开发环境
+            - eval，非常快地构建，映射到转换后的代码，找不到正确的原始行数
+            - eval-source-map，初始化比较慢，重新构建比较快，生成实际文件，正确映射行数，开发最佳选择
+        - 生产环境
+            - none 不生产，不错的选择
+            - source-map 生成独立文件，为bundle添加一个引用注释
+    - target 构建目标
+        - web 默认
+        - node node环境模块
+    - performance 性能
+        - 控制资源和入口超过指定文件控制时候的通知
+        - maxEntrypointSize 入口最大250k默认
+        - maxAssetSize 资源最大100k默认
+        - hints
+            - false 关闭
+            - warning、error
+    - stats 统计信息配置
+- 占位符
+    - [hash] 模块标识符的hash
+    - [chunkhash] 内容的hash
+    - [name] 模块名称
+    - [id] 模块标识符
+    - [query] 模块参数
+
+## API
+- CLI
+    - 配置选项
+        - --env 环境变量
+        - --config 配置文件路径
+        - --mode 模式
+    - 输出配置
+    - ...大部分和文件配置雷同
+    - 包含统计数据的文件
+        - webpack --profile --json > compilation-stats.json
+- 模块
+- Node
+- loader
+- plugin
+
+## 插件
+- HtmlWebpackPlugin 创建简单的HTML
+- ExtractTextPlugin 从bundle中提取文本（CSS）到单独的文件
+- clean-webpack-plugin 清理文件夹
+- webpack-manifest-plugin manifest生成
+- DefinePlugin
+- UglifyjsWebpackPlugin
+- CommonsChunkPlugin -> SplitChunksPlugin
+    - optimization.splitChunks
+    - optimization.runtimeChunk
+
+# v4
+- mode属性
+- 移除CommonsChunkPlugin
+  - 内置optimization.splitChunks、optimization.runtimeChunk
+
+# 优化
+- 多环境配置
+- 按需引入，如loadsh
+- 配置resolve/alias
+- 配置include/exclude
+- 配置或关闭sourceMap
+- 使用noParse，跳过解析
+- 使用happypack多进程构建
+- 输出优化
+  - 提取css
+  - 提取公用库
+  - 代码压缩
+  - 去掉sourceMap、注释
+  - 压缩图片
+  - 异步模块

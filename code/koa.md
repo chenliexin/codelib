@@ -1,0 +1,133 @@
+## 设计理念
+- 在其低级中间件层中提供高级语法糖
+    - 免除重复繁琐的回调函数嵌套
+    - 提升错误处理的效率
+- 洋葱模型：中间件流程控制，使用async/await实现，曾用generator实现
+    - 中间件顺序
+    - 流程控制next()的使用
+        - 单个中间件存在多个next()将抛出异常
+    - 上下文ctx的修改和传递
+- 不在内核方法中绑定任何中间件，仅仅提供一个轻量优雅的函数库
+    - 内容协商
+    - 缓存清理
+    - 代理支持
+    - 重定向
+
+## 开发
+- 应用
+    - 常用设置
+        - app.env = NODE_ENV || 'development'
+        - app.proxy express做反向代理后获取真实IP时候配置过
+        - app.subdomainOffset请求中子域名的获取偏移量
+    - app.listen(PORT)
+        - koa应用和http并非一对一，而是可以同时启动多个koa应用
+        - 是http.createServer(app.callback()).listen(PORT)的语法糖
+    - app.callback()
+        - 返回http.createServer(options, requestListener)中的requestListener
+        - 可以挂载到connect、express应用
+    - app.use(function)
+        - 添加中间件
+    - app.keys=
+        - 加密cookies的密钥
+        - 传递给KeyGrip，也可以自定义KeyGrip实例app.keys = new KeyGrip(['im a newer secret'], 'sha256');
+    - app.context
+        - 应用的上下文对象
+        - 可以配置后在中间件中传递，例如应用的全局配置可以通过这样传递
+    - 异常处理
+        - 默认所有异常都输出到stderr
+        - 不输出的情况
+            - app.silent = true
+            - err.status = 400 || err.expose = true
+        - 添加一个异常监听中间件，及其可以有的日志功能
+- 上下文
+    - 原始的node的request和response寄存在ctx.req和ctx.res
+        - 避免绕过koa中ctx的ctx.respense直接处理ctx.res
+    - ctx封装node的request和response对象，分别是ctx.request和ctx.respense
+        - 为方便访问，ctx下的很多对象直接委托给ctx.request和ctx.respense
+    - ctx.state
+        - 推荐使用的命名空间，用于通过中间件传递到视图的数据
+    - ctx.app
+        - 应用程序实例引用
+    - ctx.cookies.get(name, [options])、ctx.cookies.set(name, value, [options])
+        - signed
+        - maxAge、expires
+        - domain、path
+        - httpOnly、secure
+        - overwrite
+    - ctx.throw([status], [msg], [properties])
+        - 抛出用户级错误
+        - 可以通过properties将比用的错误信息传递到异常监听中间件
+    - ctx.assert(value, [status], [msg], [properties])
+        - node的assert()与ctx.throw()的结合体
+- ctx.request
+    - header、headers、method、length
+    - url、originalUrl、origin
+    - href、path、querystring、search、host、hostname
+    - protocol、secure、ip、ips、subdomains
+    - URL
+        - 获取WHATWG解析的URL对象
+    - type、charset
+    - query
+    - fresh
+        - 缓存是否可用，用于If-None-Match/ETag和If-Modified-Since和Last-Modified之间的缓存协商
+    - stale
+        - 与request.fresh相反
+    - request.is(types...)
+        - 检查请求是否包含Content-Type头字段，并且包含任意的MIME
+        - 没有请求主体，返回null
+        - 没有Content-Type或匹配失败，返回false
+        - 返回匹配的Content-Type
+    - 内容协商
+        - 如果没有提供类型，则返回所有可接受类型
+        - 如果提供多种类型，将返回最佳匹配
+            - 如果没有找到匹配项，则返回一个false，应该向客户端发送406
+        - 提供的类型顺序很重要，如果接收到任何类型的请求头，则返回第一个类型
+        - 协商方法
+            - request.accepts(types)
+            - request.acceptsEncodings(types)
+            - request.acceptsCharsets(charsets)
+            - request.acceptsLanguages(langs)
+    - idempotent
+        - 检查请求是否是幂等的，一次和多次请求某一个资源应该具有同样的副作用，分布式中重要
+    - socket
+        - 返回请求套接字
+    - request.get(field)
+        - 返回请求标头
+- ctx.response
+    - header、headers
+    - 编辑响应头
+        - response.get(field)
+        - response.set(field, value)
+        - response.set(fieldsObject)
+        - response.append(field, value)
+        - response.remove(field)
+    - headerSent
+        - 检查是否已经发送了一个响应头
+    - socket
+    - status，message
+    - length
+    - type
+        - 类型检查response.is(types...)
+    - body
+        - string写入：Content-Type为text/html或text/plain，字符集utf-8
+        - Buffer写入、Stream管道：Content-Type为application/octet-stream
+        - Object/Array/JSON写入：Content-Type为application/json
+        - null 无内容响应
+    - response.redirect(url, [alt])
+    - response.attachment([filename])
+        - 将Content-Disposition设置为附件，以指示客户端下载
+    - lastModified、etag
+    - response.flushHeaders()
+        - 刷新任何设置的标头，并开始主体
+    - response.vary(field)
+        - 在field上变化
+
+## 模块
+- koa-compose 中间件合并
+- koa-static 静态映射
+- koa-bodyparser POST请求的body解析
+- koa-logger 日志
+- koa-views 视图
+- koa-router 路由
+- koa-onerror 异常监听
+- koa-proxies 代理
