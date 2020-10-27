@@ -56,3 +56,35 @@ db.col.remove({});
 
 ```
 
+# mongodb
+
+# mongoose
+
+> elegant mongodb object modeling for node.js
+
+```js
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const Cat = mongoose.model('Cat', { name: String });
+
+const kitty = new Cat({ name: 'Hello' });
+kitty.save().then(() => console.log('meow'));
+```
+
+### doc
+
+https://mongoosejs.com/docs/guide.html
+
+statics 静态方法，定义在schema上，两种方式
+schema.statics.fn = function 或者 schema.statics('fn', function)
+通过该schema创建的model，带有这些静态方法，其中的this指向该model
+
+- query helpers 类似实例方法，但只用于扩展查询
+
+### plugins
+
+https://plugins.mongoosejs.io/
+
+- express-restify-mongoose
+
