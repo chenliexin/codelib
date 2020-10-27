@@ -1,17 +1,27 @@
+请选择最新地址
 
-为了确保你的权益，看片前请先收藏下面的永久网址
-(永久网址发布站 1) 
-https://www.emoneyspace.com/avhd101 复制网址
+https://cn.ax101.cc
 
-(永久网址发布站 2) 
-https://github.com/avhd101/home 复制网址 
+https://cn.aq101.club
 
-(发布备用网址 1) 
-https://101fix.cc 复制网址
+永久地址发布站
 
+地址1: https://bitbucket.org/url101/home/
 
-或者，你可以寄信至以下邮箱取得目前最新的网址
-hd101.url@gmail.com 复制邮箱
+地址2: https://ininlu.cc
 
+海外永久地址(需翻墙)
 
-https://cn.ax101.ws/
+AVHD101.com
+
+二維碼
+
+QR Code
+
+国产浏览器(如 UC、360、QQ、百度) 不定期可能会屏蔽网站，建议使用谷歌浏览器观看
+
+谷歌浏览器下载
+
+若你是 iPhone、Mac 的用户，建议使用系统自带的 Safari 浏览器
+
+https://cn.ax101.cc/

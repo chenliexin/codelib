@@ -1,7 +1,24 @@
+# shell
+
+Shell俗称壳（用来区别于核），是指“为使用者提供操作界面”的软件（命令解析器）
+CLI(command-line interface,命令行界面)和 图形用户界面（Graphical User Interface，简称 GUI，又称图形用户接口）
+
+terminal，终端，用于和shell交互
+powershell 是选中复制，右键粘贴
+shell提示符 [username@machinename workingDirectory]$ ，如果$是#的话表示是管理员
+上下键的历史记录为500条 
+
+## command
+
+date
+cal 日历
+df 硬盘空间
+free 内存空余
+ctrl-alt-f1 到 f6 可以进入多个终端。alt-f1 到 f6可以切换。alt-f7可以返回图像桌面
+
 # linux
 
 http://blog.51cto.com/494981/1383655 yum和apt-get
-
 tar -czvf test.tar.gz *
 
 ### vi

@@ -9,6 +9,14 @@ size	数值	（可选）为固定集合指定一个最大值（以字节计）�
 如果 capped 为 true，也需要指定该字段。
 max	数值	（可选）指定固定集合中包含文档的最大数量。
 
+db.collection.drop()
+如果成功删除选定集合，则 drop() 方法返回 true，否则返回 false。
+通过 show collections 命令查看已存在的集合
+
+MongoDB 创建数据库的语法格式如下：
+use DATABASE_NAME
+
+所有数据库，可以使用 show dbs 命令
 ```
 
 
