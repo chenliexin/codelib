@@ -1,6 +1,0 @@
-- createElemnet
-  - tagName自动小写
-  - tagName为null
-  - HTMLUnknownElement
-  - document.createElement(tagName[, options])
-- createElementNS
