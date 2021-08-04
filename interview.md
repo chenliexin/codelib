@@ -1,59 +1,76 @@
 
+# 基础：计算机原理、编译原理、数据结构、算法、设计模式、编程范式
+
+### 算法
+
+- 非负数数组去最大边长三角形 == 时间复杂度
+
+### 计算机原理
+
+# 语法：HTML、Js、Css、Ts、Nodejs
+
+### HTML
 
 
-基础知识主要包含以下几个方面：
-基础：计算机原理、编译原理、数据结构、算法、设计模式、编程范式等基本知识了解
-语法：JavaScript、ECMAScript、CSS、TypeScript、HTML、Node.js 等语法的了解和使用
-框架：React、Vue、Egg、Koa、Express、Webpack 等原理的了解和使用
-工程：编译工具、格式工具、Git、NPM、单元测试、Nginx、PM2、CI / CD 了解和使用
-网络：HTTP、TCP、UDP、WebSocket、Cookie、Session、跨域、缓存、协议的了解
-性能：编译性能、监控、白屏检测、SEO、Service Worker 等了解
-插件：Chrome 、Vue CLI 、Webpack 等插件设计思路的理解
-系统：Mac、Windows、Linux 系统配置的实践
-后端：Redis 缓存、数据库、Graphql、SSR、模板引擎等了解和使用
+### Js
 
+- 事件
+  - dom事件流
+  - 事件委托以及优缺点
+- 数组
+  - 说说数组原型方法reduce的用法。第三参数
+- 正则
+  - 组成邮箱地址的合法字符包括哪些
+- historyapi
+  - 介绍，可以被监听的吗，hash
 
+### Css
 
-组成邮箱地址都邮箱字符包括哪些
+- 简单svg元素hover变色
+- flex
+  - 九宫格布局
+  - 表头固定。第一列固定
 
-不使用第三方库的情况下如何set get cookie。什么是samesite
+### Ts
 
-说说数组原型方法reduce的用法。第三参数
+- ts中如何定义async函数的输入输出
+- 项目里面如何组织类型声明：命名空间、模块
 
-非负数数组去最大边长三角形
+# 框架：React、Vue、Egg、Koa、Express、Webpack
 
-简单svg元素hover变色
+### React
 
-ts中如何定义async函数的输入输出
+- key作用。通常是怎么使用。index不适用的场景
+- React的事件机制、合成事件、不是原生事件、事件代理(delegate)到document、事件机制分为注册和分发
+- 常用hook，自定义封装hook。自定hook其实就是把useXXX方法执行以后，把方法体里的内容平铺到组件内部，我觉得这种说法对于理解自定义hook很友好
+- useeffect中使用state需要注意？
 
-实现一个模版引擎的思路和设计要点
+# 工程：编译工具、格式工具、Git、NPM、单元测试、Nginx、PM2、CI/CD 
 
-react key作用。通常是怎么使用。index不适用的场景
+# 网络：HTTP、TCP、UDP、WebSocket、Cookie、Session、跨域、缓存、协议
 
-## HTML5
-- Web Worker
-  - 多线程处理功能
-  - 创建一个不影响前台处理的后台线程
+- HTTP
+  - 常见的contenttype及其特性
+- cookie
+  - 不使用第三方库的情况下如何set/get cookie == 各个属性、samesite
 
-- Geolocation
+# 性能：编译性能、监控、白屏检测、SEO、Service Worker
 
-- 新的html标准，新的声明方式，直接doctype html非常简洁
-- 更强的语义化，header、footer等
-- 新的表单控件，Number，date，range等
-- 强大的图像支持，picture、canves等
-- 强大的多媒体支持，video、audio等
-- 强大的新api：地理位置、拖放、web存储等
+# 安全
 
-### CSS3
+- csp
 
-- 阴影、边框、背景、文本等元素效果
-- 2d 3d转换、过渡、动画
-- 多列
-- flex 弹性/可伸缩布局
+# 插件：Chrome 、Vue CLI 、Webpack
 
-转换包括：translate平移、rotate旋转、scale缩放、skew倾斜、matrix矩阵
+# 系统：Mac、Windows、Linux
 
-动画包含：keyframes动画名、duration时长、timing-function过渡效果、iteration-count次数、direction方向、play-state状态、delay延迟、fill-mode填充
+# 后端：Redis 缓存、数据库、Graphql、SSR、模板引擎
+
+# 题目
+
+- 撤销删除的实现
+- 扫码登录
+
 
 ### HTTP, HTTPS
 ---
