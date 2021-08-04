@@ -191,3 +191,86 @@ react，es
   从ui中抽离helper函数
 
 Q4
+ES 模块
+
+- 如果单纯使用storage的话，域名变化后，数据难以找回
+  - 找一个网站同步数据
+  - 定期把数据同步到本地 == 选用这种放方式会比较好
+
+- 完整的列表
+- 更新机制
+- 资源缓存
+
+有多种类型的子应用
+  - 原生应用
+  - 基于mvvm框架
+  - 无界面（如把ics功能单独出来、或我pwa做成一个可接入的应用使其工作）
+
+在webmail中
+  - 现有框架和功能集
+  - 【add】容器
+    - 有一份接入配置清单
+      - 应用名 = 用于framease管理
+      - 应用类型
+      - 接入资源清单
+
+后台项目整合，最简便的方式便是通过一个以openid
+
+
+https://www.html.cn/create-react-app/docs/adding-typescript/
+
+
+
+
+globalThis
+标准方法用来获取全局 this,浏览器 window，Web Workers 和浏览器，nodejs中的 global 
+
+BigInt
+Math 只能安全的表示-(2^53-1)至 2^53-1 范的值 即Number.MIN_SAFE_INTEGER 至Number.MAX_SAFE_INTEGER
+  - 超出无法计算
+  - 超出值比较为true
+第7个原始类型，可安全地进行大数整型计算
+```js
+const aBigInt = BigInt(aNumber);
+aBigInt === 111n;
+
+typeof aBigInt === 'bigint' // true
+typeof 111n // "bigint"
+
+// 只要在数字末尾加上 n，就可以正确计算大数了
+9007199254740992n + 1n
+```
+
+Dynamic import
+```js
+import('/modules/my-module.js')
+.then(module => {
+  // Do something with the module.
+})
+.catch(err => {
+  // load error;
+})
+
+let module = await import('/modules/my-module.js');
+```
+
+String.prototype.matchAll
+返回RegExpStringIterator，可用于例如for of
+
+Promise.allSettled
+Promise.allSettled跟Promise.all类似, 其参数接受一个Promise的数组, 返回一个新的Promise, 唯一的不同在于, 它不会进行短路, 也就是说当Promise全部处理完成后,我们可以拿到每个Promise的状态, 而不管是否处理成功。
+
+空位合并操作符（Nullish coalescing Operator）
+如果表达式在??的左侧运算符求值为 undefined 或 null，就返回其右侧默认值
+```js
+let c = a ?? b;
+// 等价于let c = a !== undefined && a !== null ? a : b;
+```
+
+可选链操作符（Optional Chaining）
+```js
+let nestedProp = obj?.first?.second;
+//等价于
+let nestedProp = obj && obj.first && obj.first.second;
+```
+

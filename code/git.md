@@ -16,6 +16,22 @@ $ git reset --hard <commitID>
 $ git push -f origin <branch>
 ```
 
+## fork
+
+- fork并clone到本地，然后push到gzgit
+  - fork && clone
+  - git remote rename origin github-fork-origin
+  - git remote add origin ssh://git@gzgit.mail.netease.com:10022/webmail/tools/mail_qiankun.git
+  - git push -u origin --all
+  - git push -u origin --tags
+- 同步源仓库，有需要的时候从源中合并
+  - git remote add github-origin git@github.com:umijs/qiankun.git
+  - git fetch github-origin
+
+$ npm adduser --registry  http://npm.test.mail.163.com
+$ npm publish --registry http://npm.test.mail.163.com
+
+
 # SSH
 - SSH，网络协议，用于计算机间加密登录，有多种实现，如openSSH
 - 大多数git服务使用SSH授权

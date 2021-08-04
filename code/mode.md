@@ -108,6 +108,7 @@
     - 又称订阅／发布模式
     - 一个对象订阅另一个对象的活动状态，并在状态改变后收到通知。
     - 应用：浏览器事件
+- https://www.runoob.com/design-pattern/design-pattern-tutorial.html
 
 ## 数据结构
 - 数组
@@ -171,13 +172,3 @@ CMD 通用模块定义 define(function(require,exports,module){...})，如seajs�
 SeaJS对模块的态度是懒执行, 而RequireJS对模块的态度是预执行
 
 
-# 安全
-- 跨站脚本攻击
-  - XSS cross site scripting，避免与CSS缩写冲突
-- XSS
-  - cross-site scripting跨域脚本攻击，javascript代码注入
-  - 防御：过滤，避免运行用户代码，cookis用httpOnly等
-- CSRF/XSRF
-  - Cross-site request forgery 跨站请求伪造
-  - 防御：检查来路同域、做token等
-- 其他：界面劫持、http劫持等
