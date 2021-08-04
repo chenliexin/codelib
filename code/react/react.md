@@ -257,3 +257,17 @@ jsx编译 react-tools
 
 
 
+## context
+
+Context 提供了一种不必显式地通过组件树的逐层传递 props 的方法
+Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据
+请谨慎使用，因为这会使得组件的复用性变差。
+其他解决方案：组件组合（component composition）、插槽
+
+使用
+- 创建一个 Context 对象 const MyContext = React.createContext(defaultValue);
+  - 组件会从组件树中离自身最近的那个匹配的 Provider 中读取到当前的 context 值
+- Context.Provider 
+  - Provider 接收一个 value 属性，传递给消费组件。多个 Provider 也可以嵌套使用，里层的会覆盖外层的数据
+  - 当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染
+  - 通过新旧值检测来确定变化，使用了与 Object.is 相同的算法。
