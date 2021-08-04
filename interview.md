@@ -1,8 +1,34 @@
-## W3C新闻
-- 2018.7.3 更新CSS文本修饰模块（CSS Text Decoration Module Level 3）候选推荐标准
-  - text-decoration-line
-  - text-decoration-style
-  - text-decoration-color
+
+
+
+基础知识主要包含以下几个方面：
+基础：计算机原理、编译原理、数据结构、算法、设计模式、编程范式等基本知识了解
+语法：JavaScript、ECMAScript、CSS、TypeScript、HTML、Node.js 等语法的了解和使用
+框架：React、Vue、Egg、Koa、Express、Webpack 等原理的了解和使用
+工程：编译工具、格式工具、Git、NPM、单元测试、Nginx、PM2、CI / CD 了解和使用
+网络：HTTP、TCP、UDP、WebSocket、Cookie、Session、跨域、缓存、协议的了解
+性能：编译性能、监控、白屏检测、SEO、Service Worker 等了解
+插件：Chrome 、Vue CLI 、Webpack 等插件设计思路的理解
+系统：Mac、Windows、Linux 系统配置的实践
+后端：Redis 缓存、数据库、Graphql、SSR、模板引擎等了解和使用
+
+
+
+组成邮箱地址都邮箱字符包括哪些
+
+不使用第三方库的情况下如何set get cookie。什么是samesite
+
+说说数组原型方法reduce的用法。第三参数
+
+非负数数组去最大边长三角形
+
+简单svg元素hover变色
+
+ts中如何定义async函数的输入输出
+
+实现一个模版引擎的思路和设计要点
+
+react key作用。通常是怎么使用。index不适用的场景
 
 ## HTML5
 - Web Worker
