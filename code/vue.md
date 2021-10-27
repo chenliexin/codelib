@@ -56,7 +56,7 @@
     - `beforeUpdate`
     - `updated`
     - `activated`, `deactivated`
-        - keep-alive
+        - keep-alive 组件通过插槽，获取第一个子节点。根据 include、exclude 判断是否需要缓存，通过组件的 key，判断是否命中缓存。利用 LRU 算法，更新缓存以及对应的 keys 数组。根据 max 控制缓存的最大组件数量。
     - `beforeDestroy`, `destroyed`
 - 最佳实践
     - 单文件组件

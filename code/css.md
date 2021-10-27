@@ -14,7 +14,7 @@
   - flex
     - flex-grow 扩展比率，即对剩余空间的利用
     - flex-shrink 收缩比率，即对缺失空间的补偿
-    - flex-basis 伸缩基准值
+    - flex-basis 伸缩基准值。！其值比width，height有更高的优先级
     - flex: 1 => flex: 1 1 0%
   - order
 

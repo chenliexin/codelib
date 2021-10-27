@@ -1,75 +1,206 @@
 
-# 基础：计算机原理、编译原理、数据结构、算法、设计模式、编程范式
-
-### 算法
-
-- 非负数数组去最大边长三角形 == 时间复杂度
-
-### 计算机原理
-
-# 语法：HTML、Js、Css、Ts、Nodejs
-
-### HTML
+工作流插件: 命令创建 Sentry 项目, 自动化添加 Sentry 告警人员,
 
 
-### Js
 
-- 事件
-  - dom事件流
-  - 事件委托以及优缺点
-- 数组
-  - 说说数组原型方法reduce的用法。第三参数
-- 正则
-  - 组成邮箱地址的合法字符包括哪些
-- historyapi
-  - 介绍，可以被监听的吗，hash
+【算法/数据结构】有翻译项目经验。字母异位词，给定两个不同英文单词，如果这两个单词中的每个字母出现次数一样。如何实现
+  ==记数使用map，先加后减；字符切割排序对比；
+  ==异位程度鉴定
+【计算机网络】聊聊浏览器缓存，先介绍下
+  ==缓存其实就是本地存储的一种存和取的表现。哪些因素控制存不存、取不取：存储策略 Cache-Control Pragma；过期策略 Cache-Control Expires；协商策略 Last-Modified ETag；协商策略用于重新验证 If-Modified-Since If-Unmodified-Since If-Match If-None-Match
+  ==浏览器的本地存储，sw，cors
+【计算机网络】浏览器拿到一份html后的解析过程
+  ==document.readystate script[async] script[defer] DOMContentLoaded window对象的load；仍可能有其他资源未完全载入，如图片
+【前端基础html/css】介绍一下标签语义化的了解，作用
+  ==列举语义化标签；主副标题+正文的的html；
+  ==html新增表达属性；pattern属性和email验证；还有其他特性
+【前端基础html/css】说一说 flex 布局，有了解 Grid 么；响应式实现
+  ==新手引导。一个蒙层上报看起来是扣掉了一个矩形位置。来做一些功能引动
+  ==滚动条占位问题
+1【原生js】ajax用什么api，xhr和fetch的区别
+  ==XHR 基于事件机制实现请求成功与失败的回调，Fetch 通过 Promise 来实现回调，调用更加友好。
+  ==介绍一下promise的用法。生成器函数generator、async/await之类的
+1【原生js】es6的数组array新增了一些方法
+  ==filter方法传入一个boolean构造器
+  ==参数通常带有一个原数组的引用，这个设计的好处是
+【原生js】说说new操作符的用处
+  ==原型链，作用域链接，this指向，修改this指向
+  ==深拷贝
+1【react-redux】翻译富交互的情况下，怎么确保redux的顺序
+【react】fiber解决了什么问题？具体原理是；
+  ==为什么 Fiber 双向链表的结构可以解决递归慢的问题；
+【react】常用的hook有哪些，如何自定义一个hook
+【前端工程化】webpack 的摇树对 commonjs 和 es6 module 都生效么，原理是；
+  ==cjs和esm的区别。可以相互引用吗。需要注意什么
+  ==cjs转esm，babel
+【前端安全】飞书高频用户交互。有哪些安全策略
+  ==列举https、cors、cookie、csrf/xss、csp、转义、jsonp、iframe
+  ==csrf的场景和防御
+【场景设计】全文翻译、撤销重做
 
-### Css
 
-- 简单svg元素hover变色
-- flex
-  - 九宫格布局
-  - 表头固定。第一列固定
 
-### Ts
 
-- ts中如何定义async函数的输入输出
-- 项目里面如何组织类型声明：命名空间、模块
 
-# 框架：React、Vue、Egg、Koa、Express、Webpack
 
-### React
 
-- key作用。通常是怎么使用。index不适用的场景
-- React的事件机制、合成事件、不是原生事件、事件代理(delegate)到document、事件机制分为注册和分发
-- 常用hook，自定义封装hook。自定hook其实就是把useXXX方法执行以后，把方法体里的内容平铺到组件内部，我觉得这种说法对于理解自定义hook很友好
-- useeffect中使用state需要注意？
 
-# 工程：编译工具、格式工具、Git、NPM、单元测试、Nginx、PM2、CI/CD 
+webpack 中 chunkHash 与 contentHash 区别；
+写过 webpack 的 loader 和 plugin 么；
+webpack 处理 image 是用哪个 loader，限制成 image 大小的是...；
+webpack 将 css 合并成一个；
+webpack 的摇树对 commonjs 和 es6 module 都生效么，原理是；
+实现一下「模版字符串」功能；
+实现一下 Promise.all (Promise 不用写)；
+怎么实现响应式布局的；
+css flex 的各个属性值；
+css 动画 animation 各个时间值含义；
+css 如何实现让一个元素旋转并横向移动，如果只用一个 css 属性；
+less 与 sass 区别，技术选型时如何取舍；
+ES6 symbol 如何使用以及使用场景；
+ES6 Proxy 如何使用以及使用场景，说说 Reflect；
+generator 有什么应用场景;
+async await 如何实现的；
+git reset 与 revert 区别，revert 多个 mr 改如何处理；
+git 如何撤回 add 后的内容；
+http2 与 http1.1 区别，了解 http3 么，说说；
+tcp 与 udp 的区别；
 
-# 网络：HTTP、TCP、UDP、WebSocket、Cookie、Session、跨域、缓存、协议
+手写在 给定的 n 个数中随机取出 m 个数，要求等概率；
+手写一下防抖节流函数；
+设计实现一个「星级评分」组件；
+说说 http 缓存；
+call、apply、bind 三者的区别，如何实现 bind；
+...其他一些记不住了，这一面很多手写：）
+js 有哪些基本类型，说说 typeof 与 instanceof；
+说说 new 操作符；
+什么是 event loop；
+Promise 的用法？了解 allSettled 方法么，怎么实现？
+说说闭包；
+ES5 实现继承的方法;
+说说跨域；
+commonJS 与 ES6 模块化区别；
+webpack 了解么？loader、plugin 分别是干嘛的？如何实现一个 loader？
+webpack 如何优化打包速度；
+说一下 css 盒模型，border-box 和 content-box 区别；
+说说 BFC；
+移动端响应式布局怎么实现的；
+说一说 flex 布局，有了解 Grid 么；
+有兼容 retina 屏幕的经历吗？如何在移动端实现 1 px 的线;
+说一下 react 组件的生命周期；
+react 组件如何做性能优化，说说 pureComponent；
+调用 setState 之后发生了什么;
+了解 fiber 么？解决了什么问题？具体原理是；
+有用过 hooks 么？怎么看待 hooks？它的原理是；
+了解过 react 最新的一些动态么？time slice 、suspense、server component 能说说么；
+了解最近一些新技术么，webpack5 做了哪些新突破；
+为什么 vite、snowpack 可以比 webpack 快那么多？具体原理是；
+什么是 CSRF 攻击，怎么预防；
+为什么说用 css 实现动画比 js 动画性能好；
+什么是 合成层；
+http2 与 http1.1 区别；
+说一说 http 缓存；
+http 状态码；
 
-- HTTP
-  - 常见的contenttype及其特性
-- cookie
-  - 不使用第三方库的情况下如何set/get cookie == 各个属性、samesite
 
-# 性能：编译性能、监控、白屏检测、SEO、Service Worker
+实现斐波纳切数，递归和非递归的时间复杂度分别是多少；
+...还有其他一些基础问题，没记住：）
+手写大数相加方法；
+实现一个方块的拖拽；
+问了一些项目的问题，以及相关技术细节；
+从一个 URL 输入到页面渲染，经历了哪些过程，尽可能的详细；
+tcp 握手 回收过程，了解泛洪攻击么；
+说说 event loop（并出了一道题，写输出顺序）；
+SSR 怎么做的，怎么保证同构？server 端的数据都 renderToSting 消费了，为什么还要给到 client 端；
+js 的严格模式；
+说说 Iterator 的使用；
+说一说快速排序的过程；
+node 如何捕捉错误，内存泄漏怎么排查；
+还有一些基础题目...
 
-# 安全
+二面
 
-- csp
+依旧是项目问题...
+性能优化怎么做的，怎么衡量收益的；
+为什么要做 SSR；
+E2E 测试怎么做的，怎么保证测试覆盖率和准确性；
+如何合理分配 node 服务资源；
+这一面对于项目里的技术细节问的很深入，还问了些计算机网络、React相关的问题...
 
-# 插件：Chrome 、Vue CLI 、Webpack
+三面
 
-# 系统：Mac、Windows、Linux
+项目...;
+hybrid 通信原理；
+如何看待小程序，它的技术原理是；
+设计一个协同文档的技术流程；
+离线包怎么做的，现在公司的 app 提供了哪些特殊能力；
+质量保障平台如何做的，项目中单元测试怎么做的，为什么要有 E2E 测试；
+就记到这些问题...🤯
 
-# 后端：Redis 缓存、数据库、Graphql、SSR、模板引擎
+四面
 
-# 题目
+希尔排序，堆排，快排；
+this 指向问题，说出输出内容；
+如何设计一个组件库；
+用过 TypeScript 么，了解哪些新特性；
+说说 React Fiber...;
+为什么 Fiber 双向链表的结构可以解决递归慢的问题；
+了解设计模式么，说说单例模式的优缺点;
+职业规划；
 
-- 撤销删除的实现
-- 扫码登录
+手写一个版本比较函数；
+
+手写代码比较常见的几道题目：
+
+防抖节流；
+手写 Promise 及相关 api 实现；
+实现 bind、apply、call；
+request cache；
+实现模版字符串；
+es6 class 转成 es5 ；
+实现 Array flat 等相关 API；
+实现一个版本比较函数；...
+
+
+最近博客
+手摸手从浅析vue-cli原理到定制前端开发模板
+React Hooks + Context打造简易redux(获得掘金技术社区推荐热搜文章)
+vuex + keep-alive实现tab标签页面缓存
+
+
+css
+  布局方式，rem
+  min-width/max-width 和 min-height/max-height 属性间的覆盖规则？
+  绝对定位全是，如何是的这个页面的body具有高度
+js
+  reduce，用法，第三参数为什么
+  0.1 + 0.2 = 0.3，如何规避
+  如何把一个字符串的大小写取反（大写变小写小写变大写），例如 ’AbC' 变成 'aBc' 。
+  异步编程
+    setTimeout、Promise、Async/Await 的区别
+    Async/Await 如何通过同步的方式实现异步
+http header
+cookie
+viewport
+promise
+
+vue
+  Object.defineProperty和Proxy的区别
+  什么是双向绑定？原理是什么？
+  nextTick的原理吗
+  你有用过事件总线(EventBus)吗？说说你的理解
+  什么是 mixin
+
+
+浏览器
+  如何实现浏览器内多个标签页之间的通信？
+babel
+websocket
+es
+  常见模块风格，cjs和esm区别
+
+
+
 
 
 ### HTTP, HTTPS
